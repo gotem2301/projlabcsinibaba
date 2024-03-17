@@ -2626,7 +2626,7 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 </InteractionItem>
 <Actor id="cb673410-dee1-11ee-8539-b51d59657f5b">
 <name>
-<val>Player</val>
+<val>Player/Controller</val>
 </name>
 <presentation>
 <reflist>
@@ -6704,8 +6704,13 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <ref refid="35d692d0-e462-11ee-9122-fe1d7b30d4da"/>
 <ref refid="5ac4f5fd-e462-11ee-ae0e-fe1d7b30d4da"/>
 <ref refid="cb5855ed-e462-11ee-9995-fe1d7b30d4da"/>
+<ref refid="66acdc50-e470-11ee-8690-fe1d7b30d4da"/>
 <ref refid="55a784d7-e462-11ee-ba3a-fe1d7b30d4da"/>
 <ref refid="68442996-e462-11ee-8e55-fe1d7b30d4da"/>
+<ref refid="7f317e09-e470-11ee-a621-fe1d7b30d4da"/>
+<ref refid="a30cbaa3-e470-11ee-870d-fe1d7b30d4da"/>
+<ref refid="a7369f88-e470-11ee-a6a2-fe1d7b30d4da"/>
+<ref refid="a92fc471-e470-11ee-b43a-fe1d7b30d4da"/>
 </reflist>
 </ownedPresentation>
 </Diagram>
@@ -6765,7 +6770,6 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <presentation>
 <reflist>
 <ref refid="35d692d0-e462-11ee-9122-fe1d7b30d4da"/>
-<ref refid="529cedbb-e468-11ee-bafb-fe1d7b30d4da"/>
 </reflist>
 </presentation>
 </ObjectNode>
@@ -6816,7 +6820,6 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <presentation>
 <reflist>
 <ref refid="5ac4f5fd-e462-11ee-ae0e-fe1d7b30d4da"/>
-<ref refid="529837c3-e468-11ee-9c1f-fe1d7b30d4da"/>
 </reflist>
 </presentation>
 </ObjectNode>
@@ -6869,7 +6872,7 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 </Interaction>
 <InteractionItem id="cb5855ed-e462-11ee-9995-fe1d7b30d4da">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 133.0, 294.5)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 45.0, 281.5)</val>
 </matrix>
 <top-left>
 <val>(0.0, -162.0)</val>
@@ -7745,19 +7748,16 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <ownedPresentation>
 <reflist>
 <ref refid="3ee3481e-e468-11ee-ad62-fe1d7b30d4da"/>
-<ref refid="529837c3-e468-11ee-9c1f-fe1d7b30d4da"/>
 <ref refid="529986c1-e468-11ee-867f-fe1d7b30d4da"/>
-<ref refid="529cedbb-e468-11ee-bafb-fe1d7b30d4da"/>
-<ref refid="529c48dc-e468-11ee-8fcf-fe1d7b30d4da"/>
-<ref refid="529e3751-e468-11ee-925b-fe1d7b30d4da"/>
-<ref refid="7a2d3c16-e468-11ee-95f1-fe1d7b30d4da"/>
-<ref refid="7db10505-e468-11ee-9a9b-fe1d7b30d4da"/>
+<ref refid="8bdef498-e470-11ee-b0ee-fe1d7b30d4da"/>
+<ref refid="21c0b37f-e471-11ee-aeea-fe1d7b30d4da"/>
+<ref refid="2d01deb7-e471-11ee-8f16-fe1d7b30d4da"/>
 </reflist>
 </ownedPresentation>
 </Diagram>
 <Interaction id="3ee2e64c-e468-11ee-8d6f-fe1d7b30d4da">
 <name>
-<val>Item felvétele sikeres</val>
+<val>Item felvétele sikertelen</val>
 </name>
 <ownedDiagram>
 <reflist>
@@ -7772,7 +7772,7 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 </Interaction>
 <InteractionItem id="3ee3481e-e468-11ee-ad62-fe1d7b30d4da">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 49.0, 151.5)</val>
+<val>(1.0, 0.0, 0.0, 1.0, -53.0, 138.5)</val>
 </matrix>
 <top-left>
 <val>(100.0, 0.0)</val>
@@ -7790,26 +7790,6 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <ref refid="3ee2e64c-e468-11ee-8d6f-fe1d7b30d4da"/>
 </subject>
 </InteractionItem>
-<ObjectNodeItem id="529837c3-e468-11ee-9c1f-fe1d7b30d4da">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 275.0, 607.0)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>152.0</val>
-</width>
-<height>
-<val>41.0</val>
-</height>
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<subject>
-<ref refid="5ac4ceed-e462-11ee-b837-fe1d7b30d4da"/>
-</subject>
-</ObjectNodeItem>
 <ObjectNodeItem id="529986c1-e468-11ee-867f-fe1d7b30d4da">
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 275.0, 384.0)</val>
@@ -7830,94 +7810,6 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <ref refid="eabe6211-e461-11ee-8f2e-fe1d7b30d4da"/>
 </subject>
 </ObjectNodeItem>
-<Line id="529c48dc-e468-11ee-8fcf-fe1d7b30d4da">
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 349.0, 229.0)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, 155.0)]</val>
-</points>
-</Line>
-<ObjectNodeItem id="529cedbb-e468-11ee-bafb-fe1d7b30d4da">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 275.0, 192.0)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>152.0</val>
-</width>
-<height>
-<val>37.0</val>
-</height>
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<subject>
-<ref refid="35d63b69-e462-11ee-97a7-fe1d7b30d4da"/>
-</subject>
-</ObjectNodeItem>
-<Line id="529e3751-e468-11ee-925b-fe1d7b30d4da">
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 348.0, 425.0)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, 182.0)]</val>
-</points>
-</Line>
-<ExtensionItem id="7a2d3c16-e468-11ee-95f1-fe1d7b30d4da">
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 388.0, 261.0)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, 88.0)]</val>
-</points>
-</ExtensionItem>
-<ExtensionItem id="7db10505-e468-11ee-9a9b-fe1d7b30d4da">
-<diagram>
-<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 306.0, 570.0)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, -120.0)]</val>
-</points>
-</ExtensionItem>
 <Diagram id="bc87a404-e468-11ee-ab4b-fe1d7b30d4da">
 <diagramType>
 <val>sd</val>
@@ -7929,4 +7821,166 @@ találjon a meglévő osztályokban, vagy akár új, különleges felelősségge
 <val>New Diagram</val>
 </name>
 </Diagram>
+<Actor id="66acb551-e470-11ee-80a2-fe1d7b30d4da">
+<name>
+<val>Player/Controller</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="66acdc50-e470-11ee-8690-fe1d7b30d4da"/>
+</reflist>
+</presentation>
+</Actor>
+<ActorItem id="66acdc50-e470-11ee-8690-fe1d7b30d4da">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 97.0, 372.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>38.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="d9124d31-e461-11ee-8c1a-fe1d7b30d4da"/>
+</diagram>
+<subject>
+<ref refid="66acb551-e470-11ee-80a2-fe1d7b30d4da"/>
+</subject>
+</ActorItem>
+<Line id="7f317e09-e470-11ee-a621-fe1d7b30d4da">
+<diagram>
+<ref refid="d9124d31-e461-11ee-8c1a-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 135.0, 393.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (130.0, 0.0)]</val>
+</points>
+</Line>
+<Actor id="8bdea66f-e470-11ee-8307-fe1d7b30d4da">
+<name>
+<val>Player</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="8bdef498-e470-11ee-b0ee-fe1d7b30d4da"/>
+</reflist>
+</presentation>
+</Actor>
+<ActorItem id="8bdef498-e470-11ee-b0ee-fe1d7b30d4da">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 105.0, 384.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>38.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
+</diagram>
+<subject>
+<ref refid="8bdea66f-e470-11ee-8307-fe1d7b30d4da"/>
+</subject>
+</ActorItem>
+<ExtensionItem id="a30cbaa3-e470-11ee-870d-fe1d7b30d4da">
+<diagram>
+<ref refid="d9124d31-e461-11ee-8c1a-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 242.0, 372.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (-94.0, 0.0)]</val>
+</points>
+</ExtensionItem>
+<ExtensionItem id="a7369f88-e470-11ee-a6a2-fe1d7b30d4da">
+<diagram>
+<ref refid="d9124d31-e461-11ee-8c1a-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 364.0, 242.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, 99.0)]</val>
+</points>
+</ExtensionItem>
+<ExtensionItem id="a92fc471-e470-11ee-b43a-fe1d7b30d4da">
+<diagram>
+<ref refid="d9124d31-e461-11ee-8c1a-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 307.0, 574.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, -118.0)]</val>
+</points>
+</ExtensionItem>
+<Line id="21c0b37f-e471-11ee-aeea-fe1d7b30d4da">
+<diagram>
+<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 143.0, 404.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (132.0, 0.0)]</val>
+</points>
+</Line>
+<ExtensionItem id="2d01deb7-e471-11ee-8f16-fe1d7b30d4da">
+<diagram>
+<ref refid="ecaa170d-e467-11ee-8711-fe1d7b30d4da"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 258.0, 384.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (-91.0, 0.0)]</val>
+</points>
+</ExtensionItem>
 </gaphor>
