@@ -76,17 +76,6 @@
 </ownedPresentation>
 </Diagram>
 <Activity id="77d9369c-e46c-11ee-aeb7-6045cb89e704">
-<edge>
-<reflist>
-<ref refid="76a0ed34-e46e-11ee-a051-6045cb89e704"/>
-<ref refid="8905aac9-e46e-11ee-a10b-6045cb89e704"/>
-<ref refid="980653a7-e46e-11ee-8114-6045cb89e704"/>
-<ref refid="9a15bc3e-e46e-11ee-8dc3-6045cb89e704"/>
-<ref refid="b02f48f6-e46e-11ee-9e8c-6045cb89e704"/>
-<ref refid="d1f19d74-e46e-11ee-af1b-6045cb89e704"/>
-<ref refid="e30b4454-e46e-11ee-9f0a-6045cb89e704"/>
-</reflist>
-</edge>
 <name>
 <val>szoba 2</val>
 </name>
@@ -170,10 +159,10 @@
 <val>(-12.626200274348435, -27.030864197530036)</val>
 </top-left>
 <width>
-<val>787.6604938271605</val>
+<val>722.9057246918777</val>
 </width>
 <height>
-<val>486.99999999999994</val>
+<val>487.0</val>
 </height>
 <children>
 <reflist>
@@ -204,6 +193,13 @@
 <ref refid="94a09d69-e470-11ee-8dc3-6045cb89e704"/>
 <ref refid="bf641a27-e470-11ee-b1b5-6045cb89e704"/>
 <ref refid="c9a88122-e470-11ee-87e9-6045cb89e704"/>
+<ref refid="980653a7-e46e-11ee-8114-6045cb89e704"/>
+<ref refid="8905aac9-e46e-11ee-a10b-6045cb89e704"/>
+<ref refid="b02f48f6-e46e-11ee-9e8c-6045cb89e704"/>
+<ref refid="76a0ed34-e46e-11ee-a051-6045cb89e704"/>
+<ref refid="9a15bc3e-e46e-11ee-8dc3-6045cb89e704"/>
+<ref refid="d1f19d74-e46e-11ee-af1b-6045cb89e704"/>
+<ref refid="e30b4454-e46e-11ee-9f0a-6045cb89e704"/>
 </reflist>
 </edge>
 <name>
@@ -352,7 +348,7 @@
 </ObjectFlowItem>
 <ObjectFlow id="980653a7-e46e-11ee-8114-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>5: removeCharacter(s)</val>
@@ -470,7 +466,7 @@
 </ObjectFlowItem>
 <ObjectFlow id="8905aac9-e46e-11ee-a10b-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>3: CharacterEnters(s)</val>
@@ -489,7 +485,7 @@
 </ObjectFlow>
 <ObjectFlow id="b02f48f6-e46e-11ee-9e8c-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>6: addCharacter(s)</val>
@@ -702,7 +698,7 @@
 </ObjectFlowItem>
 <ObjectFlow id="76a0ed34-e46e-11ee-a051-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>2: changeRoom(s, r1)</val>
@@ -721,7 +717,7 @@
 </ObjectFlow>
 <ObjectFlow id="9a15bc3e-e46e-11ee-8dc3-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>4: setRoom(r2)</val>
@@ -740,7 +736,7 @@
 </ObjectFlow>
 <ObjectFlow id="d1f19d74-e46e-11ee-af1b-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>7:dropOut()</val>
@@ -759,7 +755,7 @@
 </ObjectFlow>
 <ObjectFlow id="e30b4454-e46e-11ee-9f0a-6045cb89e704">
 <activity>
-<ref refid="77d9369c-e46c-11ee-aeb7-6045cb89e704"/>
+<ref refid="2e68fa51-e46f-11ee-b5d7-6045cb89e704"/>
 </activity>
 <name>
 <val>8: saveMe()</val>
