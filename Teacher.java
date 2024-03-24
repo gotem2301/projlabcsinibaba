@@ -33,18 +33,18 @@ public class Teacher extends Character{
 
         switch (s){
             case "1":
-                Item item = new Item();
+                Beer beer = new Beer();
                 for(int i = 0; i < 5; i++){
-                    this.inventory[i] = item;
+                    this.inventory[i] = beer;
                 }
                 break;
             case "2":
                 this.setDazed(true);
                 break;
             case "3":
-                Item item = new Item();
+                Beer beer = new Beer();
                 for(int i = 0; i < 5; i++){
-                    this.inventory[i] = item;
+                    this.inventory[i] = beer;
                 }
                 this.setDazed(true);
                 break;

@@ -19,6 +19,7 @@ public abstract class Character {
      * @param dazed - az az "allapot" amibe a karakter kerulni fog
      */
     public void setDazed(boolean dazed){
+        System.out.println("setDazed fuggveny hivas");
         if(dazed){
             for(Item i : inventory){
                 if(i.saveMe() == 1){
@@ -37,6 +38,8 @@ public abstract class Character {
      * @return - Megmondja hogy a karakter el van-e kabulva vagy sem
      */
     public boolean getDazed(){
+        System.out.println("getDazed fuggveny hivas");
+        System.out.println("Visszateres: " + Dazed);
         return Dazed;
     }
 
@@ -45,6 +48,7 @@ public abstract class Character {
      * @param r - a karakter leendo szobaja
      */
     public void setCurrentRoom(Room r){
+        System.out.println("setCurrentRoom fuggveny hivas");
         currentRoom = r;
 
     }
@@ -54,6 +58,8 @@ public abstract class Character {
      * @return - Visszater a karakter aktualis szobajaval
      */
     public Room getCurrentRoom(){
+        System.out.println("getCurrentRoom fuggveny hivas");
+        System.out.println("Visszateres: " + currentRoom);
         return currentRoom;
     }
 
@@ -68,7 +74,7 @@ public abstract class Character {
      * @param d - az ajto amit hasznal
      */
     public void enterRoom(Door d){
-        System.out.println("Szobavaltas");
+        System.out.println("enterRoom fuggveny hivas");
         d.changeRoom(this, currentRoom);
     }
 
@@ -86,7 +92,7 @@ public abstract class Character {
      * @param i - az eldobandó item
      */
     public void dropItem(Item i){
-        System.out.println("Targy eldobasa");
+        System.out.println("dropItem fuggveny hivas");
         i.transfer(null, r);
         currentRoom.addItem(i);
     }
@@ -95,7 +101,7 @@ public abstract class Character {
      * Kabulas eseten a karakter kidobja az osszes nala levo itemet
      */
     public void dropEverything(){
-        System.out.println("Osszes targy kidobasa");
+        System.out.println("dropEverything fuggveny hivas");
         for(Item i : inventory){
             dropItem(i);
         }
@@ -106,7 +112,7 @@ public abstract class Character {
      * @param i
      */
     public void removeItem(Item i){
-        System.out.println("Targy torlese");
+        System.out.println("removeItem fuggveny hivas");
         i.transfer(null, null);
         for(int i = 0; i < 5; i++){
             if(inventory[i] == item){
@@ -120,12 +126,13 @@ public abstract class Character {
      * @param i - a hasznalando item
      */
     public void useItem(Item i){
-        System.out.println("Targy hasznalata");
+        System.out.println("useItem fuggveny hivas");
         i.use();
     }
 
     public void updateRoom(Room r){
-        this.setCurrentRoom(r);
+        System.out.println("updateRoom fuggveny hivas");
+        currentRoom = r;
     }
 
 

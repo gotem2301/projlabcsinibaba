@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Student extends Character {
     public Student(Room r) {
-        System.out.println("Oktato letrehozva");
+        System.out.println("Student konstruktor hivas");
         super(r);
     }
 
@@ -11,8 +11,8 @@ public class Student extends Character {
      * @param t1 - egyik tranzisztor
      * @param t2 - masik tranzisztor
      */
-    void Connect(Transistor t1, Transistor t2){
-        System.out.println("Ket tranzisztor osszekapcsolasa");
+    void connect(Transistor t1, Transistor t2){
+        System.out.println("connect fuggveny hivas");
 
 
 
@@ -53,8 +53,24 @@ public class Student extends Character {
         }
     }
 
+    /**
+     * A hallgato kapott egy felszolitast a kibukasra, megvizsgalja hogy van-e nala vedelmet nyujto targy.
+     * @return - visszateresi erteke meghatarozza az ot megvedo itemet
+     * 0: nincs vedelem, 1: TVSZ (Book), 2: sor (Beer), 3: rongy (Cloth)
+     */
     int dropOut(){
+        System.out.println("dropOut fuggveny hivas");
 
+        int savedBy = 0;
+        for(Item i : inventory){
+            savedBy = i.saveMe();
+            if(savedBy > 0) {
+                System.out.println("Visszateres: " + savedBy);
+                return savedBy;
+            }
+        }
+        System.out.println("Visszateres: " + savedBy);
+        return savedBy;
     }
 
     /**
@@ -64,7 +80,7 @@ public class Student extends Character {
      */
     @Override
     public void pickUpItem(Item i) {
-        System.out.println("Tárgy felvétele");
+        System.out.println("pickUpItem fuggveny hivas");
 
         String s;
         System.out.println("A tarhely tele van? A hallgato el van kabulva?\n" +
@@ -77,18 +93,18 @@ public class Student extends Character {
 
         switch (s){
             case "1":
-                Item item = new Item();
+                Beer beer = new Beer();
                 for(int i = 0; i < 5; i++){
-                    this.inventory[i] = item;
+                    this.inventory[i] = beer;
                 }
                 break;
             case "2":
                    this.setDazed(true);
                 break;
             case "3":
-                Item item = new Item();
+                Beer beer = new Beer();
                 for(int i = 0; i < 5; i++){
-                    this.inventory[i] = item;
+                    this.inventory[i] = beer;
                 }
                 this.setDazed(true);
                 break;
