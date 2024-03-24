@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Student extends Character {
     public Student(Room r) {
-        System.out.println("Student konstruktor hivas");
         super(r);
+        System.out.println("Student konstruktor hivas");
     }
 
     /**
