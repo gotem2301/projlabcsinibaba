@@ -1,3 +1,5 @@
+package skeleton;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
@@ -220,7 +222,7 @@ public class Room {
 	public void clothThem() {
 		System.out.println("Room.clothThem");
 		for(int i = 0; i < characters.size(); i++) {
-			characters.get(i).clothed(clothedRoom);
+			characters.get(i).setClothed(clothedRoom);
 		}
 	}
 	/**

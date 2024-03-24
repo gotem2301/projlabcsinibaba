@@ -91,7 +91,7 @@ public abstract class Character {
 
     /**
      * A parameterkent atvett itemet eldobja a karakter
-     * @param i - az eldobandó item
+     * @param item - az eldobandó targy
      */
     public void dropItem(Item item){
         System.out.println("dropItem fuggveny hivas");
@@ -101,7 +101,7 @@ public abstract class Character {
                 this.inventory[i] = null;
             }
         }
-        item.transfer(null, r);
+        item.transfer(null, currentRoom);
         currentRoom.addItem(item);
     }
 
@@ -117,11 +117,11 @@ public abstract class Character {
 
     /**
      * Torli a parameterkent atvett itemet a jatekbol (pl. elhasznalodas eseten)
-     * @param i
+     * @param item - a torlendo targy
      */
-    public void removeItem(Item i){
+    public void removeItem(Item item){
         System.out.println("removeItem fuggveny hivas");
-        i.transfer(null, null);
+        item.transfer(null, null);
         for(int i = 0; i < 5; i++){
             if(inventory[i] == item){
                 inventory[i] = null;
@@ -143,5 +143,10 @@ public abstract class Character {
         currentRoom = r;
     }
 
+    public void setClothed(boolean bool){
+    }
+    public int dropOut(){
+        return -1;
+    }
 
 }

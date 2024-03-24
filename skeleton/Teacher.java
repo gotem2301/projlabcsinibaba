@@ -6,6 +6,15 @@ public class Teacher extends Character{
      */
     private boolean clothed;
 
+    /**
+     *  Beallitja a clothed tagvaltozot
+     * @param bool - az allapot amive valtozik
+     */
+    @Override
+    public void setClothed(boolean bool){
+        clothed = bool;
+    }
+
     public Teacher(Room r) {
         super(r);
 
