@@ -22,11 +22,12 @@ public abstract class Character {
     public void setDazed(boolean dazed){
         System.out.println("setDazed fuggveny hivas");
         if(dazed){
-            for(Item i : inventory){
-                if(i.saveMe() == 1){
-                    Dazed = false;
-                }else{
-                    Dazed = true;
+            Dazed = true;
+            for(Item i : inventory) {
+                if (i != null && Dazed) {
+                    if (i.saveMe() == 1) {
+                        Dazed = false;
+                    }
                 }
             }
         }else{
@@ -60,7 +61,7 @@ public abstract class Character {
      */
     public Room getCurrentRoom(){
         System.out.println("getCurrentRoom fuggveny hivas");
-        System.out.println("Visszateres: " + currentRoom);
+        System.out.println("Visszateres: " + "currentRoom");
         return currentRoom;
     }
 
@@ -92,10 +93,16 @@ public abstract class Character {
      * A parameterkent atvett itemet eldobja a karakter
      * @param i - az eldobandó item
      */
-    public void dropItem(Item i){
+    public void dropItem(Item item){
         System.out.println("dropItem fuggveny hivas");
-        i.transfer(null, r);
-        currentRoom.addItem(i);
+
+        for(int i = 0; i < 5; i++){
+            if(this.inventory[i] == item){
+                this.inventory[i] = null;
+            }
+        }
+        item.transfer(null, r);
+        currentRoom.addItem(item);
     }
 
     /**

@@ -24,8 +24,12 @@ public class Teacher extends Character{
 
         if(this.inventory.length < 5 && !this.Dazed) {
             if (i.transfer(this, null) == false) {
+                for(int j = 0; j < 5; j++){
+                    if(inventory[j] == null){
+                        inventory[j] = i;
+                    }
+                }
                 this.currentRoom.removeItem(i);
-                this.addItem(i);
                 System.out.println("Sikeres targyfelvetel");
             } else {
                 i.transfer(null, currentRoom);
