@@ -33,14 +33,12 @@ public class Skeleton {
             switch (Skeleton.scanner.nextLine()) {
                 case "i":
                     // teli szoba
-                    System.out.println("igen tele");
                     Room r2 = new Room(0);
                     Door d12 = new Door(r1, r2);
                     s.enterRoom(d12);
                     break kerdes;
                 case "n":
                     // nincs tele
-                    System.out.println("nincs tele");
                     Room r3 = new Room(10);
                     Door d13 = new Door(r1, r3);
                     s.enterRoom(d13);
@@ -67,26 +65,22 @@ public class Skeleton {
             switch (Skeleton.scanner.nextLine()) {
                 case "0":
                     // tanuló kibukik
-                    System.out.println("kampec");
                     s.enterRoom(d);
                     break kerdes;
                 case "1":
                     // tvsz megvéd
-                    System.out.println("TVSZ");
                     Book tvsz = new Book(r1);
                     s.pickUpItem(tvsz);
                     s.enterRoom(d);
                     break kerdes;
                 case "2":
                     // sör megvéd
-                    System.out.println("SER");
                     Beer b = new Beer(r1);
                     s.pickUpItem(b);
                     s.enterRoom(d);
                     break kerdes;
                 case "3":
                     // rongy megvéd
-                    System.out.println("NEDV");
                     Cloth c = new Cloth(r1);
                     s.pickUpItem(c);
                     s.enterRoom(d);
@@ -101,7 +95,6 @@ public class Skeleton {
      * szobák összevonása
      */
     public static void mergeRooms(){
-        System.out.println("ket szobabol egy lesz ha lehet");
         Room r1 = new Room(10);
         Room r2 = new Room(10);
         Door d = new Door(r1, r2);
@@ -112,7 +105,6 @@ public class Skeleton {
      * szoba szétválása
      */
     public static void splitRooms(){
-        System.out.println("egy szobabol ketto lesz");
         Room r1 = new Room(10);
         Room r2 = new Room(10);
         Door d1 = new Door(r1, r2);
@@ -137,12 +129,10 @@ public class Skeleton {
                     Mask m = new Mask(r1);
                     s.pickUpItem(m);
                     s.enterRoom(d);
-                    System.out.println("MASZK");
                     break kerdes;
                 case "n":
                     // tanuló lebénul
                     s.enterRoom(d);
-                    System.out.println("kampec");
                     break kerdes;
                 default:
                     System.out.println(WARNING_1);
@@ -158,15 +148,12 @@ public class Skeleton {
         Room r2 = new Room(10);
         Door d = new Door(r1, r2);
         Teacher t = new Teacher(r1);
-        t.enterRoom(d);
-        System.out.println("Lebenult az oktato");
-    }
+        t.enterRoom(d);    }
 
     /**
      * tanuló felvesz tárgyat
      */
     public static void itemPickup(){
-        System.out.println("tied lesz a targy");
         Room r1 = new Room(10);
         Student s = new Student(r1);
         Beer b = new Beer(r1);
@@ -177,7 +164,6 @@ public class Skeleton {
      * tanuló eldob tárgyat
      */
     public static void itemDrop(){
-        System.out.println("eldobtad a targyat");
         Room r1 = new Room(10);
         Student s = new Student(r1);
         Beer b = new Beer(r1);
@@ -189,7 +175,6 @@ public class Skeleton {
      * tranzisztorok összekapcsolása
      */
     public static void transistor1(){
-        System.out.println("tranzisztorok osszekapcsolva");
         Room r1 = new Room(10);
         Student s = new Student(r1);
         Transistor t1 = new Transistor(r1);
@@ -203,7 +188,6 @@ public class Skeleton {
      * tranzisztor rendeltetés szerű használata
      */
     public static void transistor2(){
-        System.out.println("utazas a masik szobaba");
         Room r1 = new Room(10);
         Room r2 = new Room(10);
         Student s = new Student(r1);
@@ -219,7 +203,6 @@ public class Skeleton {
      * tranzisztor hasznaláta úgy, hogy más játékos "ellopta" a párját
      */
     public static void transistor3(){
-        System.out.println("utazas a masik jatekoshoz");
         Room r1 = new Room(10);
         Room r2 = new Room(10);
         Student s1 = new Student(r1);
