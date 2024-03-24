@@ -20,7 +20,7 @@ public class Teacher extends Character{
      */
     @Override
     public void pickUpItem(Item i) {
-        System.out.println("Tárgy felvétele");
+        System.out.println("pickUpItem fuggveny hivas");
 
         if(this.inventory.length < 5 && !this.Dazed) {
             if (i.transfer(this, null) == false) {
