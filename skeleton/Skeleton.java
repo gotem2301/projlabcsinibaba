@@ -103,6 +103,8 @@ public class Skeleton {
     public static void splitRooms(){
         System.out.println("egy szobabol ketto lesz");
         Room r1 = new Room(10);
+        Room r2 = new Room(10);
+        Door d1 = new Door(r1, r2);
         r1.split();
     }
 
@@ -112,7 +114,7 @@ public class Skeleton {
         while (true){
             System.out.println(QUESTION_3);
             Room r1 = new Room(10);
-            Room r2 = new Room(10);
+            Room r2 = new Room(10, true, 0);
             Door d = new Door(r1, r2);
             Student s = new Student(r1);
 

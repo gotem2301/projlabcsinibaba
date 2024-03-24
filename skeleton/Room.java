@@ -103,7 +103,7 @@ public class Room {
 	 * @param i Törlendő tárgy
 	 */
 	public void removeItem(Item i){
-		System.out.println("Room.removeItem()");
+		System.out.println("Room.removeItem");
 		if(items.contains(i)) {
 			items.remove(i);
 		}
@@ -113,7 +113,7 @@ public class Room {
 	 * @param i Hozzáadandó tárgy
 	 */
 	public void addItem(Item i) {
-		System.out.println("Room.addItem()");
+		System.out.println("Room.addItem");
 		if(i != null) {
 			items.add(i);
 		}
@@ -128,9 +128,6 @@ public class Room {
 		System.out.println("Room.characterEnters");
 		//itt majd a maxCapacity-tól függ, hogy befér-e a karakter
 		if(maxCapacity > characters.size()) {
-			if(gassedRoom) {
-				c.setDazed(gassedRoom);
-			}
 			System.out.println("true");
 			return true;
 		}
@@ -145,7 +142,12 @@ public class Room {
 		System.out.println("Room.addCharacter");
 		if(c != null) {
 			characters.add(c);
-			for(Character character : characters) {
+			if(gassedRoom) {
+				c.setDazed(gassedRoom);
+			}
+			List<Character> tmp = new ArrayList<>();
+			tmp.addAll(characters);
+			for(Character character : tmp) {
 				character.teacherDuty();
 			}
 		}
@@ -263,19 +265,29 @@ public class Room {
 			
 			for(int i = 0; i < r.getCharacters().size(); i++) {
 				r.getCharacters().get(i).updateRoom(this);
+
 			}
-			characters.addAll(r.getCharacters());
+			List<Character> tmp = new ArrayList<>();
+			tmp.addAll(r.getCharacters());
+			for(Character ch : tmp){
+
+				this.addCharacter(ch);
+			}
 			
 			for(int i = 0; i < r.getItems().size(); i++) {
-				r.getItems().get(i).updateRoom(this);
+				r.getItems().get(i).updateRoom(r);
 			}
-			items.addAll(r.getItems());
+			for(Item it : r.getItems()){
+				this.addItem(it);
+			}
 			
 			List<Door> newDoors = r.getDoors();
 			for(int j = 0 ; j < r.getDoors().size(); j++) {
 				newDoors.get(j).replaceRoom(r, this);
 			}
-			doors.addAll(newDoors);
+			for(Door door : r.getDoors()){
+				this.addDoor(door);
+			}
 		}
 	}
 }

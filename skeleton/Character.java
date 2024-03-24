@@ -25,8 +25,8 @@ public abstract class Character {
             Dazed = true;
             for(Item i : inventory) {
                 if (i != null && Dazed) {
-                    if (i.saveMe() == 1) {
-                        Dazed = false;
+                    if (i.protectMe()) {
+                        setDazed(false);
                     }
                 }
             }

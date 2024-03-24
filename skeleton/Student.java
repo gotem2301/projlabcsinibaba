@@ -15,7 +15,7 @@ public class Student extends Character {
     public void connect(Transistor t1, Transistor t2) {
         System.out.println("connect fuggveny hivas");
 
-        if (t1.getPair() == null || t2.getPair() == null) {
+        if (t1.getPair() == null && t2.getPair() == null) {
             t1.setPair(t2);
             t2.setPair(t1);
             System.out.println("Parositas sikeres");
@@ -62,6 +62,10 @@ public class Student extends Character {
         System.out.println("pickUpItem fuggveny hivas");
 
         if (!this.Dazed) {
+            System.out.println("Sikeres targyfelvetel");
+            if (i.transfer(this, null) != false) {
+                    System.out.println("Jatek vege, mivel felvettek egy hallgato a logarlecet");
+            }
             for (int j = 0; j < 5; j++) {
                 if (inventory[j] == null) {
                     inventory[j] = i;
@@ -69,16 +73,9 @@ public class Student extends Character {
                     break;
                 }
             }
-
-            System.out.println("Sikeres targyfelvetel");
-            if (i.transfer(this, null) != false) {
-                {
-                    System.out.println("Jatek vege, mivel felvettek egy hallgato a logarlecet");
-                }
-
-            } else {
-                System.out.println("Sikertelen targyfelvetel");
-            }
+        } 
+        else {
+            System.out.println("Sikertelen targyfelvetel");
         }
     }
 }

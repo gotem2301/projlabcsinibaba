@@ -17,7 +17,9 @@ public class Door {
 		isClosed = false;
 		rooms = new ArrayList<Room>();
 		rooms.add(r1);
+		r1.addDoor(this);
 		rooms.add(r2);
+		r2.addDoor(this);
 	}
 	/**
 	 * Átrakja a karaktert a szoba párjába.
