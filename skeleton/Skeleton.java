@@ -2,11 +2,14 @@ package skeleton;
 import java.util.Scanner;
 
 public class Skeleton {
-
-    // a parancsok beolvasásához
+    /**
+     * a parancsok beolvasásához
+     */
     static Scanner scanner = new Scanner(System.in);
 
-    // gy.i.k.
+    /**
+     * gy.i.k.
+     */
     private static final String WARNING_1 = "Nincs ilyen opcio! Kerlek valassz a megadottak kozul!";
     private static final String QUESTION_1 = "Tele van a celszoba? i/n";
     private static final String QUESTION_2 = """
@@ -17,7 +20,9 @@ public class Skeleton {
             3 -> rongy""";
     private static final String QUESTION_3 = "Van maszkja? i/n";
 
-    // tanuló átlép biztonságos szobába
+    /**
+     * tanuló átlép biztonságos szobába
+     */
     public static void roomChange1(){
         kerdes:
         while (true){
@@ -46,7 +51,9 @@ public class Skeleton {
         }
     }
 
-    // tanuló átlép oktatós szobába
+    /**
+     * tanuló átlép oktatós szobába
+     */
     public static void roomChange2(){
         kerdes:
         while (true){
@@ -90,7 +97,9 @@ public class Skeleton {
         }
     }
 
-    // szobák összevonása
+    /**
+     * szobák összevonása
+     */
     public static void mergeRooms(){
         System.out.println("ket szobabol egy lesz ha lehet");
         Room r1 = new Room(10);
@@ -99,7 +108,9 @@ public class Skeleton {
         r1.mergeWithRoom(r2);
     }
 
-    // szoba szétválása
+    /**
+     * szoba szétválása
+     */
     public static void splitRooms(){
         System.out.println("egy szobabol ketto lesz");
         Room r1 = new Room(10);
@@ -108,7 +119,9 @@ public class Skeleton {
         r1.split();
     }
 
-    // tanuló átlép gázos szobába
+    /**
+     * tanuló átlép gázos szobába
+     */
     public static void roomChange3(){
         kerdes:
         while (true){
@@ -137,7 +150,9 @@ public class Skeleton {
         }
     }
 
-    // oktató átlép rongyos szobába
+    /**
+     * oktató átlép rongyos szobába
+     */
     public static void roomChange4(){
         Room r1 = new Room(10);
         Room r2 = new Room(10);
@@ -147,7 +162,9 @@ public class Skeleton {
         System.out.println("Lebenult az oktato");
     }
 
-    // tanuló felvesz tárgyat
+    /**
+     * tanuló felvesz tárgyat
+     */
     public static void itemPickup(){
         System.out.println("tied lesz a targy");
         Room r1 = new Room(10);
@@ -156,7 +173,9 @@ public class Skeleton {
         s.pickUpItem(b);
     }
 
-    // tanuló eldob tárgyat
+    /**
+     * tanuló eldob tárgyat
+     */
     public static void itemDrop(){
         System.out.println("eldobtad a targyat");
         Room r1 = new Room(10);
@@ -166,7 +185,9 @@ public class Skeleton {
         s.dropItem(b);
     }
 
-    // tranzisztorok összekapcsolása
+    /**
+     * tranzisztorok összekapcsolása
+     */
     public static void transistor1(){
         System.out.println("tranzisztorok osszekapcsolva");
         Room r1 = new Room(10);
@@ -178,7 +199,9 @@ public class Skeleton {
         s.connect(t1, t2);
     }
 
-    // tranzisztor rendeltetés szerű használata
+    /**
+     * tranzisztor rendeltetés szerű használata
+     */
     public static void transistor2(){
         System.out.println("utazas a masik szobaba");
         Room r1 = new Room(10);
@@ -192,7 +215,9 @@ public class Skeleton {
         t1.use();
     }
 
-    // tranzisztor hasznaláta úgy, hogy más játékos "ellopta" a párját
+    /**
+     * tranzisztor hasznaláta úgy, hogy más játékos "ellopta" a párját
+     */
     public static void transistor3(){
         System.out.println("utazas a masik jatekoshoz");
         Room r1 = new Room(10);
