@@ -11,9 +11,9 @@ public class Cloth extends Item {
      * @param r - Melyik szobaban legyen letrehozva.
      * @param t - Mennyi legyen a vedelem ideje.
      */
-    public Cloth(Room r, int t) {
+    public Cloth(Room r) {
         super(r);
-        remainingTime = t;
+        remainingTime = 3;
         System.out.println("Cloth konstruktor hivas.");
     }
 

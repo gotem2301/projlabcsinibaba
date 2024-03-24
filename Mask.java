@@ -18,9 +18,9 @@ public class Mask extends Item {
      * @param r - Melyik szobaban legyen letrehozva.
      * @param t - Mennyi legyen a vedelem ideje.
      */
-    public Mask(Room r, int t) {
+    public Mask(Room r) {
         super(r);
-        remainingTime = t;
+        remainingTime = 3;
         usedTimes = 0;
         System.out.println("Mask konstruktor hivas.");
     }

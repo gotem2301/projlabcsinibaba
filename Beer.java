@@ -13,9 +13,9 @@ public class Beer extends Item {
      * @param r - Melyik szobaban legyen letrehozva.
      * @param t - Mennyi legyen a vedelem ideje.
      */
-    public Beer(Room r, int t) {
+    public Beer(Room r) {
         super(r);
-        remainingTime = t;
+        remainingTime = 5;
         System.out.println("Beer konstruktor hivas.");
     }
 
