@@ -15,7 +15,7 @@ public class Student extends Character {
     public void connect(Transistor t1, Transistor t2) {
         System.out.println("connect fuggveny hivas");
 
-        if (t1.getPair == null || t2.getPair == null) {
+        if (t1.getPair() == null || t2.getPair() == null) {
             t1.setPair(t2);
             t2.setPair(t1);
             System.out.println("Parositas sikeres");
@@ -40,6 +40,9 @@ public class Student extends Character {
                 savedBy = i.saveMe();
                 if (savedBy > 0) {
                     System.out.println("Visszateres: " + savedBy);
+                    if(savedBy == 1) {
+                        i.lowerRemainingUse();
+                    }
                     return savedBy;
                 }
             }
@@ -58,13 +61,14 @@ public class Student extends Character {
     public void pickUpItem(Item i) {
         System.out.println("pickUpItem fuggveny hivas");
 
-        if (this.inventory.length < 5 && !this.Dazed) {
+        if (!this.Dazed) {
             for (int j = 0; j < 5; j++) {
                 if (inventory[j] == null) {
                     inventory[j] = i;
+                    this.currentRoom.removeItem(i);
+                    break;
                 }
             }
-            this.currentRoom.removeItem(i);
 
             System.out.println("Sikeres targyfelvetel");
             if (i.transfer(this, null) != false) {

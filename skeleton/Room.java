@@ -2,14 +2,15 @@ package skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.io.*;
 
 public class Room {
 	//enum helyett 2 bool értékeben tároljuk a szoba állapotát
-	private int gassedRoom;
+	private boolean gassedRoom;
 	private int clothedRoom;
 	private int maxCapacity;
-	private Boolean magical;
+	private boolean magical;
 	private List<Door> doors;
 	private List<Item> items;
 	private List<Character> characters;
@@ -18,14 +19,18 @@ public class Room {
 	 * Room konstruktora
 	 * @param cap
 	 */
-	public Room(int cap, int gas, int cloth) {
-		gassedRoom = 0;
-		clothedRoom = 0;
+	public Room(int cap, boolean gas, int cloth) {
+		gassedRoom = gas;
+		clothedRoom = cloth;
 		maxCapacity = cap;
 		magical = false;
 		doors = new ArrayList<Door>();
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
+	}
+
+	public Room(int cap) {
+		this(cap, false, 0);
 	}
 	
 	/**
@@ -52,10 +57,15 @@ public class Room {
 	 * getter
 	 * @return gassedRoom
 	 */
-	public int getgassedRoom() {
+	public boolean getgassedRoom() {
 		System.out.println("Room.getGassedRoom");
 		System.out.println("Return: " + gassedRoom);
 		return gassedRoom;
+	}
+
+	public void setgassedRoom(boolean b) {
+		System.out.println("SetgassedRoom fuggveny hivas.");
+		gassedRoom = b;
 	}
 	
 	/**
@@ -114,15 +124,11 @@ public class Room {
 	 * @return sikerült-e átlépni a másik szobába
 	 * @throws IOException
 	 */
-	public Boolean characterEnters(Character c) throws IOException {
+	public Boolean characterEnters(Character c) {
 		System.out.println("Room.characterEnters");
-		System.out.println("Kerem adja meg, hogy beferjen-e a karakter (1 - igen / minden mas karakter - nem)");
 		//itt majd a maxCapacity-tól függ, hogy befér-e a karakter
-		char decisionCapacity = (char)System.in.read();
-		if(decisionCapacity == '1') {
-			System.out.println("Kerem adja meg, hogy gazos legyen-e a szoba (1 - igen / minden mas karakter - nem)");
-			char decisionGassed = (char)System.in.read();
-			if(decisionGassed == '1') {
+		if(maxCapacity > characters.size()) {
+			if(gassedRoom) {
 				c.setDazed(gassedRoom);
 			}
 			System.out.println("true");
@@ -139,6 +145,9 @@ public class Room {
 		System.out.println("Room.addCharacter");
 		if(c != null) {
 			characters.add(c);
+			for(Character character : characters) {
+				character.teacherDuty();
+			}
 		}
 	}
 	/**
@@ -178,7 +187,7 @@ public class Room {
 	public void split() {
 		System.out.println("Room.split");
 		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom);
-		Door newDoor = new Door();
+		Door newDoor = new Door(this, newRoom);
 		newRoom.addDoor(newDoor);
 		newDoor.setConnectedRooms(this, newRoom);
 		//minden második ajtót az új szobába tesszük
@@ -193,26 +202,32 @@ public class Room {
 	 * Minden karaktert megpróbál kibuktatni
 	 * @throws IOException
 	 */
-	public void dropThemOut() throws IOException {
+	public void dropThemOut() {
 		System.out.println("Room.dropThemOut");
+		List<Character> tmp = new ArrayList<Character>();
 		for(int i = 0; i < characters.size(); i++) {
 			int response = characters.get(i).dropOut();
 			switch(response) {
-				case 3 : {
+				case 3 : 
 					clothedRoom += 3;
-				}
+					break;
+				
 				//a szobával nem kell semmit se csinálni
-				case 2 : {}
+				case 2 : break;
 				//a szobával nem kell semmit se csinálni
-				case 1 : {}
-				case 0 : {
-					characters.remove(characters.get(i));
-					characters.get(i).dropEverything();
-					///
-				}
+				case 1 : break;
+				case 0 :
+					tmp.add(characters.get(i));
+					break;
+				
 				//tanárral nem csinálunk semmit
-				default : {}
+				default :
+					break;
 			}
+		}
+		for(Character ch : tmp) {
+			characters.remove(ch);
+			ch.dropEverything();
 		}
 	}
 	
@@ -230,19 +245,20 @@ public class Room {
 	 * @param r A másik szoba, amivel a jelenlegit összekéne vonni
 	 * @throws IOException 
 	 */
-	public void mergeWithRoom(Room r) throws IOException {
+	public void mergeWithRoom(Room r) {
 		System.out.println("Room.mergeWithRoom");
 		System.out.println("A nagyobbik szoba kapacitasa van-e akkora, mint a ket szoba osszes karaktereinek szama? (1 - igen / minden mas karakter - nem)");
-		char decision = (char)System.in.read();
-		if(decision == '1') {
+		Scanner sc = new Scanner(System.in);
+		String decision = sc.nextLine();
+		if(decision.equals("1")) {
 			if(maxCapacity < r.getMaxCapacity()) {
 				maxCapacity = r.getMaxCapacity();
 			}
 			if(clothedRoom < r.getclothedRoom()) {
 				clothedRoom = r.getclothedRoom();
 			}
-			if(gassedRoom < r.getgassedRoom()) {
-				gassedRoom = r.getgassedRoom();
+			if(gassedRoom || r.getgassedRoom()) {
+				gassedRoom = true;
 			}
 			
 			for(int i = 0; i < r.getCharacters().size(); i++) {

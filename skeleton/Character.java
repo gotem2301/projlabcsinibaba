@@ -69,6 +69,7 @@ public abstract class Character {
     public Character(Room r){
         this.Dazed = false;
         this.currentRoom = r;
+        currentRoom.addCharacter(this);
     }
 
     /**
@@ -78,6 +79,10 @@ public abstract class Character {
     public void enterRoom(Door d){
         System.out.println("enterRoom fuggveny hivas");
         d.changeRoom(this, currentRoom);
+    }
+
+    public void teacherDuty() {
+
     }
 
     /**
@@ -111,7 +116,9 @@ public abstract class Character {
     public void dropEverything(){
         System.out.println("dropEverything fuggveny hivas");
         for(Item i : inventory){
-            dropItem(i);
+            if(i != null) {
+                dropItem(i);
+            }
         }
     }
 
@@ -143,7 +150,7 @@ public abstract class Character {
         currentRoom = r;
     }
 
-    public void setClothed(boolean bool){
+    public void setClothed(int c){
     }
     public int dropOut(){
         return -1;

@@ -21,6 +21,7 @@ public abstract class Item {
     public Item(Room r) {
         heldBy = null;
         containedBy = r;
+        containedBy.addItem(this);
     }
 
 
@@ -66,4 +67,8 @@ public abstract class Item {
         System.out.println("Visszateres: false.");
         return false;
     }
+
+    public void use() {}
+
+    public void lowerRemainingUse() {}
 }

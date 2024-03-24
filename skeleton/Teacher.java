@@ -4,22 +4,22 @@ public class Teacher extends Character{
     /**
      * Eltarolja hogy az adott tanar eppen le van-e rongyozva vagy sem
      */
-    private boolean clothed;
+    private int clothed;
 
     /**
      *  Beallitja a clothed tagvaltozot
      * @param bool - az allapot amive valtozik
      */
     @Override
-    public void setClothed(boolean bool){
-        clothed = bool;
+    public void setClothed(int c){
+        clothed = c;
     }
 
     public Teacher(Room r) {
         super(r);
 
         System.out.println("Oktato letrehozva");
-        clothed = false;
+        clothed = 0;
     }
 
     /**
@@ -47,5 +47,11 @@ public class Teacher extends Character{
         }else{
             System.out.println("Sikertelen targyfelvetel");
         }
+    }
+
+    @Override
+    public void teacherDuty() {
+        System.out.println("TeacherDuty fuggveny hivas");
+        currentRoom.dropThemOut();
     }
 }

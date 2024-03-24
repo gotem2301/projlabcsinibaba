@@ -17,6 +17,6 @@ public class Camembert extends Item implements Usable{
      */
     public void use(){
         System.out.println("Camembert use hivas.");
-        containedBy.setState(Room.GASSED);
+        containedBy.setgassedRoom(true);
     }
 }

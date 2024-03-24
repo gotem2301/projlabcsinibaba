@@ -24,6 +24,7 @@ public class Book extends Item {
      * Csokkenti a hatralevo vedelmek szamat.
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
+    @Override
     public void lowerRemainingUse() {
         System.out.println("LowerRemainingUse fuggvény hivas.");
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");

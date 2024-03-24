@@ -12,30 +12,37 @@ public class Door {
 	/**
 	 * Door konstruktora
 	 */
-	public Door() {
+	public Door(Room r1, Room r2) {
 		isOneWay = false;
 		isClosed = false;
 		rooms = new ArrayList<Room>();
+		rooms.add(r1);
+		rooms.add(r2);
 	}
 	/**
 	 * Átrakja a karaktert a szoba párjába.
 	 * @param c Átlépni akaró karakter
-	 * @param r Az a szoba, ahova át akar lépni a karakter
+	 * @param r Az a szoba, ahol van a karakter.
 	 * @throws IOException
 	 */
-	public void changeRoom(Character c, Room r) throws IOException {
+	public void changeRoom(Character c, Room r) {
 		System.out.println("Door.changeRoom");
 		//A megadott r szobának az ajtón keressztüli szomszédján hívja meg a characterEnters-t
 		Boolean result;
+		Room other;
 		if(rooms.get(0).equals(r)) {
 			result = rooms.get(1).characterEnters(c);
+			other = rooms.get(1);
 		}
 		else {
 			result = rooms.get(0).characterEnters(c);
+			other = rooms.get(0);
 		}
 		
 		if(result) {
+			c.setCurrentRoom(other);
 			r.removeCharacter(c);
+			other.addCharacter(c);
 		}
 	}
 	

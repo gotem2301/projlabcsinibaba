@@ -18,25 +18,25 @@ public class Skeleton {
     private static final String QUESTION_3 = "Van maszkja? i/n";
 
     // tanuló átlép biztonságos szobába
-    public void roomChange1(){
+    public static void roomChange1(){
         kerdes:
         while (true){
             System.out.println(QUESTION_1);
-            Room r1 = new Room();
+            Room r1 = new Room(10);
             Student s = new Student(r1);
 
             switch (Skeleton.scanner.nextLine()) {
                 case "i":
                     // teli szoba
                     System.out.println("igen tele");
-                    Room r2 = new Room();
+                    Room r2 = new Room(0);
                     Door d12 = new Door(r1, r2);
                     s.enterRoom(d12);
                     break kerdes;
                 case "n":
                     // nincs tele
                     System.out.println("nincs tele");
-                    Room r3 = new Room();
+                    Room r3 = new Room(10);
                     Door d13 = new Door(r1, r3);
                     s.enterRoom(d13);
                     break kerdes;
@@ -47,12 +47,12 @@ public class Skeleton {
     }
 
     // tanuló átlép oktatós szobába
-    public void roomChange2(){
+    public static void roomChange2(){
         kerdes:
         while (true){
             System.out.println(QUESTION_2);
-            Room r1 = new Room();
-            Room r2 = new Room();
+            Room r1 = new Room(10);
+            Room r2 = new Room(10);
             Door d = new Door(r1, r2);
             Student s = new Student(r1);
             Teacher t = new Teacher(r2);
@@ -67,21 +67,21 @@ public class Skeleton {
                     // tvsz megvéd
                     System.out.println("TVSZ");
                     Book tvsz = new Book(r1);
-                    s.inventory.add(tvsz);
+                    s.pickUpItem(tvsz);
                     s.enterRoom(d);
                     break kerdes;
                 case "2":
                     // sör megvéd
                     System.out.println("SER");
                     Beer b = new Beer(r1);
-                    s.inventory.add(b);
+                    s.pickUpItem(b);
                     s.enterRoom(d);
                     break kerdes;
                 case "3":
                     // rongy megvéd
                     System.out.println("NEDV");
                     Cloth c = new Cloth(r1);
-                    s.inventory.add(c);
+                    s.pickUpItem(c);
                     s.enterRoom(d);
                     break kerdes;
                 default:
@@ -91,28 +91,28 @@ public class Skeleton {
     }
 
     // szobák összevonása
-    public void mergeRooms(){
+    public static void mergeRooms(){
         System.out.println("ket szobabol egy lesz ha lehet");
-        Room r1 = new Room();
-        Room r2 = new Room();
+        Room r1 = new Room(10);
+        Room r2 = new Room(10);
         Door d = new Door(r1, r2);
-        r1.mergeWith(r2);
+        r1.mergeWithRoom(r2);
     }
 
     // szoba szétválása
-    public void splitRooms(){
+    public static void splitRooms(){
         System.out.println("egy szobabol ketto lesz");
-        Room r1 = new Room();
+        Room r1 = new Room(10);
         r1.split();
     }
 
     // tanuló átlép gázos szobába
-    public void roomChange3(){
+    public static void roomChange3(){
         kerdes:
         while (true){
             System.out.println(QUESTION_3);
-            Room r1 = new Room();
-            Room r2 = new Room();
+            Room r1 = new Room(10);
+            Room r2 = new Room(10);
             Door d = new Door(r1, r2);
             Student s = new Student(r1);
 
@@ -120,7 +120,7 @@ public class Skeleton {
                 case "i":
                     // használja a maszkot
                     Mask m = new Mask(r1);
-                    s.inventory.add(m);
+                    s.pickUpItem(m);
                     s.enterRoom(d);
                     System.out.println("MASZK");
                     break kerdes;
@@ -136,9 +136,9 @@ public class Skeleton {
     }
 
     // oktató átlép rongyos szobába
-    public void roomChange4(){
-        Room r1 = new Room();
-        Room r2 = new Room();
+    public static void roomChange4(){
+        Room r1 = new Room(10);
+        Room r2 = new Room(10);
         Door d = new Door(r1, r2);
         Teacher t = new Teacher(r1);
         t.enterRoom(d);
@@ -146,18 +146,18 @@ public class Skeleton {
     }
 
     // tanuló felvesz tárgyat
-    public void itemPickup(){
+    public static void itemPickup(){
         System.out.println("tied lesz a targy");
-        Room r1 = new Room();
+        Room r1 = new Room(10);
         Student s = new Student(r1);
         Beer b = new Beer(r1);
         s.pickUpItem(b);
     }
 
     // tanuló eldob tárgyat
-    public void itemDrop(){
+    public static void itemDrop(){
         System.out.println("eldobtad a targyat");
-        Room r1 = new Room();
+        Room r1 = new Room(10);
         Student s = new Student(r1);
         Beer b = new Beer(r1);
         b.transfer(s, r1);
@@ -165,9 +165,9 @@ public class Skeleton {
     }
 
     // tranzisztorok összekapcsolása
-    public void transistor1(){
+    public static void transistor1(){
         System.out.println("tranzisztorok osszekapcsolva");
-        Room r1 = new Room();
+        Room r1 = new Room(10);
         Student s = new Student(r1);
         Transistor t1 = new Transistor(r1);
         Transistor t2 = new Transistor(r1);
@@ -177,36 +177,36 @@ public class Skeleton {
     }
 
     // tranzisztor rendeltetés szerű használata
-    public void transistor2(){
+    public static void transistor2(){
         System.out.println("utazas a masik szobaba");
-        Room r1 = new Room();
-        Room r2 = new Room();
+        Room r1 = new Room(10);
+        Room r2 = new Room(10);
         Student s = new Student(r1);
         Transistor t1 = new Transistor(r1);
         Transistor t2 = new Transistor(r2);
         t1.transfer(s, r1);
-        t1.pair = t2;
-        t2.pair = t1;
+        t1.setPair(t2);
+        t2.setPair(t1);
         t1.use();
     }
 
     // tranzisztor hasznaláta úgy, hogy más játékos "ellopta" a párját
-    public void transistor3(){
+    public static void transistor3(){
         System.out.println("utazas a masik jatekoshoz");
-        Room r1 = new Room();
-        Room r2 = new Room();
+        Room r1 = new Room(10);
+        Room r2 = new Room(10);
         Student s1 = new Student(r1);
         Student s2 = new Student(r2);
         Transistor t1 = new Transistor(r1);
         Transistor t2 = new Transistor(r2);
         t1.transfer(s1, r1);
         t2.transfer(s2, r2);
-        t1.pair = t2;
-        t2.pair = t1;
+        t1.setPair(t2);
+        t2.setPair(t1);
         t1.use();
     }
 
-    public void main() {
+    public static void main(String[] args) {
         // a parancsok tárolásához, string, hogy a hibás bemenetre is tudjunk válaszolni
         String choice;
 
