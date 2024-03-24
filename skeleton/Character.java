@@ -1,3 +1,4 @@
+package skeleton;
 public abstract class Character {
     /**
      * Meghatarozza hogy az adott character (Student/Teacher) el van-e kabitva gazos szoba altal

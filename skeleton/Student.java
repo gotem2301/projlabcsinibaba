@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package skeleton;
 
 public class Student extends Character {
     public Student(Room r) {

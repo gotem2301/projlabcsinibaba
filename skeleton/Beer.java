@@ -1,38 +1,24 @@
+package skeleton;
 import java.util.Scanner;
-
-public class Mask extends Item {
+public class Beer extends Item {
 
     /**
      * Meghatarozza, hogy a vedelembol mennyi ido van meg hatra.
      */
     private int remainingTime;
 
-    /**
-     * Meghatarozza, hogy hanyszor volt hasznalva.
-     */
-    private int usedTimes;
 
-    
     /**
-     * Konstruktor: letrehoz egy maszkot.
+     * Konstruktor: letrehoz egy sort.
      * @param r - Melyik szobaban legyen letrehozva.
      * @param t - Mennyi legyen a vedelem ideje.
      */
-    public Mask(Room r) {
+    public Beer(Room r) {
         super(r);
-        remainingTime = 3;
-        usedTimes = 0;
-        System.out.println("Mask konstruktor hivas.");
+        remainingTime = 5;
+        System.out.println("Beer konstruktor hivas.");
     }
 
-
-    /**
-     * Noveli a hasznalat szamat.
-     */
-    public void increaseUsedTimes() {
-        System.out.println("IncreaseUsedTimes fuggveny hivas.");
-        usedTimes = usedTimes + 1;
-    }
 
     /**
      * Csokkenti a vedelembol hatralevo idot.
@@ -53,13 +39,13 @@ public class Mask extends Item {
     }
 
     /**
-     * Megadja, hogy egy item megved-e a gaztol.
-     * A mask megved, ezt a true jelzi.
+     * Megadja, hogy egy item megment-e oktatotol és ha igen akkor melyik.
+     * Itt a sor ment meg, ezt a 2 jelzi.
      */
     @Override
-    public boolean protectMe() {
-        System.out.println("ProtectMe fuggveny hivas.");
-        System.out.println("Visszateres: true.");
-        return true;
+    public int saveMe() {
+        System.out.println("SaveMe fuggveny hivas.");
+        System.out.println("Visszateres: 2.");
+        return 2;
     }
 }

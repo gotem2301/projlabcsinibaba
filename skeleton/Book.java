@@ -1,3 +1,4 @@
+package skeleton;
 import java.util.Scanner;
 
 public class Book extends Item {
