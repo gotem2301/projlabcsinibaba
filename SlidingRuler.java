@@ -6,7 +6,7 @@ public class SlidingRuler extends Item {
      */
     public SlidingRuler(Room r) {
         super(r);
-        System.out.println("SlidingRuler konstruktor hívás.");
+        System.out.println("SlidingRuler konstruktor hivas.");
     }
 
 
@@ -15,10 +15,10 @@ public class SlidingRuler extends Item {
      */
     @Override
     public boolean transfer(Character c, Room r) {
-        System.out.println("Transfer függvény hívás.");
+        System.out.println("Transfer fuggveny hivas.");
         heldBy = c;
         containedBy = r;
-        System.out.println("Visszatérés: true.");
+        System.out.println("Visszateres: true.");
         return true;
     }
 }

@@ -16,7 +16,7 @@ public class Beer extends Item {
     public Beer(Room r, int t) {
         super(r);
         remainingTime = t;
-        System.out.println("Beer konstruktor hívás.");
+        System.out.println("Beer konstruktor hivas.");
     }
 
 
@@ -25,7 +25,7 @@ public class Beer extends Item {
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
     public void lowerRemainingTime() {
-        System.out.println("LowerRemainingTime függvény hívás.");
+        System.out.println("LowerRemainingTime fuggveny hivas.");
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
@@ -34,19 +34,18 @@ public class Beer extends Item {
         }
         remainingTime = remainingTime - 1;
         if(remainingTime == 0) {
-            System.out.println("RemoveItem függvény hívás.");
             heldBy.removeItem(this);
         }
     }
 
     /**
-     * Megadja, hogy egy item megment-e oktatotol és ha igen akkor melyk.
+     * Megadja, hogy egy item megment-e oktatotol és ha igen akkor melyik.
      * Itt a sor ment meg, ezt a 2 jelzi.
      */
     @Override
     public int saveMe() {
-        System.out.println("SaveMe függvény hívás.");
-        System.out.println("Visszatérés: 2.");
+        System.out.println("SaveMe fuggveny hivas.");
+        System.out.println("Visszateres: 2.");
         return 2;
     }
 }

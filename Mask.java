@@ -22,7 +22,7 @@ public class Mask extends Item {
         super(r);
         remainingTime = t;
         usedTimes = 0;
-        System.out.println("Mask konstruktor hívás.");
+        System.out.println("Mask konstruktor hivas.");
     }
 
 
@@ -30,7 +30,7 @@ public class Mask extends Item {
      * Noveli a hasznalat szamat.
      */
     public void increaseUsedTimes() {
-        System.out.println("IncreaseUsedTimes függvény hívás.");
+        System.out.println("IncreaseUsedTimes fuggveny hivas.");
         usedTimes = usedTimes + 1;
     }
 
@@ -39,7 +39,7 @@ public class Mask extends Item {
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
     public void lowerRemainingTime() {
-        System.out.println("LowerRemainingTime függvény hívás.");
+        System.out.println("LowerRemainingTime fuggveny hivas.");
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
@@ -48,7 +48,6 @@ public class Mask extends Item {
         }
         remainingTime = remainingTime - 1;
         if(remainingTime == 0) {
-            System.out.println("RemoveItem függvény hívás.");
             heldBy.removeItem(this);
         }
     }

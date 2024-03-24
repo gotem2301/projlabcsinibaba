@@ -47,7 +47,7 @@ public abstract class Item {
     }
 
     /**
-     * Megadja, hogy egy item megment-e oktatotol és ha igen akkor melyk.
+     * Megadja, hogy egy item megment-e oktatotol és ha igen akkor melyik.
      * @return - Alapertelmezetten nem ment meg egy item, ezt a 0 jelzi.
      */
     public int saveMe() {
