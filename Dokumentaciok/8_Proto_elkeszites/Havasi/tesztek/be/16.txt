@@ -9,10 +9,10 @@ NewDoor r2 r3 - -
 NewDoor r3 r4 - -
 NewStudent - r0
 NewItem 5 r0 s0
-NewTeacher - - r1
-NewTeacher - - r2
-NewTeacher - - r3
-NewTeacher - - r4
+NewTeacher - 0 r1
+NewTeacher - 0 r2
+NewTeacher - 0 r3
+NewTeacher - 0 r4
 Enter s0 d01
 Enter s0 d12
 Enter s0 d23
