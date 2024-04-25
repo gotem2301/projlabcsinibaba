@@ -1,13 +1,13 @@
-NewRoom - - 10 - - 0
-NewRoom - - 10 - - 0
-NewRoom - - 10 - - 0
-NewRoom - - 10 - - 0
-NewRoom - - 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
 NewDoor r0 r1 - -
 NewDoor r1 r2 - -
 NewDoor r2 r3 - -
 NewDoor r3 r4 - -
-NewStudent – r0
+NewStudent - r0
 NewItem 5 r0 s0
 NewTeacher - - r1
 NewTeacher - - r2

@@ -1,4 +1,4 @@
-NewRoom - - 1 - - -
+NewRoom - 0 1 - - 0
 NewRoom - - 1 - - 4
 NewDoor r0 r1 - - 
 NewStudent - r0

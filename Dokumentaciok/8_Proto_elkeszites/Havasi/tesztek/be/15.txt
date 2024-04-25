@@ -1,7 +1,7 @@
-NewRoom - - 10 - - 0
-NewRoom - - 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
 NewDoor r0 r1 - -
-NewStudent – r0
+NewStudent - r0
 NewTeacher - - r1
 NewItem 2 r0 s0
 Enter s0 d01
