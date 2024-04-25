@@ -13,17 +13,6 @@ public abstract class Item {
      */
     protected Room containedBy;
 
-
-    /**
-     * Konstruktor.
-     * @param r - Melyik szobaban legyen letrehozva.
-     */
-    public Item(Room r) {
-        heldBy = null;
-        containedBy = r;
-    }
-
-
     /**
      * Atallitja mindket tagvaltozot.
      * @param c - Az uj karakter akinel lesz az item.
@@ -65,5 +54,25 @@ public abstract class Item {
         System.out.println("ProtectMe fuggveny hivas.");
         System.out.println("Visszateres: false.");
         return false;
+    }
+
+    /**
+     * Absztrakt fuggveny, leszarmazo osztalyok implemetaljak.
+     */
+    public void lowerRemainingUse() {}
+
+    /**
+     * Fuggveny definicio, nem tud semmit.
+     */
+    public void use() {}
+
+    /**
+     * Konstruktor.
+     * @param r - Melyik szobaban legyen letrehozva.
+     */
+    public Item(Room r) {
+        heldBy = null;
+        containedBy = r;
+        containedBy.addItem(this);
     }
 }

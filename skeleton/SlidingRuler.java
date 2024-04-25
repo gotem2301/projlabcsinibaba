@@ -2,11 +2,17 @@ package skeleton;
 public class SlidingRuler extends Item {
 
     /**
+     * Azt jeloli, hogy az item hamis verzioja-e.
+     */
+    private boolean fake;
+
+    /**
      * Konstruktor: letrehoz egy logarlecet.
      * @param r - Melyik szobaban legyen letrehozva.
      */
-    public SlidingRuler(Room r) {
+    public SlidingRuler(Room r, boolean b) {
         super(r);
+        fake = b;
         System.out.println("SlidingRuler konstruktor hivas.");
     }
 

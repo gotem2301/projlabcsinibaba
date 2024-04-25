@@ -15,8 +15,8 @@ public class Beer extends Item {
      */
     public Beer(Room r) {
         super(r);
-        remainingTime = 5;
         System.out.println("Beer konstruktor hivas.");
+        remainingTime = 5;
     }
 
 
@@ -25,7 +25,7 @@ public class Beer extends Item {
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
     public void lowerRemainingTime() {
-        System.out.println("LowerRemainingTime fuggveny hivas.");
+        System.out.println("LowerRemainingUse fuggveny hivas.");
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();

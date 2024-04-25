@@ -47,10 +47,18 @@ public class Transistor extends Item implements Usable {
     public void use(){
         System.out.println("Transistor use hivas.");
         Character s = this.heldBy;
-        Room t2Room = pair.getRoom();
         Room t1Room = this.getRoom();
         Transistor t1 = this;
         Transistor t2 = this.pair;
+        Room t2Room;
+        if(t2.heldBy != null){
+            t2Room = t2.heldBy.getCurrentRoom();
+        }
+        else{
+            t2Room = pair.containedBy;
+        }
+
+        
         if (t2Room.characterEnters(s)) {
             s.dropItem(t1);
             s.setCurrentRoom(t2Room);

@@ -8,25 +8,35 @@ public class Book extends Item {
      */
     private int remainingUse;
 
+    /**
+     * Azt jeloli, hogy a targy hamis verzioja-e.
+     */
+    private boolean fake;
 
     /**
      * Konstruktor: letrehoz egy TVSZ-t.
      * @param r - Melyik szobaban legyen letrehozva.
+     * @param b - Hamis verzio-e.
      */
-    public Book(Room r) {
+    public Book(Room r, boolean b) {
         super(r);
         remainingUse = 3;
+        fake = b;
         System.out.println("Book konstruktor hivas.");
     }
-
 
     /**
      * Csokkenti a hatralevo vedelmek szamat.
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
+    @Override
     public void lowerRemainingUse() {
         System.out.println("LowerRemainingUse fuggvény hivas.");
+        if(fake){
+            return;
+        }
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
+
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         if(s.equals("0")) {
