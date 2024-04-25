@@ -1,0 +1,4 @@
+r0 created
+s0 created
+i0 created
+s0 picked up i0
