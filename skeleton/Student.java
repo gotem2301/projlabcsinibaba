@@ -1,9 +1,12 @@
+
 package skeleton;
 
+import java.util.Arrays;
+
 public class Student extends Character {
-    public Student(Room r) {
-        super(r);
-        System.out.println("Student konstruktor hivas");
+    public Student(String id, Room r) {
+        super(id, r);
+        System.out.println(ID + " created in " + currentRoom.getID());
     }
 
     /**
@@ -13,14 +16,12 @@ public class Student extends Character {
      * @param t2 - masik tranzisztor
      */
     public void connect(Transistor t1, Transistor t2) {
-        System.out.println("connect fuggveny hivas");
-
         if (t1.getPair() == null && t2.getPair() == null) {
             t1.setPair(t2);
             t2.setPair(t1);
-            System.out.println("Parositas sikeres");
+            System.out.println(t1.getID() + " " + t2.getID() + " connected");
         } else {
-            System.out.println("Parositas NEM sikeres");
+            System.out.println(t1.getID() + " " + t2.getID() + " cant connect");
         }
     }
 
@@ -32,14 +33,11 @@ public class Student extends Character {
      */
     @Override
     public int dropOut() {
-        System.out.println("dropOut fuggveny hivas");
-
         int savedBy = 0;
         for (Item i : inventory) {
             if (i != null) {
                 savedBy = i.saveMe();
                 if (savedBy > 0) {
-                    System.out.println("Visszateres: " + savedBy);
                     if(savedBy == 1) {
                         i.lowerRemainingUse();
                     }
@@ -47,7 +45,6 @@ public class Student extends Character {
                 }
             }
         }
-        System.out.println("Visszateres: " + savedBy);
         return savedBy;
     }
 
@@ -59,23 +56,22 @@ public class Student extends Character {
      */
     @Override
     public void pickUpItem(Item i) {
-        System.out.println("pickUpItem fuggveny hivas");
-
-        if (!this.Dazed) {
-            System.out.println("Sikeres targyfelvetel");
-            if (i.transfer(this, null) != false) {
-                    System.out.println("Jatek vege, mivel felvettek egy hallgato a logarlecet");
-            }
+        if (!this.Dazed && !this.currentRoom.getSticky() && Arrays.stream(inventory).filter(e -> e != null).count() < 5) {
             for (int j = 0; j < 5; j++) {
                 if (inventory[j] == null) {
                     inventory[j] = i;
                     this.currentRoom.removeItem(i);
+                    System.out.println(ID + " picked up " + i.getID());
+
+                    if (i.transfer(this, null)) {
+                        System.out.println("YOU WIN");
+                    }
                     break;
                 }
             }
         } 
         else {
-            System.out.println("Sikertelen targyfelvetel");
+            System.out.println(ID + "  cant pick up " + i.getID());
         }
     }
 }
