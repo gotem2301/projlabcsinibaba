@@ -207,6 +207,16 @@ public class Proto {
                 System.out.println("Minden szoba:");
                 for(Room r : allRooms){
                     System.out.println("Azonosito: " + r.getID());
+                    System.out.println("State: " + r.getgassedRoom() + " " + r.getclothedRoom() + " " +
+                            r.getmagicalRoom() + " " + r.getstickyRoom());
+                    System.out.println("Capacity: " + r.getMaxCapacity());
+
+                }
+                break;
+
+            case "Characters":
+                System.out.println("Minden karakter:");
+                for(Character character : allCharacters){
 
                 }
         }
