@@ -1,0 +1,7 @@
+Teacher/Oktató
+
+Az oktató egy a játék által irányított karatker. Célja hogy elvegye a hallgatók lelkét. Az oktató képes a szomszédos szobák között mozogni és a vele egy szobában lévő tárgyakat felvenni, azonban a felvett tárgyakat képtelen használni.
+------------------------
+
+TVSZ
+A TVSZ denevérbőrre nyomtatott példányai (Továbbiakban csak TVSZ) egy tárgy amit fel lehet venni. Ha egy hallgató birtokába kerül akkor a TVSZ 3 alkalommal megvédi az őt birtokló hallgatót az oktatóktol. A 3. alkalom után megsemmisül.

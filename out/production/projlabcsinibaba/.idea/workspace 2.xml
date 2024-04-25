@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="31740a2a-c6bf-490a-9b59-eb1e79709522" name="Changes" comment="Pár fix + room meg door osztály a skeleton packageba">
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/2_Kovetelmenyek_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/2_Kovetelmenyek_Csinibaba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/2_Kovetelmenyek_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/funkciók.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/hogye.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/kaposvari_2.2.3-2.2.5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/kaposvari_szotar_2.5.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/reszegi_funkciok.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/soós.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/templ_02_1.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/tmp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/~$Kovetelmenyek_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/kesziteshez_fajlok/~$nkciók.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/1_Kovetelmenyek/ucdiagram.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/3_Analizis_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/3_Analizis_Csinibaba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/Havasi-analizis.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/Havasi_3.2_3.5.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_analizis.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/beer_use_jav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/book_use_jav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/cloth_use_jav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/drop_item_jav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/kaposvari_sd.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kaposvari_diagrams/szukseges_fuggvenyek.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113408_edit_3021628593297785.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113515.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113550_edit_3021945542012841.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113613_edit_3021937282710759.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113652_edit_3021928557586802.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113725_edit_3021920106446179.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113750_edit_3021912990355555.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113805_edit_3021904385103993.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113816_edit_3021890946648787.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_113827_edit_3021883061453997.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/kepek/IMG_20240307_115333.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/merge2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/merge_vegleges.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/reszegi_analizis.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/reszegi_merge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/reszegi_split.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/reszegi_szekvencia.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/room_states.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/soos_analizis.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/soos_szekvencia.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/soos_szekvencia_javitva.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/stat_strukt_diagram.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/templ_03 (1).doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/transistor_states.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/uc_1_szekvencia_hd.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/uc_3_szekvencia_hd.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/uc_4_szekvencia_hd.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/valamit_haladtunk.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/~$lamit_haladtunk.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/~$szegi_analizis.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/2_Analizis1/~WRL0001.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/beerTime.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/dazed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/dropItem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/sajat.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/splitRoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Kaposvari/switchRoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Vegleges_dokumentum/4_Analizis2_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/3_Analizis2/Vegleges_dokumentum/4_Analizis2_Csinibaba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Havasi/5_Szkeleton_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Havasi/room2-3Communication.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Havasi/room2-3Switches.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/dropItem_kommunikacio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/dropItem_szekvencia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/egesz_zip.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/pickupItem_sikeres_kommunikacio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/pickupItem_sikeres_szekvencia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/pickupItem_sikertelen_kommunikacio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/pickupItem_sikertelen_szekvencia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/teacher_enters_clothed_room_communication.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Kaposvari/teacher_enters_clothed_room_szekvencia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaOsszevonas1 JÓ.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaOsszevonas1.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaSzetvalasztas JÓ.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaSzetvalasztas.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaValtas 1.1 JÓ.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaValtas 1.1.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaValtas 1.2 JÓ.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobaValtas 1.2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobakOsszevonasa2 JÓ.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/SzobakOsszevonasa2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/szétválasztás.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/váltás1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/váltás2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/összevonás1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Reszegi/összevonás2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor1.1.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor1.2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor2.1.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor2.2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor3.1.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Soos/transistor3.2.gaphor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Vegleges_dokumentum/5_Szkeleton_Csinibaba.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/4_Szkeleton_terv 3/Vegleges_dokumentum/5_Szkeleton_Csinibaba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/5_Szkeleton_elkeszites/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/6_Proto_koncepcio 2/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/7_Reszletes_tervek 2/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/8_Proto_elkeszites/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/9_Grafikus_terv/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_10_Grafikus_elkeszites/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Havasi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Hogye/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Kaposvari/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Reszegi/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Soos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentaciok/_11_Egyesitett_dokumentacio/Vegleges_dokumentum/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Beer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Camembert.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Character.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Cloth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Door.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Mask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Skeleton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/SlidingRuler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Transistor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skeleton/Usable.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2e2mNUSBK0fHyPmNzawcNkxK2u8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kaposvarigergo/Desktop/projlab/projlabcsinibaba&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="run main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="skeleton.Skeleton" />
+      <module name="projlabcsinibaba" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31740a2a-c6bf-490a-9b59-eb1e79709522" name="Changes" comment="" />
+      <created>1711111007008</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711111007008</updated>
+      <workItem from="1711111008048" duration="2489000" />
+      <workItem from="1711186920710" duration="19310000" />
+      <workItem from="1711314583740" duration="946000" />
+      <workItem from="1711318831093" duration="288000" />
+      <workItem from="1712485231072" duration="1351000" />
+    </task>
+    <task id="LOCAL-00001" summary="Character, Student és Teacher osztályt felvettem az analízis modell2-es metódusokkal">
+      <option name="closed" value="true" />
+      <created>1711114284761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711114284761</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Nagyreszt kesz van a Karakter, oktato, hallgato, meg nem vegleges, lehet valtozik.">
+      <option name="closed" value="true" />
+      <created>1711195889095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711195889095</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Kiírások jobban hasonlítanak a @soosmarton féle verzióra, dropOut függvényt megírtam mert elfelejtettem, hiba javítás.">
+      <option name="closed" value="true" />
+      <created>1711280819635</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711280819635</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Student konstruktor javítás">
+      <option name="closed" value="true" />
+      <created>1711286700277</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711286700277</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Tovabbi javitasok, kivettem a korulmenyek beallitasat a fuggvenyekbol, mert nem az en feladatom">
+      <option name="closed" value="true" />
+      <created>1711289990428</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711289990428</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Pár ékezet eltávolítása">
+      <option name="closed" value="true" />
+      <created>1711290053493</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711290053493</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Minden osztály skeleton packageba mozgatása">
+      <option name="closed" value="true" />
+      <created>1711290907061</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711290907061</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Pár logikai hiba javítása">
+      <option name="closed" value="true" />
+      <created>1711292743942</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711292743942</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Pár fix + room meg door osztály a skeleton packageba">
+      <option name="closed" value="true" />
+      <created>1711300100045</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711300100045</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Character, Student és Teacher osztályt felvettem az analízis modell2-es metódusokkal" />
+    <MESSAGE value="Nagyreszt kesz van a Karakter, oktato, hallgato, meg nem vegleges, lehet valtozik." />
+    <MESSAGE value="Kiírások jobban hasonlítanak a @soosmarton féle verzióra, dropOut függvényt megírtam mert elfelejtettem, hiba javítás." />
+    <MESSAGE value="Student konstruktor javítás" />
+    <MESSAGE value="Tovabbi javitasok, kivettem a korulmenyek beallitasat a fuggvenyekbol, mert nem az en feladatom" />
+    <MESSAGE value="Pár ékezet eltávolítása" />
+    <MESSAGE value="Minden osztály skeleton packageba mozgatása" />
+    <MESSAGE value="Pár logikai hiba javítása" />
+    <MESSAGE value="Pár fix + room meg door osztály a skeleton packageba" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pár fix + room meg door osztály a skeleton packageba" />
+  </component>
+</project>
