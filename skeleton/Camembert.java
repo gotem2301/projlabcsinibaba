@@ -6,8 +6,8 @@ public class Camembert extends Item implements Usable{
      * Konstruktor: letrehoz egy Camembert-et
      * @param r Melyik szobaban legyen letrehozva
      */
-    public Camembert(Room r){
-        super(r);
+    public Camembert(String id, Room r, Character c){
+        super(id, r, c);
     
         System.out.println("Camembert konstruktor hivas.");
     }

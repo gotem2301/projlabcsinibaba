@@ -1,0 +1,10 @@
+r0 created
+s0 created in r0
+i0 created in s0
+i1 created in s0
+i2 created in s0
+s0 gassed r0
+r0 is gassed
+s0 is dazed
+i1 added to r0
+i2 added to r0

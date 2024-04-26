@@ -1,0 +1,10 @@
+r0 created
+r1 created
+r1 is gassed
+d01 created
+s0 created
+i0 created in s0
+c0 created
+c0 entered r1
+s0 entered r0
+r1 is clean

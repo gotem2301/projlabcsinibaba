@@ -1,5 +1,5 @@
 package skeleton;
-public abstract class Item {
+public abstract class Item implements ID {
 
     /**
      * Meghatarozza, hogy melyik karakternel van az item.
@@ -123,9 +123,12 @@ public abstract class Item {
      * Konstruktor.
      * @param r - Melyik szobaban legyen letrehozva.
      */
-    public Item(Room r) {
-        heldBy = null;
+    public Item(String id, Room r, Character c) {
+        this.id = id;
+        heldBy = c;
         containedBy = r;
-        containedBy.addItem(this);
+        if(containedBy != null){
+            containedBy.addItem(this);
+        }
     }
 }

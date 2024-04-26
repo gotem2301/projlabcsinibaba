@@ -50,9 +50,9 @@ public class Book extends Item {
      * @param r - Melyik szobaban legyen letrehozva.
      * @param b - Hamis verzio-e.
      */
-    public Book(Room r, boolean b) {
-        super(r);
-        remainingUse = 3;
+    public Book(String id, Room r, Character c, int i, boolean b) {
+        super(id, r, c);
+        remainingUse = i;
         fake = b;
         System.out.println("Book konstruktor hivas.");
     }

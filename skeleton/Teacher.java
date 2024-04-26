@@ -13,7 +13,7 @@ public class Teacher extends Character{
     public Teacher(String id, Room r) {
         super(id, r);
         clothed = 0;
-        System.out.println(ID + " created in " + currentRoom.getID());
+        System.out.println(ID + " created in " + currentRoom.getId());
     }
 
 
@@ -28,7 +28,9 @@ public class Teacher extends Character{
     @Override
     public void setClothed(int c){
         clothed = c;
-        System.out.println(ID + " is clothed");
+        if(clothed != 0) {
+            System.out.println(ID + " is clothed");
+        }
     }
 
     
@@ -42,20 +44,20 @@ public class Teacher extends Character{
         if (!this.Dazed && !this.currentRoom.getSticky() && Arrays.stream(inventory).filter(e -> e != null).count() < 5) {
             if (i.transfer(this, null)) {
                 i.transfer(null, currentRoom);
-                System.out.println(ID + "  cant pick up " + i.getID());
+                System.out.println(ID + "  cant pick up " + i.getId());
                 return;
             }
             for (int j = 0; j < 5; j++) {
                 if (inventory[j] == null) {
                     inventory[j] = i;
                     this.currentRoom.removeItem(i);
-                    System.out.println(ID + " picked up " + i.getID());
+                    System.out.println(ID + " picked up " + i.getId());
                     break;
                 }
             }
         } 
         else {
-            System.out.println(ID + "  cant pick up " + i.getID());
+            System.out.println(ID + "  cant pick up " + i.getId());
         }
     }
 

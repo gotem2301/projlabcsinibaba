@@ -1,0 +1,6 @@
+r0 created
+r1 created
+d01 created
+s0 created in r0
+s0 entered r1
+r1 is sticky

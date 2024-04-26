@@ -1,5 +1,4 @@
 package skeleton;
-import java.lang.invoke.ClassSpecializer.Factory;
 import java.util.Scanner;
 
 public class Mask extends Item {
@@ -72,9 +71,9 @@ public class Mask extends Item {
      * @param r - Melyik szobaban legyen letrehozva.
      * @param t - Mennyi legyen a vedelem ideje.
      */
-    public Mask(Room r, boolean b) {
-        super(r);
-        remainingTime = 3;
+    public Mask(String id, Room r, Character c, int i, boolean b) {
+        super(id, r, c);
+        remainingTime = i;
         usedTimes = 0;
         fake = b;
         System.out.println("Mask konstruktor hivas.");
@@ -100,12 +99,6 @@ public class Mask extends Item {
         System.out.println("LowerRemainingTime fuggveny hivas.");
         if (fake) {
             return;
-        }
-        System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        if(s.equals("0")) {
-            remainingTime = 1;
         }
         remainingTime = remainingTime - 1;
         if(remainingTime == 0) {

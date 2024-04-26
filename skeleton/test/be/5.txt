@@ -1,0 +1,4 @@
+NewRoom - 0 10 - - 0
+NewStudent - r0
+NewItem 1 r0 - -
+Pickup s0 i0

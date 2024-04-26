@@ -1,0 +1,3 @@
+NewRoom - 0 1 - - 0
+NewStudent - r0
+SetTime 0

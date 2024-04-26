@@ -4,12 +4,14 @@ public class Transistor extends Item implements Usable {
 
     private Transistor pair;
 
+
+
     /**
      * Konstruktor: letrehoz egy Transistor-t
      * @param r Melyik szobaban legyen letrehozva
      */
-    public Transistor(Room r){
-        super(r);
+    public Transistor(String id, Room r, Character c){
+        super(id, r, c);
 
         System.out.println("Transistor konstruktor hivas.");
     }

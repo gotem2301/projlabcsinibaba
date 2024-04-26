@@ -26,8 +26,8 @@ public class SlidingRuler extends Item {
      * Konstruktor: letrehoz egy logarlecet.
      * @param r - Melyik szobaban legyen letrehozva.
      */
-    public SlidingRuler(Room r, boolean b) {
-        super(r);
+    public SlidingRuler(String id, Room r, Character c, boolean b) {
+        super(id, r, c);
         fake = b;
         System.out.println("SlidingRuler konstruktor hivas.");
     }

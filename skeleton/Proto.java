@@ -144,7 +144,7 @@ public class Proto {
                         break;
                 }
             }catch (IllegalArgumentException IAE){
-                System.out.println("A parancs nincs jol parameterezve!");
+                System.out.println("A parancs nincs jol parameterezve!" + IAE.toString());
             }
         }
     }
@@ -159,12 +159,12 @@ public class Proto {
         throw new IllegalArgumentException();
     }
 
-    private <T> T findID(List<T> list, String id) throws IllegalArgumentException {
+    private <T extends ID> T findID(List<T> list, String id) throws IllegalArgumentException {
         for(T element : list) {
-            if(element.getID() == id)
+            if(element.getId().equals(id))
                 return element;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(id + " nem jó");
     }
 
     public void newRoom(List<String> args) throws IllegalArgumentException {
@@ -178,7 +178,7 @@ public class Proto {
         magical = converter(args.get(4));
         sticky = converter(args.get(5));
         String id = "r";
-        id = id.concat(Integer.toString(allRooms.size()-1));
+        id = id.concat(Integer.toString(allRooms.size()));
 
         Room room = new Room(id, gassed, Integer.parseInt(args.get(2)),
                 Integer.parseInt(args.get(3)), magical, sticky, Integer.parseInt(args.get(6)));
@@ -294,6 +294,7 @@ public class Proto {
             default:
                 throw new IllegalArgumentException();
         }
+        allItems.add(item);
         commands.add(args);
     }
     public void newDoor(List<String> args){
@@ -305,14 +306,14 @@ public class Proto {
         Room r2 = findID(allRooms, args.get(2));
         boolean isOneWay = converter(args.get(3));
         boolean isClosed = converter(args.get(4));
-        String id = "d";
-        id = id.concat(Integer.toString(allDoors.size()));
+        
 
         Door door = new Door(r1, r2);
 
         door.setIsOneWay(isOneWay);
         door.setIsClosed(isClosed);
 
+        allDoors.add(door);
         commands.add(args);
     }
     public void setTime(List<String> args){
@@ -339,9 +340,9 @@ public class Proto {
             case "Rooms":
                 System.out.println("Minden szoba:");
                 for(Room r : allRooms){
-                    System.out.println("Azonosito: " + r.getID());
+                    System.out.println("Azonosito: " + r.getId());
                     System.out.println("State: " + r.getgassedRoom() + " " + r.getclothedRoom() + " " +
-                            r.getmagicalRoom() + " " + r.getstickyRoom());
+                            r.getMagical() + " " + r.getSticky());
                     System.out.println("Capacity: " + r.getMaxCapacity());
 
                 }
@@ -350,26 +351,26 @@ public class Proto {
             case "Characters":
                 System.out.println("Minden karakter:");
                 for(Character character : allCharacters){
-                    System.out.println("Azonosito: " + character.getID() );
-                    System.out.println("Room: " + character.getCurrentRoom().getID());
+                    System.out.println("Azonosito: " + character.getId() );
+                    System.out.println("Room: " + character.getCurrentRoom().getId());
                 }
                 break;
 
             case "Items":
                 System.out.println("Minden targy: ");
                 for(Item item : allItems){
-                    System.out.println("Azonosito: " + item.getID());
-                    System.out.println("Room: " + item.getContainedBy().getID());
-                    System.out.println("Character: " + item.getHeldBy().getID());
+                    System.out.println("Azonosito: " + item.getId());
+                    System.out.println("Room: " + item.getContainedBy().getId());
+                    System.out.println("Character: " + item.getHeldBy().getId());
                 }
                 break;
 
             case "Doors":
                 System.out.println("Minden ajto: ");
                 for(Door door : allDoors){
-                    System.out.println("Azonosito: " + door.getID());
+                    System.out.println("Azonosito: " + door.getId());
                     List<Room> rooms = door.getRooms();
-                    System.out.println("Rooms: " + rooms.get(0).getID() + " " + rooms.get(1).getID());
+                    System.out.println("Rooms: " + rooms.get(0).getId() + " " + rooms.get(1).getId());
                 }
                 break;
         }
@@ -377,18 +378,18 @@ public class Proto {
     public void listRoom(List<String> args){
         Room room = findID(allRooms, args.get(1));
         System.out.println("State: " + room.getgassedRoom() + " " + room.getclothedRoom() + " " +
-                room.getmagicalRoom() + " " + room.getstickyRoom());
+                room.getMagical() + " " + room.getSticky());
         System.out.println("Items: ");
         for(Item i : room.getItems()){
-            System.out.print(i.getID() + " ");
+            System.out.print(i.getId() + " ");
         }
         System.out.println("\nCharacter: ");
         for(Character c : room.getCharacters()){
-            System.out.print(c.getID() + " ");
+            System.out.print(c.getId() + " ");
         }
         System.out.println("\nDoors: ");
         for(Door d : room.getDoors()){
-            System.out.print(d.getID() + " ");
+            System.out.print(d.getId() + " ");
         }
 
 
@@ -398,17 +399,17 @@ public class Proto {
         System.out.println("Dazed: " + character.getDazed());
         System.out.println("Items: ");
         for(int i = 0; i < 5; i++){
-            if(character.getInventory[i] != null){
-                System.out.print(character.getInventory[i].getID);
+            if(character.getInventory()[i] != null){
+                System.out.print(character.getInventory()[i].getId());
             }
         }
-        System.out.println("Room: " + character.getCurrentRoom().getID());
+        System.out.println("Room: " + character.getCurrentRoom().getId());
 
     }
     public void listItem (List<String> args){
         Item item = findID(allItems, args.get(1));
-        System.out.println("Room: " + item.getContainedBy().getID());
-        System.out.println("Character: " + item.getHeldBy().getID());
+        System.out.println("Room: " + item.getContainedBy().getId());
+        System.out.println("Character: " + item.getHeldBy().getId());
 
     }
     public void listDoor(List<String> args){
@@ -416,7 +417,7 @@ public class Proto {
         System.out.println("isOneWay: " + door.getIsOneWay() );
         System.out.println("isClosed: " + door.getIsClosed() );
         List<Room> rooms = door.getRooms();
-        System.out.println("Rooms: " + rooms.get(0).getID() + " " + rooms.get(1).getID());
+        System.out.println("Rooms: " + rooms.get(0).getId() + " " + rooms.get(1).getId());
     }
     public void enter(List<String> args){
         Character character = findID(allCharacters, args.get(1));
@@ -456,24 +457,28 @@ public class Proto {
         commands.add(args);
     }
     public void loadGame(List<String> args){
-        File file = new File("/../saves/" + args.get(1) + ".txt");
+        File currentDirectory = new File("skeleton");
+        File testDirectory = new File(currentDirectory, "test");
+        File inputDirectory = new File(testDirectory, "be");
+        File txt = new File(inputDirectory, args.get(1) + ".txt");
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(txt.getAbsolutePath());
         try {
-            InputStream inputStream = new FileInputStream(file);
+            InputStream inputStream = new FileInputStream(txt);
             this.Run(inputStream);
         } catch (FileNotFoundException FNFE){
-            System.out.println("Nem letezik a megadott nevvel mentes!" );
+            System.out.println("Nem letezik a megadott nevvel mentes!" + FNFE.toString());
         }
         commands.add(args);
     }
     public void saveGame(List<String> args){
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/../saves/" + args.get(1) + ".txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("skeleton\\test\\saves\\" + args.get(1) + ".txt"))) {
             for (List<String> list : commands) {
                 StringBuilder line = new StringBuilder();
                 for (String str : list) {
                     line.append(str).append(" ");
                 }
-                // Remove the trailing space before writing to the file
                 if (line.length() > 0) {
                     line.setLength(line.length() - 1);
                 }
@@ -482,7 +487,7 @@ public class Proto {
             }
             System.out.println("Az " + args.get(0) + " mentest sikeresen felulirta");
         } catch (IOException e) {
-            System.out.println("Hiba tortent!");
+            System.out.println("Hiba tortent!" + e.toString());
         }
 
     }

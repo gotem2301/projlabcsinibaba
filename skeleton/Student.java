@@ -6,7 +6,7 @@ public class Student extends Character {
 
     public Student(String id, Room r) {
         super(id, r);
-        System.out.println(ID + " created in " + currentRoom.getID());
+        System.out.println(ID + " created in " + currentRoom.getId());
     }
 
 
@@ -20,9 +20,9 @@ public class Student extends Character {
         if (t1.getPair() == null && t2.getPair() == null) {
             t1.setPair(t2);
             t2.setPair(t1);
-            System.out.println(t1.getID() + " " + t2.getID() + " connected");
+            System.out.println(t1.getId() + " " + t2.getId() + " connected");
         } else {
-            System.out.println(t1.getID() + " " + t2.getID() + " cant connect");
+            System.out.println(t1.getId() + " " + t2.getId() + " cant connect");
         }
     }
 
@@ -64,7 +64,7 @@ public class Student extends Character {
                 if (inventory[j] == null) {
                     inventory[j] = i;
                     this.currentRoom.removeItem(i);
-                    System.out.println(ID + " picked up " + i.getID());
+                    System.out.println(ID + " picked up " + i.getId());
 
                     if (i.transfer(this, null)) {
                         System.out.println("YOU WIN");
@@ -74,7 +74,7 @@ public class Student extends Character {
             }
         } 
         else {
-            System.out.println(ID + "  cant pick up " + i.getID());
+            System.out.println(ID + "  cant pick up " + i.getId());
         }
     }
 }

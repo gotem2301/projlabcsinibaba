@@ -1,0 +1,13 @@
+r0 created
+r1 created
+r2 created
+r3 created
+d01 created
+d01 is oneway
+d12 created
+d12 is closed
+d13 created
+s0 created in r1
+s0 failed to enter r0
+s0 failed to enter r2
+s0 entered r3

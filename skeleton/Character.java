@@ -1,6 +1,6 @@
 package skeleton;
 
-public abstract class Character {
+public abstract class Character implements ID {
 
     protected String ID;
 
@@ -28,7 +28,7 @@ public abstract class Character {
     }
 
 
-    public String getID() {
+    public String getId() {
         return ID;
     }
 

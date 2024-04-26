@@ -1,0 +1,7 @@
+NewRoom - 0 1 - - 0
+NewRoom + - 1 - - 0
+NewDoor r0 r1 - -
+NewStudent r1 -
+NewItem 3 - s0 -
+NewCleaner - r0
+Enter c0 d01

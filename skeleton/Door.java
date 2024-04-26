@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Door {
+public class Door implements ID {
 	private String id;
 	private boolean isOneWay;
 	private boolean isClosed;
@@ -14,7 +14,7 @@ public class Door {
 	 * Door konstruktora
 	 */
 	public Door(Room r1, Room r2) {
-		id = r1.getId() + r2.getId();
+		id = "d" + r1.getId().substring(1) + r2.getId().substring(1);
 		isOneWay = false;
 		isClosed = false;
 		rooms = new ArrayList<Room>();
@@ -39,6 +39,10 @@ public class Door {
 	 */
 	public boolean getIsOneWay() {
 		return isOneWay;
+	}
+
+	public void setIsOneWay(boolean b) {
+		isOneWay = b;
 	}
 	
 	/**

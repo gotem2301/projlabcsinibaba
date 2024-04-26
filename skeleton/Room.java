@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 
-public class Room {
+public class Room implements ID {
 	private String id;
 	//enum helyett 2 bool értékeben tároljuk a szoba állapotát
 	private boolean gassedRoom;
@@ -29,7 +29,7 @@ public class Room {
 	 * @param _sticky ragados-e
 	 * @param _id id
 	 */
-	public Room(int cap, boolean gas, int cloth, int visit, boolean magik, boolean _sticky, String _id) {
+	public Room(String _id, boolean gas, int cloth, int cap, boolean magik, boolean _sticky, int visit) {
 		id = _id;
 		gassedRoom = gas;
 		clothedRoom = cloth;
@@ -50,7 +50,7 @@ public class Room {
 	 * @param _id id
 	 */
 	public Room(int cap, String _id) {
-		this(cap, false, 0, 0, false, false, _id);
+		this(_id, false, 0, cap, false, false, 0);
 	}
 	
 	/**
@@ -220,7 +220,7 @@ public class Room {
 	public void split() {
 		String newSplitId = this.getId() + "."  + this.numberOfSplitsFromThis;
 		numberOfSplitsFromThis++;
-		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom, this.visitors, this.magical, this.sticky, newSplitId);
+		Room newRoom = new Room(newSplitId, this.gassedRoom, this.clothedRoom, this.maxCapacity, this.magical, this.sticky, this.visitors);
 		Door newDoor = new Door(this, newRoom);
 		newRoom.addDoor(newDoor);
 		newDoor.setConnectedRooms(this, newRoom);
@@ -305,7 +305,7 @@ public class Room {
 		}
 		
 		for(int i = 0; i < r.getCharacters().size(); i++) {
-			r.getCharacters().get(i).updateRoom(this);
+			r.getCharacters().get(i).setCurrentRoom(this);
 
 		}
 		List<Character> tmp = new ArrayList<>();

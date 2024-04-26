@@ -4,8 +4,8 @@ public class AirFreshener extends Item implements Usable{
      * Konstruktor: letrehoz egy legfrissitot.
      * @param r - Melyik szobaban legyen letrehozva
      */
-    public AirFreshener(Room r) {
-        super(r);
+    public AirFreshener(String id, Room r, Character c) {
+        super(id, r, c);
         System.out.println("AirFreshener konstruktor hivas.");
     }
 
