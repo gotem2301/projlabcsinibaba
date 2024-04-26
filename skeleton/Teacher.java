@@ -1,21 +1,14 @@
-
 package skeleton;
 
 import java.util.Arrays;
 
 public class Teacher extends Character{
+
     /**
      * Eltarolja hogy az adott tanar eppen le van-e rongyozva vagy sem
      */
     private int clothed;
 
-    /**
-     *  Beallitja a clothed tagvaltozot
-     * @param bool - az allapot amive valtozik
-     */
-    public void setClothed(int c){
-        clothed = c;
-    }
 
     public Teacher(String id, Room r) {
         super(id, r);
@@ -23,6 +16,22 @@ public class Teacher extends Character{
         System.out.println(ID + " created in " + currentRoom.getID());
     }
 
+
+    public int getClothed() {
+        return clothed;
+    }
+
+    /**
+     *  Beallitja a clothed tagvaltozot
+     * @param bool - az allapot amive valtozik
+     */
+    @Override
+    public void setClothed(int c){
+        clothed = c;
+        System.out.println(ID + " is clothed");
+    }
+
+    
     /**
      * A tanar egyedul a logarlecet nem kepes felvenni, igy ezt itt kezelem
      * ezen kivul minden mas itemet felvehet
@@ -49,6 +58,7 @@ public class Teacher extends Character{
             System.out.println(ID + "  cant pick up " + i.getID());
         }
     }
+
 
     @Override
     public void teacherDuty() {

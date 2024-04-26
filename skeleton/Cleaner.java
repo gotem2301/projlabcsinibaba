@@ -7,9 +7,14 @@ public class Cleaner extends Character {
         System.out.println(ID + " created in " + currentRoom.getID());
     }
 
+
     @Override
     public void setCurrentRoom(Room r){
         currentRoom = r;
         currentRoom.cleanRoom();
     }
+
+
+    @Override
+    public void pickUpItem(Item i) {}
 }

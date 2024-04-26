@@ -1,6 +1,7 @@
-
 package skeleton;
+
 public abstract class Character {
+
     protected String ID;
 
     /**
@@ -9,36 +10,26 @@ public abstract class Character {
     protected boolean Dazed;
 
     /**
-     * Egy 5 hosszu tombben taroljuk a karakternel levo targyakat
-     */
-    protected Item[] inventory = new Item[5];
-
-    /**
      * Az a szoba amiben a karakter jelenleg tartozkodik
      */
     protected Room currentRoom;
 
-    public String getID() {
-        return ID;
+    /**
+     * Egy 5 hosszu tombben taroljuk a karakternel levo targyakat
+     */
+    protected Item[] inventory = new Item[5];
+
+
+    public Character(String id, Room r){
+        ID = id;
+        Dazed = false;
+        currentRoom = r;
+        currentRoom.addCharacter(this);
     }
 
-    /**
-     * Beallitja a Dazed valtozot a parameterkent kapott boolean ertekre
-     * @param dazed - az az "allapot" amibe a karakter kerulni fog
-     */
-    public void setDazed(boolean dazed){
-        if(dazed){
-            Dazed = true;
-            for(Item i : inventory) {
-                if (i != null && Dazed) {
-                    if (i.protectMe()) {
-                        setDazed(false);
-                    }
-                }
-            }
-        }else{
-            Dazed = false;
-        }
+
+    public String getID() {
+        return ID;
     }
 
     /**
@@ -50,13 +41,25 @@ public abstract class Character {
     }
 
     /**
-     * Beallitja a karakter szobajat
-     * @param r - a karakter leendo szobaja
+     * Beallitja a Dazed valtozot a parameterkent kapott boolean ertekre
+     * @param dazed - az az "allapot" amibe a karakter kerulni fog
      */
-    public void setCurrentRoom(Room r){
-        currentRoom = r;
+    public void setDazed(boolean dazed){
+        if(dazed){
+            for(Item i : inventory) {
+                if (i != null && i.protectMe()) {
+                    return;
+                }
+            }
+            Dazed = true;
+            dropEverything();
+            System.out.println(ID + " is dazed");
+        }else{
+            Dazed = false;
+        }
     }
 
+ 
     /**
      *
      * @return - Visszater a karakter aktualis szobajaval
@@ -65,13 +68,19 @@ public abstract class Character {
         return currentRoom;
     }
 
-
-    public Character(String id, Room r){
-        this.Dazed = false;
-        this.ID = id;
-        this.currentRoom = r;
-        currentRoom.addCharacter(this);
+    /**
+     * Beallitja a karakter szobajat
+     * @param r - a karakter leendo szobaja
+     */
+    public void setCurrentRoom(Room r){
+        currentRoom = r;
     }
+
+
+    public Item[] getInventory() {
+        return inventory;
+    }
+
 
     /**
      * Az ajton keresztul atmegy az ajot "masik szobajaba"
@@ -81,19 +90,7 @@ public abstract class Character {
         d.changeRoom(this, currentRoom);
     }
 
-    public void teacherDuty() {
-
-    }
-
-    /**
-     *  A parameterkent kapott itemet elrakja az inventoryba, ha van hely
-     *  a logarlec (SlidingRuler) mukodese miatt ezt a karakter leszarmazottjainal
-     *  kulon kell definialni (A teacher nem veheti fel)
-     * @param i - Az item amit fel akarunk venni
-     */
-    public abstract void pickUpItem(Item i);
-
-
+    
     /**
      * A parameterkent atvett itemet eldobja a karakter
      * @param item - az eldobandó targy
@@ -108,6 +105,7 @@ public abstract class Character {
         currentRoom.addItem(item);
     }
 
+
     /**
      * Kabulas eseten a karakter kidobja az osszes nala levo itemet
      */
@@ -118,6 +116,7 @@ public abstract class Character {
             }
         }
     }
+
 
     /**
      * Torli a parameterkent atvett itemet a jatekbol (pl. elhasznalodas eseten)
@@ -132,6 +131,7 @@ public abstract class Character {
         }
     }
 
+
     /**
      *  A parameterkent atvett targyat hasznalja
      * @param i - a hasznalando item
@@ -140,14 +140,21 @@ public abstract class Character {
         i.use();
     }
 
-    public void updateRoom(Room r){
-        currentRoom = r;
-    }
 
-    public void setClothed(int c){
-    }
-    
     public int dropOut(){
         return -1;
     }
+
+
+    /**
+     *  A parameterkent kapott itemet elrakja az inventoryba, ha van hely
+     *  a logarlec (SlidingRuler) mukodese miatt ezt a karakter leszarmazottjainal
+     *  kulon kell definialni (A teacher nem veheti fel)
+     * @param i - Az item amit fel akarunk venni
+     */
+    public abstract void pickUpItem(Item i);
+
+    public void teacherDuty() {}
+
+    public void setClothed(int c){}
 }

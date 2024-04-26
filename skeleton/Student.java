@@ -1,13 +1,14 @@
-
 package skeleton;
 
 import java.util.Arrays;
 
 public class Student extends Character {
+
     public Student(String id, Room r) {
         super(id, r);
         System.out.println(ID + " created in " + currentRoom.getID());
     }
+
 
     /**
      * Osszekoti a ket parameterkent kapott tranzisztort, ha egyiknek sincs parja
@@ -24,6 +25,7 @@ public class Student extends Character {
             System.out.println(t1.getID() + " " + t2.getID() + " cant connect");
         }
     }
+
 
     /**
      * A hallgato kapott egy felszolitast a kibukasra, megvizsgalja hogy van-e nala vedelmet nyujto targy.
@@ -47,6 +49,7 @@ public class Student extends Character {
         }
         return savedBy;
     }
+
 
     /**
      * A student minden itemet kepes felvenni amig nincs tele az inventoryja
