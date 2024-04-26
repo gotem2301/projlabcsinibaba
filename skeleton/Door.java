@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Door {
-	private Boolean isOneWay;
-	private Boolean isClosed;
+	private String id;
+	private boolean isOneWay;
+	private boolean isClosed;
 	private List<Room> rooms;
 	
 	/**
 	 * Door konstruktora
 	 */
 	public Door(Room r1, Room r2) {
+		id = r1.getId() + r2.getId();
 		isOneWay = false;
 		isClosed = false;
 		rooms = new ArrayList<Room>();
@@ -20,7 +22,49 @@ public class Door {
 		r1.addDoor(this);
 		rooms.add(r2);
 		r2.addDoor(this);
+		System.out.println(id + " created");
 	}
+	
+	/**
+	 * getter
+	 * @return id
+	 */
+	public String getId() {
+		return id;
+	}
+	
+	/**
+	 * getter
+	 * @return isOneWay
+	 */
+	public boolean getIsOneWay() {
+		return isOneWay;
+	}
+	
+	/**
+	 * getter
+	 * @return isClosed
+	 */
+	public boolean getIsClosed() {
+		return isClosed;
+	}
+	
+	/**
+	 * setter
+	 * @param b boolean
+	 */
+	public void setIsClosed(boolean b) {
+		isClosed = b;
+	}
+	
+	/**
+	 * getter
+	 * @return rooms
+	 */
+	public List<Room> getRooms(){
+		return rooms;
+	}
+	
 	/**
 	 * Átrakja a karaktert a szoba párjába.
 	 * @param c Átlépni akaró karakter
@@ -28,7 +72,6 @@ public class Door {
 	 * @throws IOException
 	 */
 	public void changeRoom(Character c, Room r) {
-		System.out.println("Door.changeRoom");
 		//A megadott r szobának az ajtón keressztüli szomszédján hívja meg a characterEnters-t
 		Boolean result;
 		Room other;
@@ -45,6 +88,10 @@ public class Door {
 			c.setCurrentRoom(other);
 			r.removeCharacter(c);
 			other.addCharacter(c);
+			System.out.println("Sikeresen átlépett " + c.getId() + " az " + other.getId() + " szobába");
+		}
+		else {
+			System.out.println("Az átlépés sikertelen mert az " + other.getId() +  " szoba tele van");
 		}
 	}
 	
@@ -54,11 +101,11 @@ public class Door {
 	 * @param y A szoba, amirre leakarjuk cserélni
 	 */
 	public void replaceRoom(Room x, Room y) {
-		System.out.println("Door.replaceRoom");
 		for(int i = 0; i < rooms.size(); i++) {
 			if(rooms.get(i).equals(x)) {
 				rooms.get(i).removeDoor(this);
 				rooms.remove(i);
+				y.addDoor(this);
 				rooms.add(i, y);
 			}
 		}
@@ -70,9 +117,13 @@ public class Door {
 	 * @param _new Másik szoba
 	 */
 	public void setConnectedRooms(Room existing, Room _new) {
-		System.out.println("Door.setConnectedRooms");
+		for(int i = 0; i < rooms.size(); i++) {
+			rooms.get(i).removeDoor(this);
+		}
 		rooms = new ArrayList<Room>();
 		rooms.add(existing);
+		existing.addDoor(this);
 		rooms.add(_new);
+		_new.addDoor(this);
 	}
 }

@@ -6,31 +6,59 @@ import java.util.Scanner;
 import java.io.*;
 
 public class Room {
+	private String id;
 	//enum helyett 2 bool értékeben tároljuk a szoba állapotát
 	private boolean gassedRoom;
 	private int clothedRoom;
+	private int visitors;
 	private int maxCapacity;
 	private boolean magical;
+	private boolean sticky;
 	private List<Door> doors;
 	private List<Item> items;
 	private List<Character> characters;
+	private int numberOfSplitsFromThis;
 	
 	/**
-	 * Room konstruktora
-	 * @param cap
+	 * Room kontruktora
+	 * @param cap kapacitás
+	 * @param gas gázos-e
+	 * @param cloth törlőrongyos-e
+	 * @param visit hányan látogaták meg a legutobbi takarítás óta
+	 * @param magik mágikus-e
+	 * @param _sticky ragados-e
+	 * @param _id id
 	 */
-	public Room(int cap, boolean gas, int cloth) {
+	public Room(int cap, boolean gas, int cloth, int visit, boolean magik, boolean _sticky, String _id) {
+		id = _id;
 		gassedRoom = gas;
 		clothedRoom = cloth;
 		maxCapacity = cap;
-		magical = false;
+		visitors = visit;
+		magical = magik;
+		sticky = _sticky;
 		doors = new ArrayList<Door>();
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
+		numberOfSplitsFromThis = 0;
+		System.out.println(_id + " created");
 	}
 
-	public Room(int cap) {
-		this(cap, false, 0);
+	/**
+	 * Room rövidebb konstruktora
+	 * @param cap kapacitas
+	 * @param _id id
+	 */
+	public Room(int cap, String _id) {
+		this(cap, false, 0, 0, false, false, _id);
+	}
+	
+	/**
+	 * getter
+	 * @return id
+	 */
+	public String getId() {
+		return id;
 	}
 	
 	/**
@@ -38,8 +66,6 @@ public class Room {
 	 * @return MaxCapacity
 	 */
 	public int getMaxCapacity() {
-		System.out.println("Room.getMaxCapacity");
-		System.out.println("Return: " + maxCapacity);
 		return maxCapacity;
 	}
 	
@@ -48,8 +74,6 @@ public class Room {
 	 * @return clothedRoom
 	 */
 	public int getclothedRoom() {
-		System.out.println("Room.getClothedRoom");
-		System.out.println("Return: " + clothedRoom);
 		return clothedRoom;
 	}
 	
@@ -58,13 +82,10 @@ public class Room {
 	 * @return gassedRoom
 	 */
 	public boolean getgassedRoom() {
-		System.out.println("Room.getGassedRoom");
-		System.out.println("Return: " + gassedRoom);
 		return gassedRoom;
 	}
 
 	public void setgassedRoom(boolean b) {
-		System.out.println("SetgassedRoom fuggveny hivas.");
 		gassedRoom = b;
 	}
 	
@@ -73,8 +94,6 @@ public class Room {
 	 * @return characters
 	 */
 	public List<Character> getCharacters(){
-		System.out.println("Room.getCharacters");
-		System.out.println("Return: characters");
 		return characters;
 	}
 	
@@ -83,8 +102,6 @@ public class Room {
 	 * @return items
 	 */
 	public List<Item> getItems(){
-		System.out.println("Room.getItems");
-		System.out.println("Return: items");
 		return items;
 	}
 	
@@ -93,9 +110,30 @@ public class Room {
 	 * @return doors
 	 */
 	public List<Door> getDoors(){
-		System.out.println("Room.getDoors");
-		System.out.println("Return: Doors");
 		return doors;
+	}
+	/**
+	 * getter
+	 * @return visitors
+	 */
+	public int getVisitors() {
+		return visitors;
+	}
+	
+	/**
+	 * getter
+	 * @return magical
+	 */
+	public boolean getMagical() {
+		return magical;
+	}
+	
+	/**
+	 * getter
+	 * @return sticky
+	 */
+	public boolean getSticky() {
+		return sticky;
 	}
 	
 	/**
@@ -103,7 +141,6 @@ public class Room {
 	 * @param i Törlendő tárgy
 	 */
 	public void removeItem(Item i){
-		System.out.println("Room.removeItem");
 		if(items.contains(i)) {
 			items.remove(i);
 		}
@@ -113,7 +150,6 @@ public class Room {
 	 * @param i Hozzáadandó tárgy
 	 */
 	public void addItem(Item i) {
-		System.out.println("Room.addItem");
 		if(i != null) {
 			items.add(i);
 		}
@@ -122,16 +158,11 @@ public class Room {
 	 * A c karakter megpróbál belépni.
 	 * @param c
 	 * @return sikerült-e átlépni a másik szobába
-	 * @throws IOException
 	 */
 	public Boolean characterEnters(Character c) {
-		System.out.println("Room.characterEnters");
-		//itt majd a maxCapacity-tól függ, hogy befér-e a karakter
 		if(maxCapacity > characters.size()) {
-			System.out.println("true");
 			return true;
 		}
-		System.out.println("false");
 		return false;
 	}
 	/**
@@ -139,17 +170,20 @@ public class Room {
 	 * @param c Felvevendó karakter
 	 */
 	public void addCharacter(Character c) {
-		System.out.println("Room.addCharacter");
 		if(c != null) {
 			characters.add(c);
+			this.increaseVisitors();
 			if(gassedRoom) {
 				c.setDazed(gassedRoom);
 			}
 			List<Character> tmp = new ArrayList<>();
 			tmp.addAll(characters);
 			for(Character character : tmp) {
+				///cleaner SetCurrentRoom-ot itt kéne???
+				
 				character.teacherDuty();
 			}
+			
 		}
 	}
 	/**
@@ -157,7 +191,6 @@ public class Room {
 	 * @param c Kitörlendó karakter
 	 */
 	public void removeCharacter(Character c) {
-		System.out.println("Room.removeCharacter");
 		if(characters.contains(c)) {
 			characters.remove(c);
 		}
@@ -167,7 +200,6 @@ public class Room {
 	 * @param d Hozzáadandó ajtó
 	 */
 	public void addDoor(Door d) {
-		System.out.println("Room.addDoor");
 		if(d != null) {
 			doors.add(d);
 		}
@@ -177,7 +209,6 @@ public class Room {
 	 * @param d Törlendó ajtó
 	 */
 	public void removeDoor(Door d) {
-		System.out.println("Room.removeDoor");
 		if(doors.contains(d)) {
 			doors.remove(d);
 		}
@@ -187,8 +218,9 @@ public class Room {
 	 * Kezdeményezi a szoba szétválását
 	 */
 	public void split() {
-		System.out.println("Room.split");
-		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom);
+		String newSplitId = this.getId() + "."  + this.numberOfSplitsFromThis;
+		numberOfSplitsFromThis++;
+		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom, this.visitors, this.magical, this.sticky, newSplitId);
 		Door newDoor = new Door(this, newRoom);
 		newRoom.addDoor(newDoor);
 		newDoor.setConnectedRooms(this, newRoom);
@@ -205,7 +237,6 @@ public class Room {
 	 * @throws IOException
 	 */
 	public void dropThemOut() {
-		System.out.println("Room.dropThemOut");
 		List<Character> tmp = new ArrayList<Character>();
 		for(int i = 0; i < characters.size(); i++) {
 			int response = characters.get(i).dropOut();
@@ -227,6 +258,9 @@ public class Room {
 					break;
 			}
 		}
+		
+		if(clothedRoom > 0) {return;}
+		
 		for(Character ch : tmp) {
 			characters.remove(ch);
 			ch.dropEverything();
@@ -237,57 +271,129 @@ public class Room {
 	 *  Minden karaktert megpróbál a nedves táblatörlő hatása alá vonni.
 	 */
 	public void clothThem() {
-		System.out.println("Room.clothThem");
 		for(int i = 0; i < characters.size(); i++) {
 			characters.get(i).setClothed(clothedRoom);
 		}
 	}
 	/**
 	 * Kezdeményezi a szobák összeolvadását.
-	 * @param r A másik szoba, amivel a jelenlegit összekéne vonni
-	 * @throws IOException 
+	 * @param r A másik szoba, amivel a jelenlegit összekéne vonni 
 	 */
 	public void mergeWithRoom(Room r) {
-		System.out.println("Room.mergeWithRoom");
-		System.out.println("A nagyobbik szoba kapacitasa van-e akkora, mint a ket szoba osszes karaktereinek szama? (1 - igen / minden mas karakter - nem)");
-		Scanner sc = new Scanner(System.in);
-		String decision = sc.nextLine();
-		if(decision.equals("1")) {
-			if(maxCapacity < r.getMaxCapacity()) {
-				maxCapacity = r.getMaxCapacity();
-			}
-			if(clothedRoom < r.getclothedRoom()) {
-				clothedRoom = r.getclothedRoom();
-			}
-			if(gassedRoom || r.getgassedRoom()) {
-				gassedRoom = true;
-			}
-			
-			for(int i = 0; i < r.getCharacters().size(); i++) {
-				r.getCharacters().get(i).updateRoom(this);
+		if(Math.max(maxCapacity, r.getMaxCapacity()) < (this.characters.size() + r.getCharacters().size())) {
+			return;
+		}
+		
+		if(maxCapacity < r.getMaxCapacity()) {
+			maxCapacity = r.getMaxCapacity();
+		}
+		if(clothedRoom < r.getclothedRoom()) {
+			clothedRoom = r.getclothedRoom();
+		}
+		if(gassedRoom || r.getgassedRoom()) {
+			gassedRoom = true;
+		}
+		if(visitors < r.getVisitors()) {
+			visitors = r.visitors;
+		}
+		if(magical || r.getMagical()) {
+			magical = true;
+		}
+		
+		if(sticky || r.getSticky()) {
+			sticky = r.sticky;
+		}
+		
+		for(int i = 0; i < r.getCharacters().size(); i++) {
+			r.getCharacters().get(i).updateRoom(this);
 
-			}
-			List<Character> tmp = new ArrayList<>();
-			tmp.addAll(r.getCharacters());
-			for(Character ch : tmp){
+		}
+		List<Character> tmp = new ArrayList<>();
+		tmp.addAll(r.getCharacters());
+		for(Character ch : tmp){
 
-				this.addCharacter(ch);
-			}
-			
-			for(int i = 0; i < r.getItems().size(); i++) {
-				r.getItems().get(i).updateRoom(r);
-			}
-			for(Item it : r.getItems()){
-				this.addItem(it);
-			}
-			
-			List<Door> newDoors = r.getDoors();
-			for(int j = 0 ; j < r.getDoors().size(); j++) {
-				newDoors.get(j).replaceRoom(r, this);
-			}
-			for(Door door : r.getDoors()){
-				this.addDoor(door);
+			this.addCharacter(ch);
+		}
+		
+		for(int i = 0; i < r.getItems().size(); i++) {
+			r.getItems().get(i).updateRoom(r);
+		}
+		for(Item it : r.getItems()){
+			this.addItem(it);
+		}
+		//azaz ajtó amely a this és r kötti össze törölni kell
+		for(int i = 0; i < doors.size(); i++) {
+			for(int j = 0; j <= r.getDoors().size(); j++) {
+				if(doors.get(i).equals(r.getDoors().get(j))) {
+					r.removeDoor(doors.get(i));
+					this.removeDoor(doors.get(i));
+				}
 			}
 		}
+		
+		
+		List<Door> newDoors = r.getDoors();
+		for(int i = 0 ; i < r.getDoors().size(); i++) {
+			newDoors.get(i).replaceRoom(r, this);
+		}
+		for(Door door : r.getDoors()){
+			this.addDoor(door);
+		}	
+	}
+	
+	/**
+	 * Bezárja a szoba összes ajtaját
+	 */
+	public void closeDoors() {
+		if (doors != null) {
+			for (Door d : doors) {
+				d.setIsClosed(true);;
+			}
+		}
+	}
+	
+	/**
+	 * Kinyitja a szoba összes ajtaját
+	 */
+	public void openDoors() {
+		if(doors != null) {
+			for(Door d : doors) {
+				d.setIsClosed(false);;
+			}
+		}
+	}
+	
+	/**
+	 * setter
+	 * @param b boolean
+	 */
+	public void setSticky(boolean b) {
+		sticky = b;
+	}
+	
+	/**
+	 * Minden olyan karaktert aki nem bénult/ájult kidob a szobából
+	 */
+	public void cleanRoom() {
+		for(Character c : characters) {
+			if(c.getDazed()) {
+				int randomSzam = (int)Math.random();
+				if(randomSzam >= doors.size()) {
+					c.enterRoom(doors.get(randomSzam));
+				}
+				else {
+					c.enterRoom(doors.get(doors.size() - 1));
+				}
+			}
+		}
+		visitors = 0;
+		sticky = false;
+	}
+	
+	/**
+	 * A szoba visitors attribútumát növeli eggyel.
+	 */
+	public void increaseVisitors() {
+		visitors++;
 	}
 }
