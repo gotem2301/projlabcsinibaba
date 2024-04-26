@@ -13,10 +13,16 @@ public class Camembert extends Item implements Usable{
     }
 
     /**
-     * Elgazositja a szobat (amiben eppen van)
+     * Elgazositja a szobat, amiben van, ha containedBy != null
+     * Egyebkent azt a szobat, amelyikben van a karakter, akinel van a Camembert.
      */
     public void use(){
         System.out.println("Camembert use hivas.");
-        containedBy.setgassedRoom(true);
+        if(containedBy != null){
+            containedBy.setgassedRoom(true);
+        }
+        else{
+            heldBy.getCurrentRoom().setgassedRoom(true);
+        }
     }
 }

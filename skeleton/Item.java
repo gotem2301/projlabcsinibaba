@@ -13,17 +13,58 @@ public abstract class Item {
      */
     protected Room containedBy;
 
+    /**
+     * Itemek azonositasara szolgalo Id.
+     */
+    private String id;
 
     /**
-     * Konstruktor.
-     * @param r - Melyik szobaban legyen letrehozva.
+     * heldBy getter, visszaadja azt a Charactert, akinel van az Item.
+     * @return Itemet hordozo Character
      */
-    public Item(Room r) {
-        heldBy = null;
-        containedBy = r;
-        containedBy.addItem(this);
+    public Character getHeldBy(){
+        return heldBy;
     }
 
+    /**
+     * heldBy setter, beallitja azt a Charactert, aki az Item uj hordozoja. 
+     * @param newHolder Uj hordozo Character
+     */
+    public void setHeldBy(Character newHolder){
+        heldBy = newHolder;
+    }
+
+    /**
+     * containedBy getter, visszaadja azt a Room-ot, amelyikben van az Item.
+     * @return Az a szoba, ahol az Item talalhato
+     */
+    public Room getContainedBy(){
+        return containedBy;
+    }
+
+    /**
+     * containedBy setter, beallitja azt a Room-ot, ahol az Item megtalalhato lesz.
+     * @param newContainer Az a szoba, ahol az Item megtalalhato lesz
+     */
+    public void setContainedBy(Room newContainer){
+        containedBy = newContainer;
+    }
+
+    /**
+     * id getter, visszaadja az Item azonositojat.
+     * @return Item azonositoja
+     */
+    public String getId(){
+        return id;
+    }
+
+    /**
+     * id setter, beallitja az Item azonositojat.
+     * @param newId Item uj azonositoja
+     */
+    public void setId(String newId){
+        id = newId;
+    }
 
     /**
      * Atallitja mindket tagvaltozot.
@@ -68,7 +109,23 @@ public abstract class Item {
         return false;
     }
 
+    /**
+     * Absztrakt fuggveny, leszarmazo osztalyok implemetaljak.
+     */
+    public void lowerRemainingUse() {}
+
+    /**
+     * Fuggveny definicio, nem tud semmit.
+     */
     public void use() {}
 
-    public void lowerRemainingUse() {}
+    /**
+     * Konstruktor.
+     * @param r - Melyik szobaban legyen letrehozva.
+     */
+    public Item(Room r) {
+        heldBy = null;
+        containedBy = r;
+        containedBy.addItem(this);
+    }
 }
