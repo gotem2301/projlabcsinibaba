@@ -17,6 +17,7 @@ public class Room {
 	private List<Door> doors;
 	private List<Item> items;
 	private List<Character> characters;
+	private int numberOfSplitsFromThis;
 	
 	/**
 	 * Room kontruktora
@@ -39,6 +40,7 @@ public class Room {
 		doors = new ArrayList<Door>();
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
+		numberOfSplitsFromThis = 0;
 		System.out.println(_id + " created");
 	}
 
@@ -216,7 +218,8 @@ public class Room {
 	 * Kezdeményezi a szoba szétválását
 	 */
 	public void split() {
-		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom, this.visitors, this.magical, this.sticky);
+		String newSplitId = this.getId() + "."  + this.numberOfSplitsFromThis;
+		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom, this.visitors, this.magical, this.sticky, newSplitId);
 		Door newDoor = new Door(this, newRoom);
 		newRoom.addDoor(newDoor);
 		newDoor.setConnectedRooms(this, newRoom);
