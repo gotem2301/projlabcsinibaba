@@ -6,6 +6,21 @@ public class Cloth extends Item {
      */
     private int remainingTime;
 
+    /**
+     * remainingTime getter, visszaadja, hogy mennyi ideig hasznalhato meg a Cloth.
+     * @return Hatralevo hasznalati ido
+     */
+    public int getRemainingTime(){
+        return remainingTime;
+    }
+
+    /**
+     * remainingTime setter, beallitja, hogy mennyi ideig hasznalhato meg a Cloth.
+     * @param newRemainingTime Uj hatralevo hasznalati ido
+     */
+    public void setRemainigTime(int newRemainingTime){
+        remainingTime = newRemainingTime;
+    }
 
     /**
      * Konstruktor: letrehoz egy rongyot.

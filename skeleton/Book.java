@@ -8,17 +8,54 @@ public class Book extends Item {
      */
     private int remainingUse;
 
+    /**
+     * Azt jeloli, hogy a targy hamis verzioja-e.
+     */
+    private boolean fake;
+
+    /**
+     * remainingUse getter, visszaadja, hogy hanyszor lehet meg hasznalni a Book-ot.
+     * @return Hatralevo hasznalat
+     */
+    public int getRemainingUse(){
+        return remainingUse;
+    }
+
+    /**
+     * remainingUse setter, beallitja, hogy hanyszor lehet meg hasznalni a Book-ot.
+     * @param newRemainingUse Uj hatralevo hasznalat
+     */
+    public void setRemainingUse(int newRemainingUse){
+        remainingUse = newRemainingUse;
+    }
+
+    /**
+     * fake getter, visszaadja, hogy a Book hamis-e.
+     * @return Hamis-e a Book
+     */
+    public boolean getFake(){
+        return fake;
+    }
+
+    /**
+     * fake setter, beallitja, hogy a Book hamis-e.
+     * @param newFake Uj hamissag.
+     */
+    public void setFake(boolean newFake){
+        fake = newFake;
+    }
 
     /**
      * Konstruktor: letrehoz egy TVSZ-t.
      * @param r - Melyik szobaban legyen letrehozva.
+     * @param b - Hamis verzio-e.
      */
-    public Book(Room r) {
+    public Book(Room r, boolean b) {
         super(r);
         remainingUse = 3;
+        fake = b;
         System.out.println("Book konstruktor hivas.");
     }
-
 
     /**
      * Csokkenti a hatralevo vedelmek szamat.
@@ -27,7 +64,11 @@ public class Book extends Item {
     @Override
     public void lowerRemainingUse() {
         System.out.println("LowerRemainingUse fuggvény hivas.");
+        if(fake){
+            return;
+        }
         System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
+
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         if(s.equals("0")) {
