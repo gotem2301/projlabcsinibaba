@@ -216,7 +216,7 @@ public class Skeleton {
         t1.use();
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         // a parancsok tárolásához, string, hogy a hibás bemenetre is tudjunk válaszolni
         String choice;
 
@@ -285,5 +285,5 @@ public class Skeleton {
                 System.out.println("Ervenytelen valasztas! Kerlek, adj meg egy szamot a teszteset kivalasztasahoz.");
             }
         }
-    }
+    }*/
 }

@@ -1,0 +1,2 @@
+2.1.4 A feladat leírása innen érthető el: https://www.iit.bme.hu/file/11582/feladat
+UC diagram .24 16:00 - 16:30
