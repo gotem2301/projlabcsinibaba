@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Proto {
-    private Scanner scanner;
+
 
     private List<Room> allRooms = new ArrayList<>();
     private List<Door> allDoors = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Proto {
 
 
     public void Run(InputStream inputStream){
-        scanner = new Scanner(inputStream);
+        Scanner scanner = new Scanner(inputStream);
         while(isRunning && scanner.hasNext()) {
             String command = scanner.nextLine();
 
@@ -374,6 +374,7 @@ public class Proto {
                 }
                 break;
         }
+        System.out.println();
     }
     public void listRoom(List<String> args){
         Room room = findID(allRooms, args.get(1));
