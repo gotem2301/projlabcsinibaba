@@ -6,7 +6,6 @@ public class Student extends Character {
 
     public Student(String id, Room r) {
         super(id, r);
-        System.out.println(ID + " created in " + currentRoom.getId());
     }
 
 

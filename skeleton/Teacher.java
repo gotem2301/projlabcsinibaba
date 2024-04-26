@@ -13,7 +13,6 @@ public class Teacher extends Character{
     public Teacher(String id, Room r) {
         super(id, r);
         clothed = 0;
-        System.out.println(ID + " created in " + currentRoom.getId());
     }
 
 

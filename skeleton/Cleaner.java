@@ -4,7 +4,6 @@ public class Cleaner extends Character {
 
     public Cleaner(String id, Room r) {
         super(id, r);
-        System.out.println(ID + " created in " + currentRoom.getId());
     }
 
 
