@@ -1,10 +1,25 @@
 package skeleton;
 
+import java.util.Arrays;
+
 public class Teacher extends Character{
+
     /**
      * Eltarolja hogy az adott tanar eppen le van-e rongyozva vagy sem
      */
     private int clothed;
+
+
+    public Teacher(String id, Room r) {
+        super(id, r);
+        clothed = 0;
+        System.out.println(ID + " created in " + currentRoom.getID());
+    }
+
+
+    public int getClothed() {
+        return clothed;
+    }
 
     /**
      *  Beallitja a clothed tagvaltozot
@@ -13,15 +28,10 @@ public class Teacher extends Character{
     @Override
     public void setClothed(int c){
         clothed = c;
+        System.out.println(ID + " is clothed");
     }
 
-    public Teacher(Room r) {
-        super(r);
-
-        System.out.println("Oktato letrehozva");
-        clothed = 0;
-    }
-
+    
     /**
      * A tanar egyedul a logarlecet nem kepes felvenni, igy ezt itt kezelem
      * ezen kivul minden mas itemet felvehet
@@ -29,29 +39,29 @@ public class Teacher extends Character{
      */
     @Override
     public void pickUpItem(Item i) {
-        System.out.println("pickUpItem fuggveny hivas");
-
-        if(this.inventory.length < 5 && !this.Dazed) {
-            if (i.transfer(this, null) == false) {
-                for(int j = 0; j < 5; j++){
-                    if(inventory[j] == null){
-                        inventory[j] = i;
-                    }
-                }
-                this.currentRoom.removeItem(i);
-                System.out.println("Sikeres targyfelvetel");
-            } else {
+        if (!this.Dazed && !this.currentRoom.getSticky() && Arrays.stream(inventory).filter(e -> e != null).count() < 5) {
+            if (i.transfer(this, null)) {
                 i.transfer(null, currentRoom);
-                System.out.println("Sikertelen targyfelvetel");
+                System.out.println(ID + "  cant pick up " + i.getID());
+                return;
             }
-        }else{
-            System.out.println("Sikertelen targyfelvetel");
+            for (int j = 0; j < 5; j++) {
+                if (inventory[j] == null) {
+                    inventory[j] = i;
+                    this.currentRoom.removeItem(i);
+                    System.out.println(ID + " picked up " + i.getID());
+                    break;
+                }
+            }
+        } 
+        else {
+            System.out.println(ID + "  cant pick up " + i.getID());
         }
     }
 
+
     @Override
     public void teacherDuty() {
-        System.out.println("TeacherDuty fuggveny hivas");
         currentRoom.dropThemOut();
     }
 }
