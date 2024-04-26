@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class Room {
+	private String id;
 	//enum helyett 2 bool értékeben tároljuk a szoba állapotát
 	private boolean gassedRoom;
 	private int clothedRoom;
@@ -18,10 +19,17 @@ public class Room {
 	private List<Character> characters;
 	
 	/**
-	 * Room konstruktora
-	 * @param cap
+	 * Room kontruktora
+	 * @param cap kapacitás
+	 * @param gas gázos-e
+	 * @param cloth törlőrongyos-e
+	 * @param visit hányan látogaták meg a legutobbi takarítás óta
+	 * @param magik mágikus-e
+	 * @param _sticky ragados-e
+	 * @param _id id
 	 */
-	public Room(int cap, boolean gas, int cloth, int visit, boolean magik, boolean _sticky) {
+	public Room(int cap, boolean gas, int cloth, int visit, boolean magik, boolean _sticky, String _id) {
+		id = _id;
 		gassedRoom = gas;
 		clothedRoom = cloth;
 		maxCapacity = cap;
@@ -31,10 +39,24 @@ public class Room {
 		doors = new ArrayList<Door>();
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
+		System.out.println(_id + " created");
 	}
 
-	public Room(int cap) {
-		this(cap, false, 0, 0, false, false);
+	/**
+	 * Room rövidebb konstruktora
+	 * @param cap kapacitas
+	 * @param _id id
+	 */
+	public Room(int cap, String _id) {
+		this(cap, false, 0, 0, false, false, _id);
+	}
+	
+	/**
+	 * getter
+	 * @return id
+	 */
+	public String getId() {
+		return id;
 	}
 	
 	/**
@@ -321,7 +343,7 @@ public class Room {
 	public void closeDoors() {
 		if (doors != null) {
 			for (Door d : doors) {
-				d.close();
+				d.setIsClosed(true);;
 			}
 		}
 	}
@@ -332,7 +354,7 @@ public class Room {
 	public void openDoors() {
 		if(doors != null) {
 			for(Door d : doors) {
-				d.open();
+				d.setIsClosed(false);;
 			}
 		}
 	}

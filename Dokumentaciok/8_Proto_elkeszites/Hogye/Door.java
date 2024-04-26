@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Door {
-	private Boolean isOneWay;
-	private Boolean isClosed;
+	private String id;
+	private boolean isOneWay;
+	private boolean isClosed;
 	private List<Room> rooms;
 	
 	/**
 	 * Door konstruktora
 	 */
 	public Door(Room r1, Room r2) {
+		id = r1.getId() + r2.getId();
 		isOneWay = false;
 		isClosed = false;
 		rooms = new ArrayList<Room>();
@@ -20,7 +22,49 @@ public class Door {
 		r1.addDoor(this);
 		rooms.add(r2);
 		r2.addDoor(this);
+		System.out.println(id + " created");
 	}
+	
+	/**
+	 * getter
+	 * @return id
+	 */
+	public String getId() {
+		return id;
+	}
+	
+	/**
+	 * getter
+	 * @return isOneWay
+	 */
+	public boolean getIsOneWay() {
+		return isOneWay;
+	}
+	
+	/**
+	 * getter
+	 * @return isClosed
+	 */
+	public boolean getIsClosed() {
+		return isClosed;
+	}
+	
+	/**
+	 * setter
+	 * @param b boolean
+	 */
+	public void setIsClosed(boolean b) {
+		isClosed = b;
+	}
+	
+	/**
+	 * getter
+	 * @return rooms
+	 */
+	public List<Room> getRooms(){
+		return rooms;
+	}
+	
 	/**
 	 * Átrakja a karaktert a szoba párjába.
 	 * @param c Átlépni akaró karakter
@@ -44,6 +88,10 @@ public class Door {
 			c.setCurrentRoom(other);
 			r.removeCharacter(c);
 			other.addCharacter(c);
+			System.out.println("Sikeresen átlépett " + c.getId() + " az " + other.getId() + " szobába");
+		}
+		else {
+			System.out.println("Az átlépés sikertelen mert az " + other.getId() +  " szoba tele van");
 		}
 	}
 	
@@ -77,19 +125,5 @@ public class Door {
 		existing.addDoor(this);
 		rooms.add(_new);
 		_new.addDoor(this);
-	}
-	
-	/**
-	 * Bezárja az ajtót
-	 */
-	public void close() {
-		isClosed = true;
-	}
-	
-	/**
-	 * Kinyitja az ajtót
-	 */
-	public void open() {
-		isClosed = false;
 	}
 }
