@@ -219,6 +219,7 @@ public class Room {
 	 */
 	public void split() {
 		String newSplitId = this.getId() + "."  + this.numberOfSplitsFromThis;
+		numberOfSplitsFromThis++;
 		Room newRoom = new Room(this.maxCapacity, this.gassedRoom, this.clothedRoom, this.visitors, this.magical, this.sticky, newSplitId);
 		Door newDoor = new Door(this, newRoom);
 		newRoom.addDoor(newDoor);
