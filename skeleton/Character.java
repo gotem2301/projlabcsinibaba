@@ -47,8 +47,10 @@ public abstract class Character {
     public void setDazed(boolean dazed){
         if(dazed){
             for(Item i : inventory) {
-                if (i != null && i.protectMe()) {
-                    return;
+                if (i != null) {
+                    if (i.protectMe()) {
+                        return;
+                    }
                 }
             }
             Dazed = true;
