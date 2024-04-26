@@ -1,5 +1,4 @@
 package skeleton;
-import java.util.Scanner;
 public class Beer extends Item {
 
     /**
@@ -30,7 +29,6 @@ public class Beer extends Item {
      */
     public Beer(String id, Room r, Character c, int i) {
         super(id, r, c);
-        System.out.println("Beer konstruktor hivas.");
         remainingTime = i;
     }
 
@@ -40,14 +38,8 @@ public class Beer extends Item {
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
     public void lowerRemainingTime() {
-        System.out.println("LowerRemainingUse fuggveny hivas.");
-        System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        if(s.equals("0")) {
-            remainingTime = 1;
-        }
         remainingTime = remainingTime - 1;
+        System.out.println(heldBy.getId() + " used " + id);
         if(remainingTime == 0) {
             heldBy.removeItem(this);
         }
@@ -59,8 +51,6 @@ public class Beer extends Item {
      */
     @Override
     public int saveMe() {
-        System.out.println("SaveMe fuggveny hivas.");
-        System.out.println("Visszateres: 2.");
         return 2;
     }
 }

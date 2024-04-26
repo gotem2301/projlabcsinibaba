@@ -6,7 +6,6 @@ public class AirFreshener extends Item implements Usable{
      */
     public AirFreshener(String id, Room r, Character c) {
         super(id, r, c);
-        System.out.println("AirFreshener konstruktor hivas.");
     }
 
     /**
@@ -14,12 +13,12 @@ public class AirFreshener extends Item implements Usable{
      * Egyebkent az a szoba nem lesz gazos, amelyikben az a karakter van, akinel van a legfrissito.
      */
     public void use(){
-        System.out.println("AirFreshener use hivas.");
         if (containedBy != null){
             containedBy.setgassedRoom(false);
         }
         else{
             heldBy.getCurrentRoom().setgassedRoom(false);
+            System.out.println(heldBy.getId() + " degassed " + heldBy.getCurrentRoom().getId());
         }
     }
 }

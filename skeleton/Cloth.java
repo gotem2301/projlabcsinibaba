@@ -30,7 +30,6 @@ public class Cloth extends Item {
     public Cloth(String id, Room r, Character c) {
         super(id, r, c);
         remainingTime = 3;
-        System.out.println("Cloth konstruktor hivas.");
     }
 
 
@@ -40,8 +39,6 @@ public class Cloth extends Item {
      */
     @Override
     public int saveMe() {
-        System.out.println("SaveMe fuggveny hivas.");
-        System.out.println("Visszateres: 3.");
         return 3;
     }
 }

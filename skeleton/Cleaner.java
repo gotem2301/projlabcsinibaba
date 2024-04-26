@@ -11,6 +11,7 @@ public class Cleaner extends Character {
     @Override
     public void setCurrentRoom(Room r){
         currentRoom = r;
+        System.out.println(ID + " entered " + currentRoom.getId());
         currentRoom.cleanRoom();
     }
 

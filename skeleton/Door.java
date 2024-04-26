@@ -92,10 +92,9 @@ public class Door implements ID {
 			c.setCurrentRoom(other);
 			r.removeCharacter(c);
 			other.addCharacter(c);
-			System.out.println("Sikeresen átlépett " + c.getId() + " az " + other.getId() + " szobába");
 		}
-		else {
-			System.out.println("Az átlépés sikertelen mert az " + other.getId() +  " szoba tele van");
+		else{
+			System.out.println(c.getId() + " failed to enter " + r.getId());
 		}
 	}
 	

@@ -76,7 +76,9 @@ public class Mask extends Item {
         remainingTime = i;
         usedTimes = 0;
         fake = b;
-        System.out.println("Mask konstruktor hivas.");
+        if(fake) {
+            System.out.println(id + " is fake");
+        }
     }
 
 
@@ -84,7 +86,6 @@ public class Mask extends Item {
      * Noveli a hasznalat szamat.
      */
     public void increaseUsedTimes() {
-        System.out.println("IncreaseUsedTimes fuggveny hivas.");
         if (fake) {
             return;
         }
@@ -96,7 +97,6 @@ public class Mask extends Item {
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
     public void lowerRemainingTime() {
-        System.out.println("LowerRemainingTime fuggveny hivas.");
         if (fake) {
             return;
         }
@@ -112,8 +112,6 @@ public class Mask extends Item {
      */
     @Override
     public boolean protectMe() {
-        System.out.println("ProtectMe fuggveny hivas.");
-        System.out.println("Visszateres: true.");
         return true;
     }
 }

@@ -41,7 +41,13 @@ public class Room implements ID {
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
 		numberOfSplitsFromThis = 0;
-		System.out.println(_id + " created");
+		System.out.println(id + " created");
+		if(sticky) {
+			System.out.println(id + " is sticky");
+		}
+		if(gassedRoom) {
+			System.out.println(id + " is gassed");
+		}
 	}
 
 	/**
@@ -152,6 +158,7 @@ public class Room implements ID {
 	public void addItem(Item i) {
 		if(i != null) {
 			items.add(i);
+			System.out.println(i.getId() + " added to " + id);
 		}
 	}
 	/**
@@ -218,6 +225,7 @@ public class Room implements ID {
 	 * Kezdeményezi a szoba szétválását
 	 */
 	public void split() {
+		System.out.println(id + " split");
 		String newSplitId = this.getId() + "."  + this.numberOfSplitsFromThis;
 		numberOfSplitsFromThis++;
 		Room newRoom = new Room(newSplitId, this.gassedRoom, this.clothedRoom, this.maxCapacity, this.magical, this.sticky, this.visitors);
@@ -262,6 +270,7 @@ public class Room implements ID {
 		if(clothedRoom > 0) {return;}
 		
 		for(Character ch : tmp) {
+			System.out.println(ch.getId() + " failed");
 			characters.remove(ch);
 			ch.dropEverything();
 		}
@@ -281,9 +290,11 @@ public class Room implements ID {
 	 */
 	public void mergeWithRoom(Room r) {
 		if(Math.max(maxCapacity, r.getMaxCapacity()) < (this.characters.size() + r.getCharacters().size())) {
+			System.out.println(id + " and " + r.getId() + " failed to merge");
 			return;
 		}
 		
+		System.out.println(id + " and " + r.getId() + " merged into " + id);
 		if(maxCapacity < r.getMaxCapacity()) {
 			maxCapacity = r.getMaxCapacity();
 		}
@@ -388,6 +399,8 @@ public class Room implements ID {
 		}
 		visitors = 0;
 		sticky = false;
+		gassedRoom = false;
+		System.out.println(id + " is clean");
 	}
 	
 	/**

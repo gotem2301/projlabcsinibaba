@@ -442,7 +442,7 @@ public class Proto {
         commands.add(args);
     }
     public void use(List<String> args){
-        Item item = findID(allItems, args.get(2));
+        Item item = findID(allItems, args.get(1));
 
         item.use();
         commands.add(args);

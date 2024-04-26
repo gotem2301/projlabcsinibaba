@@ -16,7 +16,7 @@ public abstract class Item implements ID {
     /**
      * Itemek azonositasara szolgalo Id.
      */
-    private String id;
+    protected String id;
 
     /**
      * heldBy getter, visszaadja azt a Charactert, akinel van az Item.
@@ -73,10 +73,8 @@ public abstract class Item implements ID {
      * @return - Ha nem a logarlecrol van szo akkor false.
      */
     public boolean transfer(Character c, Room r) {
-        System.out.println("Transfer fuggveny hivas.");
         heldBy = c;
         containedBy = r;
-        System.out.println("Visszateres: false.");
         return false;
     }
 
@@ -85,7 +83,6 @@ public abstract class Item implements ID {
      * @param r - Az uj szoba ahol lesz az item.
      */
     public void updateRoom(Room r) {
-        System.out.println("UpdateRoom fuggveny hivas.");
         containedBy = r;
     }
 
@@ -94,8 +91,6 @@ public abstract class Item implements ID {
      * @return - Alapertelmezetten nem ment meg egy item, ezt a 0 jelzi.
      */
     public int saveMe() {
-        System.out.println("SaveMe fuggveny hivas.");
-        System.out.println("Visszateres: 0.");
         return 0;
     }
 
@@ -104,8 +99,6 @@ public abstract class Item implements ID {
      * @return - Alapertelmezetten nem ved meg egy item, ezt a false jelzi.
      */
     public boolean protectMe() {
-        System.out.println("ProtectMe fuggveny hivas.");
-        System.out.println("Visszateres: false.");
         return false;
     }
 
@@ -128,7 +121,12 @@ public abstract class Item implements ID {
         heldBy = c;
         containedBy = r;
         if(containedBy != null){
+            System.out.println(id + " created in " + containedBy.getId());
             containedBy.addItem(this);
+        }
+        else{
+            System.out.println(id + " created in " + heldBy.getId());
+            heldBy.pickUpItem(this);
         }
     }
 }

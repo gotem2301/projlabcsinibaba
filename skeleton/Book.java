@@ -54,7 +54,9 @@ public class Book extends Item {
         super(id, r, c);
         remainingUse = i;
         fake = b;
-        System.out.println("Book konstruktor hivas.");
+        if(fake) {
+            System.out.println(id + " is fake");
+        }
     }
 
     /**
@@ -63,18 +65,11 @@ public class Book extends Item {
      */
     @Override
     public void lowerRemainingUse() {
-        System.out.println("LowerRemainingUse fuggvény hivas.");
         if(fake){
             return;
         }
-        System.out.println("Utolso hasznalat legyen?\n" + "[0] Igen    [Barmi mas] Nem\n");
-
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        if(s.equals("0")) {
-            remainingUse = 1;
-        }
         remainingUse = remainingUse - 1;
+        System.out.println(heldBy.getId() + " used " + id);
         if(remainingUse == 0) {
             heldBy.removeItem(this);
         }
@@ -86,8 +81,6 @@ public class Book extends Item {
      */
     @Override
     public int saveMe() {
-        System.out.println("SaveMe fuggveny hivas.");
-        System.out.println("Visszateres: 1.");
         return 1;
     }
 }

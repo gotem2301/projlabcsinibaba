@@ -12,8 +12,6 @@ public class Transistor extends Item implements Usable {
      */
     public Transistor(String id, Room r, Character c){
         super(id, r, c);
-
-        System.out.println("Transistor konstruktor hivas.");
     }
 
     /**
@@ -21,7 +19,6 @@ public class Transistor extends Item implements Usable {
      * @return A Transistor parja
      */
     public Transistor getPair(){
-        System.out.println("Transistor getPair() hivas.");
         return pair;
     }
 
@@ -30,7 +27,6 @@ public class Transistor extends Item implements Usable {
      * @param t A Transistor uj parja
      */
     public void setPair(Transistor t){
-        System.out.println("Transistor setPair() hivas.");
         this.pair = t;
     }
 
@@ -39,7 +35,6 @@ public class Transistor extends Item implements Usable {
      * @return A szoba, ahol van a Transistor
      */
     public Room getRoom(){
-        System.out.println("Transistor getRoom() hivas.");
         return containedBy;
     }
 
@@ -47,7 +42,7 @@ public class Transistor extends Item implements Usable {
      * Bekapcsol egy tranzisztort
      */
     public void use(){
-        System.out.println("Transistor use hivas.");
+        System.out.println(heldBy.getId() + " used " + id);
         Character s = this.heldBy;
         Room t1Room = this.getRoom();
         Transistor t1 = this;
@@ -68,9 +63,7 @@ public class Transistor extends Item implements Usable {
             t1Room.removeCharacter(s);
             t1Room.addItem(t1);
             this.transfer(null, t1Room);
-            System.out.println("Transistor use sikeres.");
             return;
         }
-        System.out.println("Transistor use sikertelen.");
     }
 }

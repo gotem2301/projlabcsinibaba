@@ -29,7 +29,9 @@ public class SlidingRuler extends Item {
     public SlidingRuler(String id, Room r, Character c, boolean b) {
         super(id, r, c);
         fake = b;
-        System.out.println("SlidingRuler konstruktor hivas.");
+        if(fake) {
+            System.out.println(id + " is fake");
+        }
     }
 
 
@@ -38,10 +40,8 @@ public class SlidingRuler extends Item {
      */
     @Override
     public boolean transfer(Character c, Room r) {
-        System.out.println("Transfer fuggveny hivas.");
         heldBy = c;
         containedBy = r;
-        System.out.println("Visszateres: true.");
         return true;
     }
 }

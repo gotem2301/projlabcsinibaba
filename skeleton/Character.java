@@ -76,6 +76,7 @@ public abstract class Character implements ID {
      */
     public void setCurrentRoom(Room r){
         currentRoom = r;
+        System.out.println(ID + " entered " + currentRoom.getId());
     }
 
 
@@ -154,7 +155,7 @@ public abstract class Character implements ID {
      *  kulon kell definialni (A teacher nem veheti fel)
      * @param i - Az item amit fel akarunk venni
      */
-    public abstract void pickUpItem(Item i);
+    public void pickUpItem(Item i) {};
 
     public void teacherDuty() {}
 
