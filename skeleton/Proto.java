@@ -15,6 +15,7 @@ public class Proto {
     private int nOfTeachers = 0;
     private int nOfCleaners = 0;
     private List<Item> allItems = new ArrayList<>();
+
     private List<List<String>> commands = new ArrayList<>();
     private boolean isRunning = true;
     private int Time = Integer.MAX_VALUE;
@@ -229,7 +230,7 @@ public class Proto {
 
         boolean dazed = converter(args.get(1));
         String id = "c";
-        id = id.concat(Integer.toString(nOfCleaners));
+        id = id.concat(Integer.toString(nOfCleaners++));
 
         Room r = findID(allRooms, args.get(2));
         Cleaner cleaner = new Cleaner(id, r);
@@ -241,7 +242,58 @@ public class Proto {
     }
 
     public void newItem(List<String> args){
+        Room room;
+        Character character;
+        Item item;
+        if(args.get(2).equals("-")){
+            room = null;
+            character = findID(allCharacters, args.get(3));
+        }else{
+            character = null;
+            room = findID(allRooms, args.get(2));
+        }
 
+        String id = "i";
+        id = id.concat(Integer.toString(allItems.size()));
+
+        int remaining;
+        boolean fake;
+
+        switch (args.get(1)){
+            case "1":
+                item = new Transistor(id, room, character);
+                break;
+            case "2":
+                item = new Cloth(id, room, character);
+                break;
+            case "3":
+                remaining = Integer.parseInt(args.get(4));
+                fake = converter(args.get(5));
+                item = new Mask(id, room, character, remaining, fake);
+                break;
+            case "4":
+                item = new Camembert(id, room, character);
+                break;
+            case "5":
+                remaining = Integer.parseInt(args.get(4));
+                fake = converter(args.get(5));
+                item = new Book(id, room, character, remaining, fake);
+                break;
+            case "6":
+                remaining = Integer.parseInt(args.get(4));
+                item = new Beer(id, room, character, remaining);
+
+                break;
+            case "7":
+                item = new AirFreshener(id, room, character);
+                break;
+            case "8":
+                fake = converter(args.get(4));
+                item = new SlidingRuler(id, room, character, fake);
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
         commands.add(args);
     }
     public void newDoor(List<String> args){
