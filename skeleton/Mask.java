@@ -1,4 +1,5 @@
 package skeleton;
+import java.lang.invoke.ClassSpecializer.Factory;
 import java.util.Scanner;
 
 public class Mask extends Item {
@@ -17,6 +18,54 @@ public class Mask extends Item {
      * Meghatarozza, hogy a targy hamis verzioja-e.
      */
     private boolean fake;
+
+    /**
+     * remainingTime getter, visszaadja, hogy mennnyi ideig hasznalhato meg a Mask.
+     * @return Fennmarado ido a hasznalatbol
+     */
+    public int getRemainingTime(){
+        return remainingTime;
+    }
+
+    /**
+     * remainingTime setter, beallitja az uj hatralevo idot a hasznalatbol.
+     * @param newRemainingTime Uj fennmarado ido
+     */
+    public void setRemainigTime(int newRemainingTime){
+        remainingTime = newRemainingTime;
+    }
+
+    /**
+     * usedTimes getter, visszaadja, hogy hanyszor volt eddig hasznalva a Mask.
+     * @return Hasznalatok szama
+     */
+    public int getUsedTimes(){
+        return usedTimes;
+    }
+
+    /**
+     * usedTimes setter, beallitja, hogy hanyszor volt eddig hasznalva a Mask.
+     * @param newUsedTimes (Uj) hasznalatok szama
+     */
+    public void setUsedTimes(int newUsedTimes){
+        usedTimes = newUsedTimes;
+    }
+
+    /**
+     * fake getter, visszaadja, hogy a Mask hamis-e.
+     * @return Hamis-e a Mask
+     */
+    public boolean getFake(){
+        return fake;
+    }
+
+    /**
+     * fake setter, beallitja, hogy a Mask hamis-e.
+     * @param newFake Uj hamissag
+     */
+    public void setFake(boolean newFake){
+        fake = newFake;
+    }
     
     /**
      * Konstruktor: letrehoz egy maszkot.

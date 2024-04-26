@@ -7,6 +7,22 @@ public class SlidingRuler extends Item {
     private boolean fake;
 
     /**
+     * fake getter, visszaadja, hogy a SlidingRuler hamis-e.
+     * @return Hamis-e a SlidingRuler
+     */
+    public boolean getFake(){
+        return fake;
+    }
+
+    /**
+     * fake setter, beallitja, hogy a SlidingRuler hamis-e.
+     * @param newFake Uj hamissag
+     */
+    public void setFake(boolean newFake){
+        fake = newFake;
+    }
+
+    /**
      * Konstruktor: letrehoz egy logarlecet.
      * @param r - Melyik szobaban legyen letrehozva.
      */

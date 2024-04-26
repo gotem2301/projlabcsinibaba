@@ -69,7 +69,7 @@ public class Skeleton {
                     break kerdes;
                 case "1":
                     // tvsz megvéd
-                    Book tvsz = new Book(r1);
+                    Book tvsz = new Book(r1, false);
                     s.pickUpItem(tvsz);
                     s.enterRoom(d);
                     break kerdes;
@@ -126,7 +126,7 @@ public class Skeleton {
             switch (Skeleton.scanner.nextLine()) {
                 case "i":
                     // használja a maszkot
-                    Mask m = new Mask(r1);
+                    Mask m = new Mask(r1, false);
                     s.pickUpItem(m);
                     s.enterRoom(d);
                     break kerdes;

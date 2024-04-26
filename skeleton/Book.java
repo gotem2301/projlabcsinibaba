@@ -14,6 +14,38 @@ public class Book extends Item {
     private boolean fake;
 
     /**
+     * remainingUse getter, visszaadja, hogy hanyszor lehet meg hasznalni a Book-ot.
+     * @return Hatralevo hasznalat
+     */
+    public int getRemainingUse(){
+        return remainingUse;
+    }
+
+    /**
+     * remainingUse setter, beallitja, hogy hanyszor lehet meg hasznalni a Book-ot.
+     * @param newRemainingUse Uj hatralevo hasznalat
+     */
+    public void setRemainingUse(int newRemainingUse){
+        remainingUse = newRemainingUse;
+    }
+
+    /**
+     * fake getter, visszaadja, hogy a Book hamis-e.
+     * @return Hamis-e a Book
+     */
+    public boolean getFake(){
+        return fake;
+    }
+
+    /**
+     * fake setter, beallitja, hogy a Book hamis-e.
+     * @param newFake Uj hamissag.
+     */
+    public void setFake(boolean newFake){
+        fake = newFake;
+    }
+
+    /**
      * Konstruktor: letrehoz egy TVSZ-t.
      * @param r - Melyik szobaban legyen letrehozva.
      * @param b - Hamis verzio-e.

@@ -14,6 +14,59 @@ public abstract class Item {
     protected Room containedBy;
 
     /**
+     * Itemek azonositasara szolgalo Id.
+     */
+    private String id;
+
+    /**
+     * heldBy getter, visszaadja azt a Charactert, akinel van az Item.
+     * @return Itemet hordozo Character
+     */
+    public Character getHeldBy(){
+        return heldBy;
+    }
+
+    /**
+     * heldBy setter, beallitja azt a Charactert, aki az Item uj hordozoja. 
+     * @param newHolder Uj hordozo Character
+     */
+    public void setHeldBy(Character newHolder){
+        heldBy = newHolder;
+    }
+
+    /**
+     * containedBy getter, visszaadja azt a Room-ot, amelyikben van az Item.
+     * @return Az a szoba, ahol az Item talalhato
+     */
+    public Room getContainedBy(){
+        return containedBy;
+    }
+
+    /**
+     * containedBy setter, beallitja azt a Room-ot, ahol az Item megtalalhato lesz.
+     * @param newContainer Az a szoba, ahol az Item megtalalhato lesz
+     */
+    public void setContainedBy(Room newContainer){
+        containedBy = newContainer;
+    }
+
+    /**
+     * id getter, visszaadja az Item azonositojat.
+     * @return Item azonositoja
+     */
+    public String getId(){
+        return id;
+    }
+
+    /**
+     * id setter, beallitja az Item azonositojat.
+     * @param newId Item uj azonositoja
+     */
+    public void setId(String newId){
+        id = newId;
+    }
+
+    /**
      * Atallitja mindket tagvaltozot.
      * @param c - Az uj karakter akinel lesz az item.
      * @param r - Az uj szoba ahol lesz az item.

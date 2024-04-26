@@ -7,6 +7,21 @@ public class Beer extends Item {
      */
     private int remainingTime;
 
+    /**
+     * remainingTime getter, visszaadja, hogy mennnyi ideig hasznalhato meg a Beer.
+     * @return Fennmarado ido a hasznalatbol
+     */
+    public int getRemainingTime(){
+        return remainingTime;
+    }
+
+    /**
+     * remainingTime setter, beallitja az uj hatralevo idot a hasznalatbol.
+     * @param newRemainingTime Uj fennmarado ido
+     */
+    public void setRemainigTime(int newRemainingTime){
+        remainingTime = newRemainingTime;
+    }
 
     /**
      * Konstruktor: letrehoz egy sort.
