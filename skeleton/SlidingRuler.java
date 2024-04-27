@@ -42,6 +42,6 @@ public class SlidingRuler extends Item {
     public boolean transfer(Character c, Room r) {
         heldBy = c;
         containedBy = r;
-        return true;
+        return !fake;
     }
 }
