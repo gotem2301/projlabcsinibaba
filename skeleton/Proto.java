@@ -7,19 +7,54 @@ import java.util.Scanner;
 
 public class Proto {
 
-
+    /**
+     * Az osszes szobat eltarolom ami letrejon a futas soran
+     */
     private List<Room> allRooms = new ArrayList<>();
+    /**
+     * Az osszes ajtot eltarolom ami letrejon a futas soran
+     */
     private List<Door> allDoors = new ArrayList<>();
+    /**
+     * Az osszes karaktert eltarolom ami letrejon a futas soran
+     */
     private List<Character> allCharacters = new ArrayList<>();
+    /**
+     * Mivel az osszes karakter egy kozos listaban van, de az id-juk kulonbozo, ezert
+     * mindegyiknek kulon tarolom a db szamat. Ez a hallgatok szama.
+     */
     private int nOfStudents = 0;
+    /**
+     * Oktatok szama
+     */
     private int nOfTeachers = 0;
+    /**
+     * Takaritok szama
+     */
     private int nOfCleaners = 0;
+    /**
+     * Az osszes targyat eltarolom ami letrejon a futas soran
+     */
     private List<Item> allItems = new ArrayList<>();
 
+    /**
+     * A futas soran beirt parancsokat itt eltarolom, igy kesobb a mentesnel csak ezt kell kiirni
+     * a .txt fileba, es a betolteskor a jo allapot toltodik vissza.
+     */
     private List<List<String>> commands = new ArrayList<>();
+    /**
+     * Itt tarolodik hogy a jatek fut-e
+     */
     private boolean isRunning = true;
+    /**
+     * A jatekbol hatralevo ido
+     */
     private int Time = Integer.MAX_VALUE;
 
+    /**
+     * Ez a fuggveny oldja meg az ido csokkenteset, KULON THREADEN KELL INDITANI, ez legyen a
+     * belepesi pont
+     */
     private void gameTime(){
         Time--;
         try {
@@ -30,7 +65,14 @@ public class Proto {
 
     }
 
-
+    /**
+     * A parancsertelmezo fuggveny, kap egy InputStream tipusu valtozot, es abban megprobalja
+     * kikeresni a parancsokat, vegigmeny a soron es a szokozok menten felbontja a sort tobb stringre.
+     * System.In-el pseudo parancs sorkent hasznalhato, de fajlbol beolvasott sorokat is ezzel
+     * tudunk lefuttatni, miutan InputStreamet csinaltunk belole. Addig olvas amig a felhasznalo ki
+     * nem lep, vagy elfogytak a sorok
+     * @param inputStream - Ebben az InputStreamben fogja keresni a parancsokat.
+     */
     public void Run(InputStream inputStream){
         Scanner scanner = new Scanner(inputStream);
         while(isRunning && scanner.hasNext()) {
@@ -149,6 +191,14 @@ public class Proto {
         }
     }
 
+    /**
+     * A parancsaink a boolean ertekeket '+' ha true '-' ha false formaban varjak, ez a
+     * fuggveny az ilyen stringek boolean erteket adja vissza, ha van
+     * @param s - A konvertalando string
+     * @return - Ha a string "+" akkor true, ha "-" akkor false a visszateresi ertek
+     * @throws IllegalArgumentException - Ezt akkor dobja ha a string nem "+" vagy "-", tehat rosszul
+     * lett parameterezve a beirt parancs
+     */
     private boolean converter(String s) throws IllegalArgumentException {
         if (s.equals("+"))
             return true;
@@ -159,6 +209,18 @@ public class Proto {
         throw new IllegalArgumentException();
     }
 
+
+    /**
+     * Egy generikus fuggveny, ami kap egy listat meg egy stringet, es megkeresi a listaban
+     * azt az elemet aminek az id-je megegyezik a kapott stringgel
+     * @param list - A lista amiben a keresest vegezzuk
+     * @param id - Az id amit meg akarunk keresni a listaban
+     * @return - Visszaadja az elemet aminek id-je megegyezett a keresettel
+     * @param <T> - Olyan tipusokat varunk amik megvalostitjak az ID interface-t, azaz van getId()
+     *           fuggvenyuk
+     * @throws IllegalArgumentException - Ezt a kivetelt akkor dobja ha nem talalta meg a listaban a
+     *     keresett id-t, azaz a parancsnak a parameterekent rossz objektumot adott meg a felhasznalo
+     */
     private <T extends ID> T findID(List<T> list, String id) throws IllegalArgumentException {
         for(T element : list) {
             if(element.getId().equals(id))
@@ -167,7 +229,18 @@ public class Proto {
         throw new IllegalArgumentException(id + " nem jó");
     }
 
-    public void newRoom(List<String> args) throws IllegalArgumentException {
+    /**
+     * Letrehoz egy szoba objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, a parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 Gazos-e a szoba
+     *             2 A szobaban van-e "rongyos oktato"
+     *             3 A szoba maximalis kapacitasa
+     *             4 Magikus-e a szoba, azaz hogy az ajtoi eltunnek-e adott idonkent
+     *             5 ragacsos-e a szoba
+     *             6 a legutobbi takaritas ota belepo karakterek szama
+     */
+    public void newRoom(List<String> args){
         if(args.size() != 7){
             throw new IllegalArgumentException();
         }
@@ -187,7 +260,14 @@ public class Proto {
         commands.add(args);
 
     }
-    public void newStudent(List<String> args) throws IllegalArgumentException {
+    /**
+     * Letrehoz egy Hallgato objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 El van-e kabulva
+     *             2 A szoba objektum amiben tartozkodik
+     */
+    public void newStudent(List<String> args){
         if(args.size() != 3){
             throw new IllegalArgumentException();
         }
@@ -204,7 +284,15 @@ public class Proto {
         allCharacters.add(student);
         commands.add(args);
     }
-    public void newTeacher(List<String> args) throws IllegalArgumentException {
+    /**
+     * Letrehoz egy Oktato objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 Kabult allapot
+     *             2 Rongyos allapot
+     *             3 A szoba amiben jelenleg tartozkodik
+     */
+    public void newTeacher(List<String> args){
         if(args.size() != 4){
             throw new IllegalArgumentException();
         }
@@ -223,7 +311,14 @@ public class Proto {
         allCharacters.add(teacher);
         commands.add(args);
     }
-    public void newCleaner(List<String> args) throws IllegalArgumentException {
+    /**
+     * Letrehoz egy Takarito objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 El van-e kabulva
+     *             2 A szoba objektum amiben tartozkodik
+     */
+    public void newCleaner(List<String> args){
         if(args.size() != 3){
             throw new IllegalArgumentException();
         }
@@ -240,7 +335,22 @@ public class Proto {
         allCharacters.add(cleaner);
         commands.add(args);
     }
-
+    /**
+     * Letrehoz egy Targybol szarmaztatott objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 A targy tipusa (a tipusokat lasd lentebb)
+     *             2 A szoba amiben jelenleg van, ha karakternel van es nem szobaban akkor ez '-'
+     *             3 A karakter akinel jelenleg van, ha szobaban van akkor ez '-'
+     *             4 Ha a targy csak parszor hasznalhato, akkor hasznalatok szama
+     *             5 Ha a targynak van hamis verzioja, akkor az itt adhato meg
+     *             A 4-es es 5-os indexu parameterek targy fuggok, de csak akkor vizsgalja oket
+     *             a program ha olyan tipusu targyat hozunk letre, de minden esetben meg kell adni
+     *             ezt az 5 argumentumot.
+     * Targyak tipusa:
+     *             1 tranzisztor, 2 rongy, 3 maszk, 4 camembert, 5 tvsz, 6 sor,
+     *             7 legfrissito, 8 logarlec
+     */
     public void newItem(List<String> args){
         Room room;
         Character character;
@@ -288,7 +398,7 @@ public class Proto {
                 item = new AirFreshener(id, room, character);
                 break;
             case "8":
-                fake = converter(args.get(4));
+                fake = converter(args.get(5));
                 item = new SlidingRuler(id, room, character, fake);
                 break;
             default:
@@ -297,6 +407,15 @@ public class Proto {
         allItems.add(item);
         commands.add(args);
     }
+    /**
+     * Letrehoz egy Ajto objektumot a parancsban megadott parameterekket
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 A kisebb sorszamu szoba
+     *             2 A nagyobb sorszamu szoba
+     *             3 egyiranyu-e az ajto
+     *             4 Az ajto lathatosaga
+     */
     public void newDoor(List<String> args){
         if(args.size() != 5){
             throw new IllegalArgumentException();
@@ -316,14 +435,36 @@ public class Proto {
         allDoors.add(door);
         commands.add(args);
     }
+
+    /**
+     * Be lehet allitani a hatralevo idot
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 Hatralevo ido
+     */
     public void setTime(List<String> args){
         Time = Integer.parseInt(args.get(1));
         commands.add(args);
     }
+
+    /**
+     * A kapott szobat kette bontja
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 A szoba ami szet lesz szedve
+     */
     public void split(List<String> args){
         Room room = findID(allRooms, args.get(1));
         commands.add(args);
     }
+
+    /**
+     * A ket kapott szobat osszeolvasztja
+     * @param args - a parancsban megadott parameterek, parameterei elottuk az args listaban
+     *             levo indexukkel:
+     *             1 Az egyik szoba
+     *             2 A masik szoba
+     */
     public void merge(List<String> args){
 
         Room r1 = findID(allRooms, args.get(1));
@@ -332,6 +473,12 @@ public class Proto {
 
         commands.add(args);
     }
+
+    /**
+     * Kilistazza az osszes parameternek megfelelo objektumot ami jelenleg letezik
+     * @param args - A parancs parameterei,
+     *             1-es indexen az osztaly amiket kiirunk
+     */
     public void listAll(List<String> args){
         if(args.size() != 2)
             throw new IllegalArgumentException();
@@ -376,6 +523,12 @@ public class Proto {
         }
         System.out.println();
     }
+
+    /**
+     * A parameterkent megadott szobanak osszes adatat kiirja, pl.: Allapot, kik vannak benne.
+     * @param args - A parancs parameterei,
+     *             benne 1-es indexen a szoba
+     */
     public void listRoom(List<String> args){
         Room room = findID(allRooms, args.get(1));
         System.out.println("State: " + room.getgassedRoom() + " " + room.getclothedRoom() + " " +
@@ -395,6 +548,12 @@ public class Proto {
 
 
     }
+
+    /**
+     * A paramerkent megadott karakter objektum osszes adatat kiirja
+     * @param args - a parancs parameterei,
+     *             1-es indexen a karakter.
+     */
     public void listChar(List<String> args){
         Character character = findID(allCharacters, args.get(1));
         System.out.println("Dazed: " + character.getDazed());
@@ -407,12 +566,24 @@ public class Proto {
         System.out.println("Room: " + character.getCurrentRoom().getId());
 
     }
+
+    /**
+     * A paramerkent megadott targy objektum osszes adatat kiirja
+     * @param args - a parancs parameterei,
+     *             1-es indexen a targy
+     */
     public void listItem (List<String> args){
         Item item = findID(allItems, args.get(1));
         System.out.println("Room: " + item.getContainedBy().getId());
         System.out.println("Character: " + item.getHeldBy().getId());
 
     }
+
+    /**
+     * A paramerkent megadott ajto objektum osszes adatat kiirja
+     * @param args - a parancs parameterei,
+     *             1-es indexen az ajto
+     */
     public void listDoor(List<String> args){
         Door door = findID(allDoors, args.get(1));
         System.out.println("isOneWay: " + door.getIsOneWay() );
@@ -420,6 +591,13 @@ public class Proto {
         List<Room> rooms = door.getRooms();
         System.out.println("Rooms: " + rooms.get(0).getId() + " " + rooms.get(1).getId());
     }
+
+    /**
+     * A parancs belepteti a kapott karaktert a kapott ajton.
+     * @param args - a parancs parameterei,
+     *             1-es indexen karakter,
+     *             2-es indexen az ajto
+     */
     public void enter(List<String> args){
         Character character = findID(allCharacters, args.get(1));
         Door door = findID(allDoors, args.get(2));
@@ -427,6 +605,13 @@ public class Proto {
         character.enterRoom(door);
         commands.add(args);
     }
+
+    /**
+     * A parancs felveteti a kapott karakterrel a kapott targyat
+     * @param args - A parancs parameterei,
+     *             1-es index karakter,
+     *             2-es index targy
+     */
     public void pickUp(List<String> args){
         Character character = findID(allCharacters, args.get(1));
         Item item = findID(allItems, args.get(2));
@@ -434,6 +619,13 @@ public class Proto {
         character.pickUpItem(item);
         commands.add(args);
     }
+
+    /**
+     * A parancs hatasara a kapott karakter eldobja a kapott targyat
+     * @param args - A parancs parameterei
+     *             1-es index karakter
+     *             2-es index targy
+     */
     public void drop(List<String> args){
         Character character = findID(allCharacters, args.get(1));
         Item item = findID(allItems, args.get(2));
@@ -447,6 +639,14 @@ public class Proto {
         item.use();
         commands.add(args);
     }
+
+    /**
+     * A parancs hatasara a kapott karakter osszekapcsolja a ket kapott tranzisztort
+     * @param args - a parancs parameterei,
+     *             1-es index tanulo,
+     *             2-es index egyik tranzisztor
+     *             3-as index masik tranzisztor
+     */
     public void connect(List<String> args){
         Student student = (Student) findID(allCharacters, args.get(1));
         Transistor t1 = (Transistor) findID(allItems, args.get(2));
@@ -457,6 +657,13 @@ public class Proto {
 
         commands.add(args);
     }
+
+    /**
+     * Betolti a kapott sorszamu teszt fajlt, es lefuttatja a benne levo parancsokat
+     * a parancsertelmezoben.
+     * @param args - A parancs parameterei,
+     *             1-es indexen a betoltendo fajl neve
+     */
     public void loadGame(List<String> args){
         File currentDirectory = new File("skeleton");
         File testDirectory = new File(currentDirectory, "test");
@@ -472,6 +679,12 @@ public class Proto {
         }
         commands.add(args);
     }
+
+    /**
+     * A jatek jelen allasat kimenti egy fajlba
+     * @param args - a parancs parameterei,
+     *             1-es index a fajl neve
+     */
     public void saveGame(List<String> args){
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("skeleton\\test\\saves\\" + args.get(1) + ".txt"))) {
@@ -492,6 +705,12 @@ public class Proto {
         }
 
     }
+
+    /**
+     * Indit egy uj jatekot, annyi tanuloval amennyit kapott.
+     * @param args - a parancs parameterei
+     *             1-es indexen a tanulo szama
+     */
     public void newGame(List<String> args){
         commands.add(args);
     }
