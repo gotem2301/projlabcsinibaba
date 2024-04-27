@@ -100,7 +100,7 @@ public class Door implements ID {
 			other.addCharacter(c);
 		}
 		else{
-			System.out.println(c.getId() + " failed to enter " + r.getId());
+			System.out.println(c.getId() + " failed to enter " + other.getId());
 		}
 	}
 	

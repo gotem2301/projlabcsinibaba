@@ -37,6 +37,7 @@ public class Beer extends Item {
      * Csokkenti a vedelembol hatralevo idot.
      * Ha ez eleri a 0-at akkor torli a jatekbol.
      */
+    @Override
     public void lowerRemainingTime() {
         remainingTime = remainingTime - 1;
         System.out.println(heldBy.getId() + " used " + id);
