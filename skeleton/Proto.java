@@ -50,6 +50,7 @@ public class Proto {
      * A jatekbol hatralevo ido
      */
     private int Time = Integer.MAX_VALUE;
+    private boolean gameOver = false;
 
     /**
      * Ez a fuggveny oldja meg az ido csokkenteset, KULON THREADEN KELL INDITANI, ez legyen a
@@ -57,10 +58,9 @@ public class Proto {
      */
     private void gameTime(){
         Time--;
-        try {
-            Thread.sleep(1000);
-        }catch (InterruptedException IE){
-            System.out.println(IE.toString());
+        if(Time <= 0){
+            System.out.println("Game Over");
+            System.exit(0);
         }
 
     }
@@ -75,6 +75,19 @@ public class Proto {
      */
     public void Run(InputStream inputStream){
         Scanner scanner = new Scanner(inputStream);
+        Thread timeThread = new Thread(() -> {
+            while (!gameOver) {
+                gameTime();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        timeThread.start();
+
         while(isRunning && scanner.hasNext()) {
             String command = scanner.nextLine();
 
