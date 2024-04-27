@@ -507,8 +507,10 @@ public class Proto {
                 System.out.println("Minden targy: ");
                 for(Item item : allItems){
                     System.out.println("Azonosito: " + item.getId());
-                    System.out.println("Room: " + item.getContainedBy().getId());
-                    System.out.println("Character: " + item.getHeldBy().getId());
+                    if(item.getContainedBy() != null)
+                        System.out.println("Room: " + item.getContainedBy().getId());
+                    if(item.getHeldBy() != null)
+                        System.out.println("Character: " + item.getHeldBy().getId());
                 }
                 break;
 
@@ -574,8 +576,10 @@ public class Proto {
      */
     public void listItem (List<String> args){
         Item item = findID(allItems, args.get(1));
-        System.out.println("Room: " + item.getContainedBy().getId());
-        System.out.println("Character: " + item.getHeldBy().getId());
+        if(item.getContainedBy() != null)
+            System.out.println("Room: " + item.getContainedBy().getId());
+        if(item.getHeldBy() != null)
+            System.out.println("Character: " + item.getHeldBy().getId());
 
     }
 
