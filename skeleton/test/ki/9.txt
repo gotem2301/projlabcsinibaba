@@ -6,4 +6,5 @@ d01 created
 s0 created in r1
 i0 created in r0
 r0 and r1 merged into r0
+s0 entered r0
 s0 is dazed

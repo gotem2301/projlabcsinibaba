@@ -1,4 +1,8 @@
+NewRoom - 0 1 - - 0
 NewRoom + 0 1 - - 0
+NewDoor r0 r1 - -
 NewStudent - r0
+NewItem 3 - s0 3 -
 NewItem 7 - s0 -
-Use s0 i0
+Enter s0 d01
+Use i1
