@@ -82,7 +82,7 @@ public class Student extends Character {
             }
         } 
         else {
-            System.out.println(ID + "  cant pick up " + i.getId());
+            System.out.println(ID + " cant pick up " + i.getId());
         }
     }
 }

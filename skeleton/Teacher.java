@@ -43,7 +43,7 @@ public class Teacher extends Character{
         if (!this.Dazed && !this.currentRoom.getSticky() && Arrays.stream(inventory).filter(e -> e != null).count() < 5) {
             if (i.transfer(this, null)) {
                 i.transfer(null, currentRoom);
-                System.out.println(ID + "  cant pick up " + i.getId());
+                System.out.println(ID + " cant pick up " + i.getId());
                 return;
             }
             for (int j = 0; j < 5; j++) {
@@ -56,7 +56,7 @@ public class Teacher extends Character{
             }
         } 
         else {
-            System.out.println(ID + "  cant pick up " + i.getId());
+            System.out.println(ID + " cant pick up " + i.getId());
         }
     }
 
