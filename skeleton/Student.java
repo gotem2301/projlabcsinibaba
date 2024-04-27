@@ -51,6 +51,9 @@ public class Student extends Character {
                             }
                         }
                     }
+                    if(savedBy == 3) {
+                        System.out.println(ID + " used " + i.getId());
+                    }
                     return savedBy;
                 }
             }
