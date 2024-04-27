@@ -42,6 +42,15 @@ public class Student extends Character {
                     if(savedBy == 1) {
                         i.lowerRemainingUse();
                     }
+                    if(savedBy == 2) {
+                        i.lowerRemainingTime();
+                        for (int j = 0; j < 5; j++) {
+                            if (inventory[j] != null && inventory[j] != i) {
+                                this.dropItem(inventory[j]);
+                                break;
+                            }
+                        }
+                    }
                     return savedBy;
                 }
             }

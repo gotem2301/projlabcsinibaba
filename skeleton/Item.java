@@ -107,6 +107,8 @@ public abstract class Item implements ID {
      */
     public void lowerRemainingUse() {}
 
+    public void lowerRemainingTime() {}
+
     /**
      * Fuggveny definicio, nem tud semmit.
      */
