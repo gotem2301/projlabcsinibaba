@@ -43,6 +43,9 @@ public class Door implements ID {
 
 	public void setIsOneWay(boolean b) {
 		isOneWay = b;
+		if(isOneWay){
+			System.out.println(id + " is oneway");
+		}
 	}
 	
 	/**
@@ -59,6 +62,9 @@ public class Door implements ID {
 	 */
 	public void setIsClosed(boolean b) {
 		isClosed = b;
+		if(isClosed){
+			System.out.println(id + " is closed");
+		}
 	}
 	
 	/**
