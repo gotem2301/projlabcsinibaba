@@ -16,4 +16,7 @@ public class Cleaner extends Character {
 
     @Override
     public void pickUpItem(Item i) {}
+
+    @Override
+    public void setDazed(boolean dazed) {}
 }
