@@ -1,0 +1,7 @@
+r0 created
+s0 created in r0
+i0 created in s0
+s0 picked up i0
+i1 created in s0
+s0 picked up i1
+i0 i1 connected
