@@ -12,3 +12,4 @@ s0 entered r1
 s0 used i1
 i1 added to r1
 s0 entered r0
+i1 added to r1

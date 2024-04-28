@@ -44,7 +44,7 @@ public class Transistor extends Item implements Usable {
     public void use(){
         System.out.println(heldBy.getId() + " used " + id);
         Character s = this.heldBy;
-        Room t1Room = this.getRoom();
+        Room t1Room = s.getCurrentRoom();
         Transistor t1 = this;
         Transistor t2 = this.pair;
         Room t2Room;
