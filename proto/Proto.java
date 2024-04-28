@@ -187,12 +187,6 @@ public class Proto {
 
                     case "Exit":
                         isRunning = false;
-                        for(List<String> ls : commands){
-                            for(String s : ls){
-                                System.out.print(s + " ");
-                            }
-                            System.out.println("");
-                        }
                         break;
 
                     default:
@@ -753,8 +747,6 @@ public class Proto {
             throw new IllegalArgumentException();
 
         File txt = new File(inputDirectory, args.get(1) + ".txt");
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(txt.getAbsolutePath());
         try {
             InputStream inputStream = new FileInputStream(txt);
             this.Run(inputStream);
