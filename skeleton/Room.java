@@ -401,7 +401,7 @@ public class Room implements ID {
 	 */
 	public void cleanRoom() {
 		for(Character c : characters) {
-			if(c.getDazed()) {
+			if(!(c.getDazed())) {
 				int randomSzam = (int)Math.random();
 				if(randomSzam >= doors.size()) {
 					c.enterRoom(doors.get(randomSzam));
