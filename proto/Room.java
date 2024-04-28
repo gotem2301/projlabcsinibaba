@@ -99,6 +99,11 @@ public class Room implements ID {
 				c.setDazed(true);
 			}
 		}
+		else{
+			for(Character c : characters) {
+				c.setDazed(false);
+			}
+		}
 		
 	}
 	
@@ -192,9 +197,7 @@ public class Room implements ID {
 			if(visitors >= 5 && !(this.getSticky())){
 				this.setSticky(true);
 			}
-			if(gassedRoom) {
-				c.setDazed(gassedRoom);
-			}
+			c.setDazed(gassedRoom);
 			List<Character> tmp = new ArrayList<>();
 			tmp.addAll(characters);
 			for(Character character : tmp) {
