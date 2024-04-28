@@ -81,6 +81,9 @@ public class Book extends Item {
      */
     @Override
     public int saveMe() {
+        if(fake){
+            return 0;
+        }
         return 1;
     }
 }
