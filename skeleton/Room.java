@@ -244,7 +244,19 @@ public class Room implements ID {
 				doors.get(i).replaceRoom(this, newRoom);
 			}
 		}
-		
+		// minden masodik karaktert az uj szobaba tesszuk
+		for(int i = 0; i < characters.size(); i++) {
+			if(i % 2 == 0) {
+				characters.get(i).enterRoom(newDoor);
+			}
+		}
+		// minden masodik itemet az uj szobaba tesszuk
+		for(int i = 0; i < items.size(); i++) {
+			if(i % 2 == 0) {
+				newRoom.addItem(items.get(i));
+				removeItem(items.get(i));
+			}
+		}
 	}
 	/**
 	 * Minden karaktert megpróbál kibuktatni
