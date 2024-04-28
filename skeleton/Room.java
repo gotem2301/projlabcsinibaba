@@ -180,6 +180,9 @@ public class Room implements ID {
 		if(c != null) {
 			characters.add(c);
 			this.increaseVisitors();
+			if(visitors >= 5){
+				this.setSticky(true);
+			}
 			if(gassedRoom) {
 				c.setDazed(gassedRoom);
 			}
@@ -315,22 +318,26 @@ public class Room implements ID {
 			sticky = r.sticky;
 		}
 		
+		//karakterek átpakolása
 		for(int i = 0; i < r.getCharacters().size(); i++) {
 			r.getCharacters().get(i).setCurrentRoom(this);
-
 		}
 		List<Character> tmp = new ArrayList<>();
 		tmp.addAll(r.getCharacters());
 		for(Character ch : tmp){
-
 			this.addCharacter(ch);
+			r.removeCharacter(ch);
 		}
 		
+		//tárgyak átpakolása
 		for(int i = 0; i < r.getItems().size(); i++) {
 			r.getItems().get(i).updateRoom(r);
 		}
-		for(Item it : r.getItems()){
+		List<Item> tmpItem = new ArrayList<>();
+		tmpItem.addAll(r.getItems());
+		for(Item it : tmpItem){
 			this.addItem(it);
+			r.removeItem(it);
 		}
 		//azaz ajtó amely a this és r kötti össze törölni kell
 		for(int i = 0; i < doors.size(); i++) {
@@ -347,9 +354,10 @@ public class Room implements ID {
 		for(int i = 0 ; i < r.getDoors().size(); i++) {
 			newDoors.get(i).replaceRoom(r, this);
 		}
-		for(Door door : r.getDoors()){
+		for(Door door : newDoors){
 			this.addDoor(door);
-		}	
+			r.removeDoor(door);
+		}
 	}
 	
 	/**
@@ -379,6 +387,7 @@ public class Room implements ID {
 	 * @param b boolean
 	 */
 	public void setSticky(boolean b) {
+		if(b) { System.out.println(id + " is sticky");}
 		sticky = b;
 	}
 	

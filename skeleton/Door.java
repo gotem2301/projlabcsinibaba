@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Door implements ID {
 	private String id;
+	//0.szobából lehet menni az 1.-be fordítva nem lehet
 	private boolean isOneWay;
 	private boolean isClosed;
 	private List<Room> rooms;
@@ -83,7 +84,7 @@ public class Door implements ID {
 	 */
 	public void changeRoom(Character c, Room r) {
 		//A megadott r szobának az ajtón keressztüli szomszédján hívja meg a characterEnters-t
-		Boolean result;
+		boolean result;
 		Room other;
 		if(rooms.get(0).equals(r)) {
 			result = rooms.get(1).characterEnters(c);
@@ -93,6 +94,17 @@ public class Door implements ID {
 			result = rooms.get(0).characterEnters(c);
 			other = rooms.get(0);
 		}
+		
+		if(isClosed){
+			System.out.println(c.getId() + " failed to enter " + other.getId());
+			return;
+		}
+		//Ha egyírányú és az other a 0. indexú akkor nem engedi
+		if(isOneWay && other.equals(rooms.get(0))){
+			System.out.println(c.getId() + " failed to enter " + other.getId());
+			return;
+		}
+		
 		
 		if(result) {
 			c.setCurrentRoom(other);
