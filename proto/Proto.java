@@ -366,7 +366,7 @@ public class Proto {
      *             7 legfrissito, 8 logarlec
      */
     public void newItem(List<String> args){
-        if(args.size() <= 5 && args.size() >= 3)
+        if(!(args.size() <= 5 && args.size() >= 3))
             throw new IllegalArgumentException();
 
         Room room;
