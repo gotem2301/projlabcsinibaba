@@ -1,8 +1,8 @@
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
 NewDoor r0 r1 - -
 NewDoor r1 r2 - -
 NewDoor r2 r3 - -

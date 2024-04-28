@@ -1,5 +1,5 @@
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
 NewDoor r0 r1 - -
 NewStudent - r0
 NewTeacher - 0 r1
