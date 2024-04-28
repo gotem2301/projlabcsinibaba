@@ -183,7 +183,7 @@ public class Room implements ID {
 			if(visitors >= 0){
 				this.increaseVisitors();
 			}
-			if(visitors >= 5){
+			if(visitors >= 5 && !(this.getSticky())){
 				this.setSticky(true);
 			}
 			if(gassedRoom) {
