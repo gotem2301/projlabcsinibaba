@@ -50,6 +50,7 @@ public abstract class Character implements ID {
             for(Item i : inventory) {
                 if (i != null) {
                     if (i.protectMe()) {
+                        i.lowerRemainingTime();
                         return;
                     }
                 }

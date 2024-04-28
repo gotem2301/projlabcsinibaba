@@ -112,6 +112,6 @@ public class Mask extends Item {
      */
     @Override
     public boolean protectMe() {
-        return true;
+        return !fake;
     }
 }
