@@ -468,6 +468,7 @@ public class Proto {
      */
     public void split(List<String> args){
         Room room = findID(allRooms, args.get(1));
+        room.split();
         commands.add(args);
     }
 
