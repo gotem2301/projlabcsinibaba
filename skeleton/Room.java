@@ -18,7 +18,6 @@ public class Room implements ID {
 	private List<Item> items;
 	private List<Character> characters;
 	private int numberOfSplitsFromThis;
-	private boolean cleaned;
 	
 	/**
 	 * Room kontruktora
@@ -42,7 +41,6 @@ public class Room implements ID {
 		items = new ArrayList<Item>();
 		characters = new ArrayList<Character>();
 		numberOfSplitsFromThis = 0;
-		cleaned = false;
 		System.out.println(id + " created");
 		if(sticky) {
 			System.out.println(id + " is sticky");
@@ -182,7 +180,7 @@ public class Room implements ID {
 	public void addCharacter(Character c) {
 		if(c != null) {
 			characters.add(c);
-			if(cleaned){
+			if(visitors >= 0){
 				this.increaseVisitors();
 			}
 			if(visitors >= 5){
@@ -413,7 +411,6 @@ public class Room implements ID {
 				}
 			}
 		}
-		cleaned = true;
 		visitors = 0;
 		sticky = false;
 		gassedRoom = false;
