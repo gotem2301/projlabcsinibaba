@@ -176,13 +176,14 @@ public class Proto {
                         loadGame(arguments);
                         break;
 
+                    case "Test":
+                        test(arguments);
+                        break;
+
                     case "SaveGame":
                         saveGame(arguments);
                         break;
 
-                    case "NewGame":
-                        newGame(arguments);
-                        break;
 
                     case "Exit":
                         isRunning = false;
@@ -365,6 +366,9 @@ public class Proto {
      *             7 legfrissito, 8 logarlec
      */
     public void newItem(List<String> args){
+        if(args.size() <= 5 && args.size() >= 3)
+            throw new IllegalArgumentException();
+
         Room room;
         Character character;
         Item item;
@@ -456,6 +460,8 @@ public class Proto {
      *             1 Hatralevo ido
      */
     public void setTime(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
         Time = Integer.parseInt(args.get(1));
         commands.add(args);
     }
@@ -467,6 +473,8 @@ public class Proto {
      *             1 A szoba ami szet lesz szedve
      */
     public void split(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
         Room room = findID(allRooms, args.get(1));
         room.split();
         commands.add(args);
@@ -480,6 +488,8 @@ public class Proto {
      *             2 A masik szoba
      */
     public void merge(List<String> args){
+        if(args.size() != 3)
+            throw new IllegalArgumentException();
 
         Room r1 = findID(allRooms, args.get(1));
         Room r2 = findID(allRooms, args.get(2));
@@ -546,6 +556,9 @@ public class Proto {
      *             benne 1-es indexen a szoba
      */
     public void listRoom(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         Room room = findID(allRooms, args.get(1));
         System.out.println("State: " + room.getgassedRoom() + " " + room.getclothedRoom() + " " +
                 room.getMagical() + " " + room.getSticky());
@@ -571,6 +584,9 @@ public class Proto {
      *             1-es indexen a karakter.
      */
     public void listChar(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         Character character = findID(allCharacters, args.get(1));
         System.out.println("Dazed: " + character.getDazed());
         System.out.println("Items: ");
@@ -589,6 +605,9 @@ public class Proto {
      *             1-es indexen a targy
      */
     public void listItem (List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         Item item = findID(allItems, args.get(1));
         if(item.getContainedBy() != null)
             System.out.println("Room: " + item.getContainedBy().getId());
@@ -603,6 +622,9 @@ public class Proto {
      *             1-es indexen az ajto
      */
     public void listDoor(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         Door door = findID(allDoors, args.get(1));
         System.out.println("isOneWay: " + door.getIsOneWay() );
         System.out.println("isClosed: " + door.getIsClosed() );
@@ -617,6 +639,9 @@ public class Proto {
      *             2-es indexen az ajto
      */
     public void enter(List<String> args){
+        if(args.size() != 3)
+            throw new IllegalArgumentException();
+
         Character character = findID(allCharacters, args.get(1));
         Door door = findID(allDoors, args.get(2));
 
@@ -631,6 +656,9 @@ public class Proto {
      *             2-es index targy
      */
     public void pickUp(List<String> args){
+        if(args.size() != 3)
+            throw new IllegalArgumentException();
+
         Character character = findID(allCharacters, args.get(1));
         Item item = findID(allItems, args.get(2));
 
@@ -645,6 +673,9 @@ public class Proto {
      *             2-es index targy
      */
     public void drop(List<String> args){
+        if(args.size() != 3)
+            throw new IllegalArgumentException();
+
         Character character = findID(allCharacters, args.get(1));
         Item item = findID(allItems, args.get(2));
 
@@ -652,6 +683,9 @@ public class Proto {
         commands.add(args);
     }
     public void use(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         Item item = findID(allItems, args.get(1));
 
         item.use();
@@ -666,6 +700,9 @@ public class Proto {
      *             3-as index masik tranzisztor
      */
     public void connect(List<String> args){
+        if(args.size() != 4)
+            throw new IllegalArgumentException();
+
         Student student = (Student) findID(allCharacters, args.get(1));
         Transistor t1 = (Transistor) findID(allItems, args.get(2));
         Transistor t2 = (Transistor) findID(allItems, args.get(3));
@@ -682,10 +719,27 @@ public class Proto {
      * @param args - A parancs parameterei,
      *             1-es indexen a betoltendo fajl neve
      */
-    public void loadGame(List<String> args){
+    public void test(List<String> args){
+
         File currentDirectory = new File("skeleton");
         File testDirectory = new File(currentDirectory, "test");
         File inputDirectory = new File(testDirectory, "be");
+        selectFile(args, inputDirectory);
+
+    }
+
+    public void loadGame(List<String> args){
+        File currentDirectory = new File("skeleton");
+        File testDirectory = new File(currentDirectory, "test");
+        File inputDirectory = new File(testDirectory, "saves");
+        selectFile(args, inputDirectory);
+
+    }
+
+    private void selectFile(List<String> args, File inputDirectory) {
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
+
         File txt = new File(inputDirectory, args.get(1) + ".txt");
         System.out.println(System.getProperty("user.dir"));
         System.out.println(txt.getAbsolutePath());
@@ -695,7 +749,6 @@ public class Proto {
         } catch (FileNotFoundException FNFE){
             System.out.println("Nem letezik a megadott nevvel mentes!" + FNFE.toString());
         }
-        commands.add(args);
     }
 
     /**
@@ -704,8 +757,14 @@ public class Proto {
      *             1-es index a fajl neve
      */
     public void saveGame(List<String> args){
+        if(args.size() != 2)
+            throw new IllegalArgumentException();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("skeleton\\test\\saves\\" + args.get(1) + ".txt"))) {
+        File currentDirectory = new File("skeleton");
+        File testDirectory = new File(currentDirectory, "test");
+        File inputDirectory = new File(testDirectory, "saves");
+        File txt = new File(inputDirectory, args.get(1) + ".txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(txt))) {
             for (List<String> list : commands) {
                 StringBuilder line = new StringBuilder();
                 for (String str : list) {
@@ -722,14 +781,5 @@ public class Proto {
             System.out.println("Hiba tortent!" + e.toString());
         }
 
-    }
-
-    /**
-     * Indit egy uj jatekot, annyi tanuloval amennyit kapott.
-     * @param args - a parancs parameterei
-     *             1-es indexen a tanulo szama
-     */
-    public void newGame(List<String> args){
-        commands.add(args);
     }
 }
