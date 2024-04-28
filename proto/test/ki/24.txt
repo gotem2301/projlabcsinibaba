@@ -1,0 +1,22 @@
+r0 created
+r1 created
+r1 is gassed
+d01 created
+s0 created in r0
+s1 created in r0
+i0 created in s0
+s0 picked up i0
+i0 is fake
+i1 created in s1
+s1 picked up i1
+s0 entered r1
+s0 is dazed
+i0 added to r1
+s1 entered r1
+s1 entered r0
+s1 entered r1
+s1 entered r0
+s1 entered r1
+s1 entered r0
+s1 entered r1
+s1 is dazed

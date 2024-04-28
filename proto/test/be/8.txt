@@ -1,0 +1,6 @@
+NewRoom + 0 10 - - -1
+NewStudent - r0
+NewStudent - r0
+NewItem 1 r0 - -
+NewItem 1 r0 - -
+Split r0

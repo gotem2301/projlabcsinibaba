@@ -1,0 +1,11 @@
+r0 created
+r1 created
+r1 is gassed
+d01 created
+s0 created in r0
+i0 created in s0
+s0 picked up i0
+i1 created in s0
+s0 picked up i1
+s0 entered r1
+s0 degassed r1

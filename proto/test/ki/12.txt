@@ -1,0 +1,6 @@
+r0 created
+r1 created
+d01 created
+s0 created in r0
+s1 created in r1
+s0 failed to enter r1

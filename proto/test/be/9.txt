@@ -1,0 +1,6 @@
+NewRoom + 0 3 - - -1
+NewRoom - 0 4 - + 5
+NewDoor r0 r1 - -
+NewStudent - r1
+NewItem 1 r0 - -
+Merge r0 r1

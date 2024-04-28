@@ -1,0 +1,17 @@
+r0 created
+r0 is gassed
+s0 created in r0
+s0 is dazed
+s1 created in r0
+s1 is dazed
+i0 created in r0
+i0 added to r0
+i1 created in r0
+i1 added to r0
+r0 split
+r0.0 created
+r0.0 is gassed
+d00.0 created
+s0 entered r0.0
+s0 is dazed
+i0 added to r0.0
