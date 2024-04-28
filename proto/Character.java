@@ -56,8 +56,8 @@ public abstract class Character implements ID {
                 }
             }
             Dazed = true;
-            dropEverything();
             System.out.println(ID + " is dazed");
+            dropEverything();
         }else{
             Dazed = false;
         }

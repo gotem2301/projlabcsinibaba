@@ -3,4 +3,4 @@ r0 is sticky
 s0 created in r0
 i0 created in r0
 i0 added to r0
-s0  cant pick up i0
+s0 cant pick up i0

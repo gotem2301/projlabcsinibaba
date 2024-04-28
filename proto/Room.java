@@ -93,6 +93,13 @@ public class Room implements ID {
 
 	public void setgassedRoom(boolean b) {
 		gassedRoom = b;
+		if(gassedRoom) {
+			System.out.println(id + " is gassed");
+			for(Character c : characters) {
+				c.setDazed(true);
+			}
+		}
+		
 	}
 	
 	/**
@@ -411,7 +418,10 @@ public class Room implements ID {
 	 * Minden olyan karaktert aki nem bénult/ájult kidob a szobából
 	 */
 	public void cleanRoom() {
-		for(Character c : characters) {
+		List<Character> list = new ArrayList<>();
+		list.addAll(characters);
+
+		for(Character c : list) {
 			if(!(c.getDazed())) {
 				int randomSzam = (int)Math.random();
 				if(randomSzam >= doors.size()) {

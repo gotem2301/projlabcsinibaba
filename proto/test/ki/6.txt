@@ -12,4 +12,4 @@ i4 created in s0
 s0 picked up i4
 i5 created in r0
 i5 added to r0
-s0  cant pick up i5
+s0 cant pick up i5

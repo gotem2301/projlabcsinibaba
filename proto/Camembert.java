@@ -19,7 +19,10 @@ public class Camembert extends Item implements Usable{
             containedBy.setgassedRoom(true);
         }
         else{
-            heldBy.getCurrentRoom().setgassedRoom(true);
+            System.out.println(heldBy.getId() + " gassed " + heldBy.getCurrentRoom().getId());
+            Room r = heldBy.getCurrentRoom();
+            heldBy.removeItem(this);
+            r.setgassedRoom(true);
         }
     }
 }
