@@ -728,6 +728,12 @@ public class Proto {
 
     }
 
+    /**
+     * Betolti a kapott sorszamu mentes fajlt, es lefuttatja a benne levo parancsokat
+     * a parancsertelmezoben.
+     * @param args - A parancs parameterei,
+     *             1-es indexen a betoltendo fajl neve
+     */
     public void loadGame(List<String> args){
         File currentDirectory = new File("proto");
         File testDirectory = new File(currentDirectory, "test");
@@ -736,6 +742,12 @@ public class Proto {
 
     }
 
+    /**
+     * Mivel a teszt es a mentes betoltese nagyon hasonlo, igy a tenyleges beolvasas itt tortenik
+     * @param args - A parancs parameterei,
+     *             1-es indexen a betoltendo fajl neve
+     * @param inputDirectory - a mentes/teszt mappa kell
+     */
     private void selectFile(List<String> args, File inputDirectory) {
         if(args.size() != 2)
             throw new IllegalArgumentException();
