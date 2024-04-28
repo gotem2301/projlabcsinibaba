@@ -62,7 +62,6 @@ public class Transistor extends Item implements Usable {
             s.setCurrentRoom(t2Room);
             t2Room.addCharacter(s);
             t1Room.removeCharacter(s);
-            t1Room.addItem(t1);
             this.transfer(null, t1Room);
             return;
         }
