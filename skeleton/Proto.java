@@ -411,7 +411,7 @@ public class Proto {
                 item = new AirFreshener(id, room, character);
                 break;
             case "8":
-                fake = converter(args.get(5));
+                fake = converter(args.get(4));
                 item = new SlidingRuler(id, room, character, fake);
                 break;
             default:
