@@ -1,2 +1,0 @@
-NewRoom - 0 10 - - 0
-NewRoom - 0 10 - - 0
