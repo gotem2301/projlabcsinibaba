@@ -58,6 +58,7 @@ public class Transistor extends Item implements Usable {
         
         if (t2Room.characterEnters(s)) {
             s.dropItem(t1);
+            System.out.println(s.getId() + " entered " + t2Room.getId());
             s.setCurrentRoom(t2Room);
             t2Room.addCharacter(s);
             t1Room.removeCharacter(s);

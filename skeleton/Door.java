@@ -107,9 +107,10 @@ public class Door implements ID {
 		
 		
 		if(result) {
-			c.setCurrentRoom(other);
+			System.out.println(c.getId() + " entered " + other.getId());
 			r.removeCharacter(c);
 			other.addCharacter(c);
+			c.setCurrentRoom(other);
 		}
 		else{
 			System.out.println(c.getId() + " failed to enter " + other.getId());

@@ -254,6 +254,7 @@ public class Room implements ID {
 			switch(response) {
 				case 3 : 
 					clothedRoom += 3;
+					clothThem();
 					break;
 				
 				//a szobával nem kell semmit se csinálni
@@ -320,6 +321,7 @@ public class Room implements ID {
 		
 		//karakterek átpakolása
 		for(int i = 0; i < r.getCharacters().size(); i++) {
+			System.out.println(r.getCharacters().get(i).getId() + " entered " + id);
 			r.getCharacters().get(i).setCurrentRoom(this);
 		}
 		List<Character> tmp = new ArrayList<>();
