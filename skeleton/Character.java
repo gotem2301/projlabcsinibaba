@@ -24,8 +24,8 @@ public abstract class Character implements ID {
         ID = id;
         Dazed = false;
         currentRoom = r;
-        currentRoom.addCharacter(this);
         System.out.println(ID + " created in " + currentRoom.getId());
+        currentRoom.addCharacter(this);
     }
 
 
