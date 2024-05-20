@@ -2,6 +2,7 @@ package proto;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,6 +38,8 @@ public class Proto {
      */
     private List<Item> allItems = new ArrayList<>();
 
+    private List<Integer> nOfEachItem = new ArrayList<>(Collections.nCopies(8, 0));
+
     /**
      * A futas soran beirt parancsokat itt eltarolom, igy kesobb a mentesnel csak ezt kell kiirni
      * a .txt fileba, es a betolteskor a jo allapot toltodik vissza.
@@ -52,6 +55,30 @@ public class Proto {
     private int Time = Integer.MAX_VALUE;
     private boolean gameOver = false;
 
+    public List<Room> getAllRooms(){
+        return allRooms;
+    }
+    public void removeRoom(Room r){
+        allRooms.remove(r);
+    }
+    public List<Character> getAllCharacters(){
+        return allCharacters;
+    }
+    public void removeCharacter(Character c){
+        allCharacters.remove(c);
+    }
+    public List<Item> getAllItems(){
+        return allItems;
+    }
+    public void removeItem(Item i){
+        allItems.remove(i);
+    }
+    public List<Door> getAllDoors(){
+        return allDoors;
+    }
+    public void removeDoor(Door d){
+        allDoors.remove(d);
+    }
     /**
      * Ez a fuggveny oldja meg az ido csokkenteset, KULON THREADEN KELL INDITANI, ez legyen a
      * belepesi pont
@@ -281,7 +308,7 @@ public class Proto {
         }
         boolean dazed;
         dazed = converter(args.get(1));
-        String id = "s";
+        String id = "player";
         id = id.concat(Integer.toString(nOfStudents++));
 
         Room r = findID(allRooms, args.get(2));
@@ -371,42 +398,65 @@ public class Proto {
             room = findID(allRooms, args.get(2));
         }
 
-        String id = "i";
-        id = id.concat(Integer.toString(allItems.size()));
+        String id;
 
         int remaining;
         boolean fake;
 
         switch (args.get(1)){
             case "1":
+                id = "tr";
+                id = id.concat(Integer.toString(nOfEachItem.get(0)));
+                nOfEachItem.set(0, nOfEachItem.get(0) + 1);
                 item = new Transistor(id, room, character);
                 break;
             case "2":
+                id = "cl";
+                id = id.concat(Integer.toString(nOfEachItem.get(1)));
+                nOfEachItem.set(1, nOfEachItem.get(1) + 1);
                 item = new Cloth(id, room, character);
                 break;
             case "3":
                 remaining = Integer.parseInt(args.get(4));
                 fake = converter(args.get(5));
+                id = "m";
+                id = id.concat(Integer.toString(nOfEachItem.get(2)));
+                nOfEachItem.set(2, nOfEachItem.get(2) + 1);
                 item = new Mask(id, room, character, remaining, fake);
                 break;
             case "4":
+                id = "ca";
+                id = id.concat(Integer.toString(nOfEachItem.get(3)));
+                nOfEachItem.set(3, nOfEachItem.get(3) + 1);
                 item = new Camembert(id, room, character);
                 break;
             case "5":
                 remaining = Integer.parseInt(args.get(4));
                 fake = converter(args.get(5));
+                id = "bo";
+                id = id.concat(Integer.toString(nOfEachItem.get(4)));
+                nOfEachItem.set(4, nOfEachItem.get(4) + 1);
                 item = new Book(id, room, character, remaining, fake);
                 break;
             case "6":
+                id = "be";
+                id = id.concat(Integer.toString(nOfEachItem.get(5)));
+                nOfEachItem.set(5, nOfEachItem.get(5) + 1);
                 remaining = Integer.parseInt(args.get(4));
                 item = new Beer(id, room, character, remaining);
 
                 break;
             case "7":
+                id = "a";
+                id = id.concat(Integer.toString(nOfEachItem.get(6)));
+                nOfEachItem.set(6, nOfEachItem.get(6) + 1);
                 item = new AirFreshener(id, room, character);
                 break;
             case "8":
                 fake = converter(args.get(4));
+                id = "sr";
+                id = id.concat(Integer.toString(nOfEachItem.get(7)));
+                nOfEachItem.set(7, nOfEachItem.get(7) + 1);
                 item = new SlidingRuler(id, room, character, fake);
                 break;
             default:
