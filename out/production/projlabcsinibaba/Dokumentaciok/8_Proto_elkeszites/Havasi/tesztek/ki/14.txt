@@ -1,0 +1,6 @@
+r0 created
+r0 is gassed
+s0 created in r0
+i0 created in s0
+s0 degassed r0
+r0 is normal

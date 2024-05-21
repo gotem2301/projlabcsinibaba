@@ -1,0 +1,12 @@
+NewRoom - 0 10 - - -1
+NewRoom - 0 10 - - -1
+NewDoor r0 r1 - -
+NewStudent - r0
+NewStudent - r0
+NewItem 1 - s0 -
+NewItem 1 - s0 -
+Connect s0 i0 i1
+Drop s0 i0
+PickUp s1 i0
+Enter s0 d01
+Use i1

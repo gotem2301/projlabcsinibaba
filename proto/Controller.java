@@ -184,4 +184,8 @@ public class Controller {
         view.nullEverything();
         drawEverything();
     }
+
+    public void connectTransistor(DItem pickedItem){
+
+    }
 }

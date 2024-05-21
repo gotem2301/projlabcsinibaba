@@ -1,0 +1,11 @@
+NewRoom - 0 1 - - 0
+NewRoom - 0 1 - - 0
+NewRoom - 0 1 - - 0
+NewRoom - 0 1 - - 0
+NewDoor r0 r1 + -
+NewDoor r1 r2 - +
+NewDoor r1 r3 - -
+NewStudent - r1
+Enter s0 d01
+Enter s0 d12
+Enter s0 d13

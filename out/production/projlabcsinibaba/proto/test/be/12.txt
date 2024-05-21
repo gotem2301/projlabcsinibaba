@@ -1,0 +1,6 @@
+NewRoom - 0 1 - - -1
+NewRoom - 0 1 - - -1
+NewDoor r0 r1 - -
+NewStudent - r0
+NewStudent - r1
+Enter s0 d01

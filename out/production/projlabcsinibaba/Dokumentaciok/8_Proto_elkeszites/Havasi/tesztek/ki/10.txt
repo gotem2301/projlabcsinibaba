@@ -1,0 +1,6 @@
+r0 created
+r1 created
+d01 created
+s0 created in r0
+s1 created in r1
+r0 and r1 failed to merge

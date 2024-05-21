@@ -94,7 +94,14 @@ public class View extends JPanel implements MouseListener {
 
     public void drawItemOptions(){
         try{
-            BufferedImage img = ImageIO.read(new File("proto/Images/InventoryItemOptions.png"));
+            BufferedImage img = null;
+            if (pickedItemFromInventory.getId().substring(0, 2).equals("tr")){
+                img = ImageIO.read(new File("proto/Images/InventoryItemOptionsTransistor.png"));
+            }
+            else {
+                img = ImageIO.read(new File("proto/Images/InventoryItemOptions.png"));
+            }
+
             renderer.drawImage(img, pickedItemFromInventory.getX0(), pickedItemFromInventory.getY1(), this);
         }
         catch (Exception e){
@@ -109,12 +116,12 @@ public class View extends JPanel implements MouseListener {
     }
 
     public void drawDoors(){
-        int doorX = 195, doorY = 305;
+        int doorX = 405, doorY = 305;
 
         for (DDoor door : doors){
             door.draw(renderer, doorX, doorY, this);
 
-            doorX += 70;
+            doorX -= 70;
         }
     }
 
@@ -223,6 +230,11 @@ public class View extends JPanel implements MouseListener {
             }
             else if (pickedItemFromInventory.getX0() < e.getX() && e.getX() < (pickedItemFromInventory.getX0() + 100) && pickedItemFromInventory.getY1() + 20 < e.getY() && e.getY() < (pickedItemFromInventory.getY1() + 40)){
                 controller.useItem(pickedItemFromInventory);
+            }
+            else if (pickedItemFromInventory.getX0() < e.getX() && e.getX() < (pickedItemFromInventory.getX0() + 100) && pickedItemFromInventory.getY1() + 40 < e.getY() && e.getY() < (pickedItemFromInventory.getY1() + 60)){
+                /// Ide kéne a Transistor Connect
+                System.out.println("Transistor CONNECT");
+                controller.connectTransistor(pickedItemFromInventory);
             }
         }
 

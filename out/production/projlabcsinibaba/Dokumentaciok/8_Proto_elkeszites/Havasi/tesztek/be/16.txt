@@ -1,0 +1,19 @@
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewRoom - 0 10 - - 0
+NewDoor r0 r1 - -
+NewDoor r1 r2 - -
+NewDoor r2 r3 - -
+NewDoor r3 r4 - -
+NewStudent - r0
+NewItem 5 - s0 -
+NewTeacher - 0 r1
+NewTeacher - 0 r2
+NewTeacher - 0 r3
+NewTeacher - 0 r4
+Enter s0 d01
+Enter s0 d12
+Enter s0 d23
+Enter s0 d34

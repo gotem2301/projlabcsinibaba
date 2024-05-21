@@ -1,0 +1,14 @@
+r0 created
+r1 created
+d01 created
+s0 created in r0
+i0 created in s0
+s0 picked up i0
+i1 created in s0
+s0 picked up i1
+i0 i1 connected
+i0 added to r0
+s0 entered r1
+s0 used i1
+i1 added to r1
+s0 entered r0

@@ -1,0 +1,15 @@
+r0 created
+s0 created in r0
+i0 created in s0
+s0 picked up i0
+i1 created in s0
+s0 picked up i1
+i2 created in s0
+s0 picked up i2
+i3 created in s0
+s0 picked up i3
+i4 created in s0
+s0 picked up i4
+i5 created in r0
+i5 added to r0
+s0 cant pick up i5

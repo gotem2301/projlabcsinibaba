@@ -1,0 +1,4 @@
+NewRoom + 0 1 - - 0
+NewStudent - r0
+NewItem 7 - s0 -
+Use s0 i0

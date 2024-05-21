@@ -1,0 +1,11 @@
+r0 created
+r1 created
+d01 created
+s0 created in r0
+t0 created in r1
+i0 created in s0
+s0 picked up i0
+i0 is fake
+s0 entered r1
+s0 failed
+i0 added to r1

@@ -1,0 +1,3 @@
+r0 created
+s0 created in r0
+Game over

@@ -1,0 +1,74 @@
+NewRoom - 0 -23 - - -1
+NewRoom - 0 4 - - -1
+NewRoom - 0 8 - - -1
+NewRoom - 0 7 - - -1
+NewRoom - 0 5 - - -1
+NewRoom - 0 9 + - -1
+NewRoom - 0 3 - - -1
+NewRoom - 0 7 - - -1
+NewRoom - 0 8 - - -1
+NewRoom - 0 5 - - -1
+NewRoom - 0 2 - - -1
+NewRoom - 0 4 + - -1
+NewRoom - 0 7 - - -1
+NewRoom - 0 3 - - -1
+NewRoom - 0 5 - - -1
+NewRoom - 0 8 - - -1
+NewRoom - 0 9 - - -1
+NewRoom - 0 4 - - -1
+NewRoom - 0 7 - - -1
+NewRoom - 0 3 - - -1
+NewRoom - 0 9 - - -1
+NewRoom - 0 5 - - -1
+NewRoom - 0 8 + - -1
+NewRoom - 0 4 - - -1
+NewRoom - 0 7 - - -1
+NewRoom - 0 9 - - -1
+NewTeacher - 0 r9
+NewTeacher - 0 r20
+NewTeacher - 0 r23
+NewCleaner - r18
+NewCleaner - r15
+NewDoor r0 r1 - -
+NewDoor r0 r2 - -
+NewDoor r0 r3 + -
+NewDoor r1 r4 - -
+NewDoor r1 r4 - -
+NewDoor r1 r5 + -
+NewDoor r2 r5 - -
+NewDoor r2 r6 - -
+NewDoor r3 r7 + -
+NewDoor r4 r5 - -
+NewDoor r4 r8 - -
+NewDoor r4 r10 + -
+NewDoor r5 r9 - -
+NewDoor r5 r10 - -
+NewDoor r6 r10 - -
+NewDoor r6 r7 + -
+NewDoor r7 r12 + -
+NewDoor r8 r13 - -
+NewDoor r8 r14 - -
+NewDoor r8 r9 - -
+NewDoor r9 r13 - -
+NewDoor r9 r13 - -
+NewDoor r10 r16 - -
+NewDoor r10 r11 - -
+NewDoor r12 r17 + -
+NewDoor r13 r18 - -
+NewDoor r14 r18 - -
+NewDoor r14 r23 - -
+NewDoor r15 r22 - -
+NewDoor r16 r19 - -
+NewDoor r16 r20 - -
+NewDoor r16 r17 + -
+NewDoor r17 r20 + -
+NewDoor r17 r25 + -
+NewDoor r18 r21 - -
+NewDoor r18 r22 - -
+NewDoor r19 r22 - -
+NewDoor r20 r24 - -
+NewDoor r21 r22 - -
+NewDoor r22 r23 - -
+NewDoor r23 r24 - -
+NewDoor r25 r24 + -
+NewItem 8 r19 - -

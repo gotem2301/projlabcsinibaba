@@ -1,0 +1,25 @@
+r0 created
+r1 created
+r2 created
+r3 created
+r4 created
+d01 created
+d12 created
+d23 created
+d34 created
+s0 created in r0
+i0 created in s0
+s0 picked up i0
+t0 created in r1
+t1 created in r2
+t2 created in r3
+t3 created in r4
+s0 entered r1
+s0 used i0
+s0 entered r2
+s0 used i0
+s0 entered r3
+s0 used i0
+s0 entered r4
+s0 failed
+
