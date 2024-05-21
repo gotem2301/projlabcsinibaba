@@ -92,6 +92,23 @@ public class Proto {
         }
         return cleanerList;
     }
+
+    public void refreshStudents(){
+        List<Student> aliveStudents = new ArrayList<>();
+        for(Room r : allRooms){
+            if(!r.getCharacters().isEmpty()){
+                for(Character c : r.getCharacters()){
+                    if(c.getId().contains("s")){
+                        aliveStudents.add((Student) c);
+                    }
+                }
+            }
+        }
+        List<Student> students = this.getStudents();
+        students.removeAll(aliveStudents);
+        allCharacters.removeAll(students);
+    }
+
     public List<Item> getAllItems(){
         return allItems;
     }

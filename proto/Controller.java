@@ -55,19 +55,6 @@ public class Controller {
     }
 
     public void pickUpItem(DItem pickedUpItem){
-        /*for (Item item : currentPlayer.currentRoom.getItems()){
-            if (pickedUpItem != null){
-                if (item.getId().equals(pickedUpItem.getId())){
-                    if (!currentPlayer.getDazed() && !currentPlayer.currentRoom.getSticky() && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5){
-                        currentPlayer.pickUpItem(item);
-                        view.pickUpItem(item.getId());
-                        view.repaint();
-                        return;
-                    }
-                    return;
-                }
-            }
-        }*/
         if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5) {
             List<String> s = new ArrayList<>();
             s.add("PickUp");
@@ -125,6 +112,7 @@ public class Controller {
             for (Cleaner c: model.getCleaners()) {
                 c.enterRoom(c.currentRoom.getDoors().get(0));
             }
+            model.refreshStudents();
         }
         else current++;
         currentPlayer = model.getStudents().get(current);
