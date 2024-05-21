@@ -22,6 +22,10 @@ public class Menu extends JPanel {
         loadGameButton.setFont(new Font("Serif", Font.PLAIN, 35));
         add(newGameButton);
         add(loadGameButton);
+        ImageIcon gifIcon = new ImageIcon("proto/Images/tenor.gif");
+        JLabel gifLabel = new JLabel(gifIcon);
+        gifLabel.setBounds(200,175, 400, 300);
+        add(gifLabel);
 
 
         newGameButton.addActionListener(new ActionListener() {
