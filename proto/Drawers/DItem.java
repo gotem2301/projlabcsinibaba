@@ -72,6 +72,9 @@ public class DItem implements IDraw {
                 case "tr":
                     img = ImageIO.read(new File("proto/Images/Transistor.png"));
                     break;
+                case "pt":
+                    img = ImageIO.read(new File("proto/Images/PairedTransistor.png"));
+                    break;
                 default:
                     return;
             }

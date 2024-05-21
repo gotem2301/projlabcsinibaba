@@ -7,12 +7,11 @@ import proto.Drawers.DItem;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +69,14 @@ public class View extends JPanel implements MouseListener {
             }
         }
 
+        try {
+            BufferedImage img = ImageIO.read(new File("proto/Images/SaveButton.png"));
+            renderer.drawImage(img, 628, 20, this);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         drawDoors();
         drawCharacters();
         drawItems();
@@ -103,7 +110,6 @@ public class View extends JPanel implements MouseListener {
             else {
                 img = ImageIO.read(new File("proto/Images/InventoryItemOptions.png"));
             }
-
             renderer.drawImage(img, pickedItemFromInventory.getX0(), pickedItemFromInventory.getY1(), this);
         }
         catch (Exception e){
@@ -114,11 +120,11 @@ public class View extends JPanel implements MouseListener {
     public void drawCurrentPlayerTitle(){
         renderer.setColor(Color.WHITE);
         renderer.setFont(new Font("Harrington", Font.BOLD, 20));
-        renderer.drawString("Current player: Student" + currentPlayerId.substring(1), 500, 40);
+        renderer.drawString("Current player: Student" + currentPlayerId.substring(1), 500, 60);
     }
 
     public void drawDoors(){
-        int doorX = 335, doorY = 305;
+        int doorX = 405, doorY = 305;
 
         for (DDoor door : doors){
             door.draw(renderer, doorX, doorY, this);
@@ -235,8 +241,13 @@ public class View extends JPanel implements MouseListener {
             }
             else if (pickedItemFromInventory.getX0() < e.getX() && e.getX() < (pickedItemFromInventory.getX0() + 100) && pickedItemFromInventory.getY1() + 40 < e.getY() && e.getY() < (pickedItemFromInventory.getY1() + 60)){
                 /// Ide kéne a Transistor Connect
-                System.out.println("Transistor CONNECT");
-                controller.connectTransistor(pickedItemFromInventory);
+                DItem otherTransistor = null;
+
+                for (DItem dItem : inventory){
+                    if (!dItem.getId().equals(pickedItemFromInventory.getId()) && dItem.getId().substring(0, 2).equals("tr")){
+                        controller.connectTransistor(pickedItemFromInventory, dItem);
+                    }
+                }
             }
         }
 
@@ -256,6 +267,11 @@ public class View extends JPanel implements MouseListener {
         }
         if (!isRoomSticky){
             controller.pickUpItem(pickedUpItem);
+        }
+
+        if (628 < e.getX() && e.getX() < 728 && 20 < e.getY() && e.getY() < 40){
+            //controller.saveGame()
+            System.out.println("SAVE");
         }
     }
 

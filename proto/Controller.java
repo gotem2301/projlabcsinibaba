@@ -43,14 +43,6 @@ public class Controller {
         startTimer();
     }
 
-    public void saveGame(){
-        List<String> cmd = new ArrayList<>();
-        cmd.add("SaveGame");
-        cmd.add("1");
-        System.out.println("saveGame");
-        model.saveGame(cmd);
-    }
-
     public void setPlayerNumber(int i){
         playerNumber = i;
     }
@@ -78,7 +70,7 @@ public class Controller {
     }
 
     public void pickUpItem(DItem pickedUpItem){
-        if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5 && !currentPlayer.getDazed()) {
+        if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5) {
             if(pickedUpItem.getId().contains("sl")){
                 for(Item i: model.getAllItems()){
                     if(i.getId().equals(pickedUpItem.getId())){
@@ -129,10 +121,10 @@ public class Controller {
         view.repaint();
     }
 
-    /**
-     * Először a tanulók kerülnek sorra, ha mindenki sorrakerült
-     *     minden tanár szobát vált (az első ajtón) és felvesz egy tárgyat
-     *     majd minden takatrító is (ugyanígy)
+    /*
+    Először a tanulók kerülnek sorra, ha mindenki sorrakerült
+    minden tanár szobát vált (az első ajtón) és felvesz egy tárgyat
+    majd minden takatrító is (ugyanígy)
      */
 
     public void switchPlayers(){
@@ -193,7 +185,19 @@ public class Controller {
         drawEverything();
     }
 
-    public void connectTransistor(DItem pickedItem){
-
+    public void connectTransistor(DItem pickedItem, DItem otherTransistor){
+        Transistor t1 = null;
+        Transistor t2 = null;
+        for (Item item : currentPlayer.inventory){
+            if (pickedItem.getId().equals(item.getId())){
+                t1 = (Transistor) item;
+            }
+            if (otherTransistor.getId().equals(item.getId())){
+                t2 = (Transistor) item;
+            }
+        }
+        if (t1 != null && t2 != null){
+            currentPlayer.connect(t1, t2);
+        }
     }
 }

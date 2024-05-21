@@ -19,6 +19,10 @@ public class Student extends Character {
         if (t1.getPair() == null && t2.getPair() == null) {
             t1.setPair(t2);
             t2.setPair(t1);
+
+            t1.id = "pt" + t1.getId().substring(2);
+            t2.id = "pt" + t2.getId().substring(2);
+
             System.out.println(t1.getId() + " " + t2.getId() + " connected");
         } else {
             System.out.println(t1.getId() + " " + t2.getId() + " cant connect");
