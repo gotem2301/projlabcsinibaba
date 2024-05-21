@@ -165,6 +165,8 @@ public class Menu extends JPanel {
                     searchButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             JFileChooser fileChooser = new JFileChooser();
+                            File defaultDirectory = new File("proto/test/saves");
+                            fileChooser.setCurrentDirectory(defaultDirectory);
                             int result = fileChooser.showOpenDialog(null);
 
                             if (result == JFileChooser.APPROVE_OPTION) {
