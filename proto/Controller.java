@@ -139,13 +139,17 @@ public class Controller {
         if(current == model.getStudents().size()-1) {
             current = 0;
             for (Teacher t: model.getTeachers()) {
-                int r = rand.nextInt(t.currentRoom.getDoors().size());
-                t.enterRoom(t.currentRoom.getDoors().get(r));
-                if(!t.currentRoom.getItems().isEmpty()) t.pickUpItem(t.currentRoom.getItems().get(0));
+                if(!t.currentRoom.getDoors().isEmpty()){
+                    int r = rand.nextInt(t.currentRoom.getDoors().size());
+                    t.enterRoom(t.currentRoom.getDoors().get(r));
+                    if(!t.currentRoom.getItems().isEmpty()) t.pickUpItem(t.currentRoom.getItems().get(0));
+                }
             }
             for (Cleaner c: model.getCleaners()) {
-                int r = rand.nextInt(c.currentRoom.getDoors().size());
-                c.enterRoom(c.currentRoom.getDoors().get(r));
+                if(!c.currentRoom.getDoors().isEmpty()){
+                    int r = rand.nextInt(c.currentRoom.getDoors().size());
+                    c.enterRoom(c.currentRoom.getDoors().get(r));
+                }
             }
             model.refreshStudents();
             int f = rand.nextInt(123);
