@@ -1,7 +1,11 @@
 package proto;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class Window extends JFrame {
     private Menu menu;
@@ -35,6 +39,14 @@ public class Window extends JFrame {
             wonLabel.setHorizontalAlignment(SwingConstants.CENTER);
             wonLabel.setVerticalAlignment(SwingConstants.CENTER);
             gameOverPanel.add(wonLabel);
+            Clip clip;
+            try{
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("proto/Images/won.wav").getAbsoluteFile()); 
+                clip = AudioSystem.getClip(); 
+                clip.open(audioInputStream); 
+                clip.start();
+            }
+            catch(Exception ex) {}
         }
         else {
             JLabel lostLabel = new JLabel("YOU LOST!");
@@ -46,6 +58,14 @@ public class Window extends JFrame {
             lostLabel.setHorizontalAlignment(SwingConstants.CENTER);
             lostLabel.setVerticalAlignment(SwingConstants.CENTER);
             gameOverPanel.add(lostLabel);
+            Clip clip;
+            try{
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("proto/Images/lost.wav").getAbsoluteFile()); 
+                clip = AudioSystem.getClip(); 
+                clip.open(audioInputStream); 
+                clip.start();
+            }
+            catch(Exception ex) {}
         }
         setContentPane(gameOverPanel);
         revalidate();
