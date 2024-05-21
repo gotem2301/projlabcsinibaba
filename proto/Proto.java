@@ -1,10 +1,7 @@
 package proto;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Proto {
 
@@ -287,9 +284,13 @@ public class Proto {
         sticky = converter(args.get(5));
         String id = "r";
         id = id.concat(Integer.toString(allRooms.size()));
+        int capacity = Integer.parseInt(args.get(3));
+        if(capacity == -23){
+            capacity = Integer.MAX_VALUE;
+        }
 
         Room room = new Room(id, gassed, Integer.parseInt(args.get(2)),
-                Integer.parseInt(args.get(3)), magical, sticky, Integer.parseInt(args.get(6)));
+                capacity, magical, sticky, Integer.parseInt(args.get(6)));
         allRooms.add(room);
 
         commands.add(args);
@@ -419,7 +420,7 @@ public class Proto {
             case "3":
                 remaining = Integer.parseInt(args.get(4));
                 fake = converter(args.get(5));
-                id = "m";
+                id = "ma";
                 id = id.concat(Integer.toString(nOfEachItem.get(2)));
                 nOfEachItem.set(2, nOfEachItem.get(2) + 1);
                 item = new Mask(id, room, character, remaining, fake);
@@ -447,14 +448,14 @@ public class Proto {
 
                 break;
             case "7":
-                id = "a";
+                id = "ai";
                 id = id.concat(Integer.toString(nOfEachItem.get(6)));
                 nOfEachItem.set(6, nOfEachItem.get(6) + 1);
                 item = new AirFreshener(id, room, character);
                 break;
             case "8":
                 fake = converter(args.get(4));
-                id = "sr";
+                id = "sl";
                 id = id.concat(Integer.toString(nOfEachItem.get(7)));
                 nOfEachItem.set(7, nOfEachItem.get(7) + 1);
                 item = new SlidingRuler(id, room, character, fake);
@@ -832,5 +833,57 @@ public class Proto {
             System.out.println("Hiba tortent!" + e.toString());
         }
 
+    }
+
+    public void newGame(int playerNumber){
+        List<String> cmd = new ArrayList<>();
+        cmd.add("LoadGame");
+        cmd.add("defaultStartingMap");
+        loadGame(cmd);
+        cmd = new ArrayList<>();
+        cmd.add("NewStudent");
+        cmd.add("-");
+        cmd.add("r0");
+        for(int i = 0; i < playerNumber; i++){
+            newStudent(cmd);
+        }
+
+
+
+        Random random = new Random();
+        for(int i = 0; i < 26; i++){
+            for(int j = 1; j <= 8; j++){
+                cmd = new ArrayList<>();
+                cmd.add("NewItem");
+                String roomID = "r".concat(Integer.toString(i));
+                int k = random.nextInt(99);
+                int fakeChance = random.nextInt(2);
+                String fake;
+                if(fakeChance % 3 == 0) {
+                    fake = "-";
+                }else {
+                    fake = "+";
+                }
+                cmd.add(Integer.toString(j));
+                cmd.add(roomID);
+                cmd.add("-");
+
+                if(k % 5 == 0) {
+                    switch (j) {
+                        case 3, 5:
+                            cmd.add(Integer.toString(3));
+                            cmd.add(fake);
+                            break;
+                        case 6:
+                            cmd.add(Integer.toString(3));
+                            break;
+                        case 8:
+                            cmd.add("+");
+                            break;
+                    }
+                    newItem(cmd);
+                }
+            }
+        }
     }
 }
