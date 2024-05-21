@@ -83,12 +83,14 @@ public class Menu extends JPanel {
                 playButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         frame.dispose();
-                        JFrame jFrame = new JFrame("Játék");
+                        Window jFrame = new Window();
+                        jFrame.setTitle("Játék");
                         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         jFrame.setSize(new Dimension(800, 600));
                         jFrame.setLocationRelativeTo(null);
 
                         Controller controller = new Controller();
+                        controller.setPlayerNumber(playerNumber);
                         View view = new View();
 
                         jFrame.add(view);
@@ -155,7 +157,7 @@ public class Menu extends JPanel {
 
                         if (result == JFileChooser.APPROVE_OPTION) {
                             File selectedFile = fileChooser.getSelectedFile();
-                            fileField.setText(selectedFile.getAbsolutePath());
+                            fileField.setText(selectedFile.getName());
                             fileField.setCaretPosition(0);
                         }
                     }
@@ -167,7 +169,27 @@ public class Menu extends JPanel {
                             JOptionPane.showMessageDialog(null, "Nincs kiválasztva fájl!", "Hiba", JOptionPane.ERROR_MESSAGE);
                         }
                         else{
-                            //Controller.loadGame(filePath);
+                            frame.dispose();
+                            Window jFrame = new Window();
+                            jFrame.setTitle("Játék");
+                            jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            jFrame.setSize(new Dimension(800, 600));
+                            jFrame.setLocationRelativeTo(null);
+
+                            Controller controller = new Controller();
+                            controller.setPlayerNumber(playerNumber);
+                            View view = new View();
+
+                            jFrame.add(view);
+                            jFrame.setVisible(true);
+
+                            controller.setView(view);
+                            view.setController(controller);
+                            filePath = fileField.getText();
+                            /*String[] tmp = filePath.split("/");
+                            String save = tmp[tmp.length - 1];*/
+                            controller.loadGame(filePath);
+                            controller.drawEverything();
                         }
                     }
                 });

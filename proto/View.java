@@ -202,6 +202,11 @@ public class View extends JPanel implements MouseListener {
         }
     }
 
+    public void gameOver(boolean b){
+        Window endFrame = (Window) SwingUtilities.getWindowAncestor(this);
+        endFrame.gameOver(b);
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         for (DItem dItem : inventory){

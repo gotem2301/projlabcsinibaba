@@ -13,8 +13,8 @@ public class Controller {
     private Student currentPlayer;
     private View view;
     private Proto model;
-
     Random rand = new Random();
+    int playerNumber;
 
     public Controller(){
         currentPlayer = null;
@@ -31,8 +31,17 @@ public class Controller {
     }
 
     public void newGame(){
-        model.newGame(3);
+        model.newGame(playerNumber);
         currentPlayer = model.getStudents().get(0);
+    }
+
+    public void loadGame(String save){
+        model.loadGraphicGame(save);
+        currentPlayer = model.getStudents().get(0);
+    }
+
+    public void setPlayerNumber(int i){
+        playerNumber = i;
     }
 
     public void dropItem(DItem droppedItem){
@@ -59,6 +68,16 @@ public class Controller {
 
     public void pickUpItem(DItem pickedUpItem){
         if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5) {
+            if(pickedUpItem.getId().contains("sl")){
+                for(Item i: model.getAllItems()){
+                    if(i.getId().equals(pickedUpItem.getId())){
+                        SlidingRuler igazie = (SlidingRuler) i;
+                        if(!(igazie.getFake())){
+                            view.gameOver(true);
+                        }
+                    }
+                }
+            }
             List<String> s = new ArrayList<>();
             s.add("PickUp");
             s.add(currentPlayer.getId());
@@ -118,8 +137,13 @@ public class Controller {
                 c.enterRoom(c.currentRoom.getDoors().get(r));
             }
             model.refreshStudents();
+            if(model.getStudents().isEmpty()){
+                view.gameOver(false);
+            }
         }
-        else current++;
-        currentPlayer = model.getStudents().get(current);
+        else{
+            current++;
+            currentPlayer = model.getStudents().get(current);
+        }
     }
 }

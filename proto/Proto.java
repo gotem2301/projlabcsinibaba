@@ -829,6 +829,13 @@ public class Proto {
 
     }
 
+    public void loadGraphicGame(String save){
+        List<String> cmd = new ArrayList<>();
+        cmd.add("LoadGame");
+        cmd.add(save);
+        loadGame(cmd);
+    }
+
     /**
      * Mivel a teszt es a mentes betoltese nagyon hasonlo, igy a tenyleges beolvasas itt tortenik
      * @param args - A parancs parameterei,

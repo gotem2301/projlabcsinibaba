@@ -79,7 +79,7 @@ public class Student extends Character {
 
                     if (i.transfer(this, null)) {
                         System.out.println("YOU WIN");
-                        System.exit(0);
+                        //System.exit(0);
                     }
                     break;
                 }

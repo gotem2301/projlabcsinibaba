@@ -29,7 +29,7 @@ public class Window extends JFrame {
         gameOverPanel.setLayout(null);
         if(b) {
             JLabel wonLabel = new JLabel("YOU WON!");
-            wonLabel.setBounds(0, 0, 800, 500);
+            wonLabel.setBounds(0, 0, 800, 600);
             wonLabel.setForeground(Color.RED);
             wonLabel.setFont(new Font("Serif", Font.PLAIN, 125));
             wonLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -38,7 +38,7 @@ public class Window extends JFrame {
         }
         else {
             JLabel lostLabel = new JLabel("YOU LOST!");
-            lostLabel.setBounds(0, 0, 800, 500);
+            lostLabel.setBounds(0, 0, 800, 600);
             lostLabel.setForeground(Color.RED);
             lostLabel.setOpaque(true);
             lostLabel.setBackground(Color.BLACK);
