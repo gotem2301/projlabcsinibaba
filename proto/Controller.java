@@ -43,6 +43,14 @@ public class Controller {
         startTimer();
     }
 
+    public void saveGame(){
+        List<String> cmd = new ArrayList<>();
+        cmd.add("SaveGame");
+        cmd.add("1");
+        System.out.println("saveGame");
+        model.saveGame(cmd);
+    }
+
     public void setPlayerNumber(int i){
         playerNumber = i;
     }
@@ -121,10 +129,10 @@ public class Controller {
         view.repaint();
     }
 
-    /*
-    Először a tanulók kerülnek sorra, ha mindenki sorrakerült
-    minden tanár szobát vált (az első ajtón) és felvesz egy tárgyat
-    majd minden takatrító is (ugyanígy)
+    /**
+     * Először a tanulók kerülnek sorra, ha mindenki sorrakerült
+     *     minden tanár szobát vált (az első ajtón) és felvesz egy tárgyat
+     *     majd minden takatrító is (ugyanígy)
      */
 
     public void switchPlayers(){
