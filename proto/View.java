@@ -223,6 +223,8 @@ public class View extends JPanel implements MouseListener {
             }
             else if (pickedItemFromInventory.getX0() < e.getX() && e.getX() < (pickedItemFromInventory.getX0() + 100) && pickedItemFromInventory.getY1() + 20 < e.getY() && e.getY() < (pickedItemFromInventory.getY1() + 40)){
                 System.out.println("USE");
+                controller.useItem(pickedItemFromInventory);
+                repaint();
             }
         }
 

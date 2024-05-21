@@ -19,6 +19,7 @@ public class AirFreshener extends Item implements Usable{
         else{
             heldBy.getCurrentRoom().setgassedRoom(false);
             System.out.println(heldBy.getId() + " degassed " + heldBy.getCurrentRoom().getId());
+            heldBy.removeItem(this);
         }
     }
 }

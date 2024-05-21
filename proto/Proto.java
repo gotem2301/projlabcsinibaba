@@ -279,7 +279,7 @@ public class Proto {
      * @throws IllegalArgumentException - Ezt a kivetelt akkor dobja ha nem talalta meg a listaban a
      *     keresett id-t, azaz a parancsnak a parameterekent rossz objektumot adott meg a felhasznalo
      */
-    private <T extends ID> T findID(List<T> list, String id) throws IllegalArgumentException {
+    public  <T extends ID> T findID(List<T> list, String id) throws IllegalArgumentException {
         for(T element : list) {
             if(element.getId().equals(id))
                 return element;

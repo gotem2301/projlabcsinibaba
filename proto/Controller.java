@@ -87,6 +87,7 @@ public class Controller {
             s.add(pickedUpItem.getId());
             model.pickUp(s);
             view.pickUpItem(pickedUpItem.getId());
+
             view.repaint();
         }
     }
@@ -146,8 +147,8 @@ public class Controller {
         }
         else{
             current++;
-            currentPlayer = model.getStudents().get(current);
         }
+        currentPlayer = model.getStudents().get(current);
     }
 
     private void gameTime(){
@@ -173,5 +174,14 @@ public class Controller {
             }
         });
         timeThread.start();
+    }
+
+    public void useItem(DItem picked){
+        List<String> cmd = new ArrayList<>();
+        cmd.add("Use");
+        cmd.add(picked.getId());
+        model.use(cmd);
+        view.nullEverything();
+        drawEverything();
     }
 }
