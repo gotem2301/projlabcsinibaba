@@ -1,6 +1,5 @@
 package proto;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 import javax.swing.*;
 
@@ -10,23 +9,38 @@ public class DDoor extends JPanel implements IDraw
     //startPoint = bal felső sarok
     private int startPointX;
     private int startPointY;
-    private String id;
+    
+    //becsomagolt door osztály
     Door door;
+    private String id;
 
-    private final int height;
+    ////téglalap mérete
     private final int width;
+    private final int height;
 
-    public DDoor(int startPX, int startPY, /*string idIn,*/ Door d){
+    /**
+     * DDoor konstuktora
+     * alapértelmezett méret 50x100
+     * alapértelmezetten nincs kirajzolva
+     * @param startPX
+     * @param startPY
+     * @param d becsomagolt door
+     */
+    public DDoor(int startPX, int startPY, Door d){
         super();
         startPointX = startPX;
         startPointY = startPY;
         door = d;
         id = d.getId();
+        this.setVisible(false);
 
-        height = 100;
         width = 50;
+        height = 100;
     }
 
+    /**
+     * Kirajzolja a négzetett benne a becsomagolt door-t id-jével
+     */
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -38,5 +52,10 @@ public class DDoor extends JPanel implements IDraw
         g.drawString(id, startPointX  + (width/2), startPointY + (height/2));
     }
 
-    public void draw(Graphics2D g2d, String idIn){}
+    /**
+     *  @param b kirajzoljuk-e
+     */
+    public void draw(boolean b){
+    	this.setVisible(b);
+    }
 }
