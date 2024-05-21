@@ -160,9 +160,9 @@ public class Controller {
     }
 
     public void startTimer(){
-        Time = 5;
+        Time = 300;
         Thread timeThread = new Thread(() -> {
-            while (!model.gameOver) {
+            while (!model.gameOver && Time > 0) {
                 gameTime();
                 try {
                     Thread.sleep(1000);

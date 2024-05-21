@@ -126,7 +126,6 @@ public class Proto {
      * belepesi pont
      */
 
-
     /**
      * A parancsertelmezo fuggveny, kap egy InputStream tipusu valtozot, es abban megprobalja
      * kikeresni a parancsokat, vegigmeny a soron es a szokozok menten felbontja a sort tobb stringre.
