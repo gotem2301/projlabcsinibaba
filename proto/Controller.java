@@ -7,11 +7,14 @@ import proto.Drawers.DItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Controller {
     private Student currentPlayer;
     private View view;
     private Proto model;
+
+    Random rand = new Random();
 
     public Controller(){
         currentPlayer = null;
@@ -106,11 +109,13 @@ public class Controller {
         if(current == model.getStudents().size()-1) {
             current = 0;
             for (Teacher t: model.getTeachers()) {
-                t.enterRoom(t.currentRoom.getDoors().get(0));
+                int r = rand.nextInt(t.currentRoom.getDoors().size());
+                t.enterRoom(t.currentRoom.getDoors().get(r));
                 if(!t.currentRoom.getItems().isEmpty()) t.pickUpItem(t.currentRoom.getItems().get(0));
             }
             for (Cleaner c: model.getCleaners()) {
-                c.enterRoom(c.currentRoom.getDoors().get(0));
+                int r = rand.nextInt(c.currentRoom.getDoors().size());
+                c.enterRoom(c.currentRoom.getDoors().get(r));
             }
             model.refreshStudents();
         }
