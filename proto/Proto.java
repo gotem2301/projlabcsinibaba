@@ -50,7 +50,7 @@ public class Proto {
      * A jatekbol hatralevo ido
      */
     private int Time = Integer.MAX_VALUE;
-    private boolean gameOver = false;
+    boolean gameOver = false;
 
     public List<Room> getAllRooms(){
         return allRooms;
@@ -125,14 +125,7 @@ public class Proto {
      * Ez a fuggveny oldja meg az ido csokkenteset, KULON THREADEN KELL INDITANI, ez legyen a
      * belepesi pont
      */
-    private void gameTime(){
-        Time--;
-        if(Time <= 0){
-            System.out.println("Game Over");
-            System.exit(0);
-        }
 
-    }
 
     /**
      * A parancsertelmezo fuggveny, kap egy InputStream tipusu valtozot, es abban megprobalja
@@ -144,18 +137,7 @@ public class Proto {
      */
     public void Run(InputStream inputStream){
         Scanner scanner = new Scanner(inputStream);
-        Thread timeThread = new Thread(() -> {
-            while (!gameOver) {
-                gameTime();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-            }
-        });
-        timeThread.start();
 
         while(isRunning && scanner.hasNext()) {
             String command = scanner.nextLine();

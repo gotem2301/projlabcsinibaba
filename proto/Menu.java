@@ -185,7 +185,8 @@ public class Menu extends JPanel {
 
                             controller.setView(view);
                             view.setController(controller);
-                            filePath = fileField.getText();
+                            filePath = fileField.getText().substring(0, fileField.getText().length()-4);
+
                             /*String[] tmp = filePath.split("/");
                             String save = tmp[tmp.length - 1];*/
                             controller.loadGame(filePath);

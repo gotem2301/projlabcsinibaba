@@ -15,6 +15,7 @@ public class Controller {
     private Proto model;
     Random rand = new Random();
     int playerNumber;
+    private int Time = Integer.MAX_VALUE;
 
     public Controller(){
         currentPlayer = null;
@@ -33,11 +34,13 @@ public class Controller {
     public void newGame(){
         model.newGame(playerNumber);
         currentPlayer = model.getStudents().get(0);
+        startTimer();
     }
 
     public void loadGame(String save){
         model.loadGraphicGame(save);
         currentPlayer = model.getStudents().get(0);
+        startTimer();
     }
 
     public void setPlayerNumber(int i){
@@ -145,5 +148,30 @@ public class Controller {
             current++;
             currentPlayer = model.getStudents().get(current);
         }
+    }
+
+    private void gameTime(){
+        Time--;
+        if(Time <= 0){
+            System.out.println("Game Over");
+            view.gameOver(false);
+        }
+
+    }
+
+    public void startTimer(){
+        Time = 5;
+        Thread timeThread = new Thread(() -> {
+            while (!model.gameOver) {
+                gameTime();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        timeThread.start();
     }
 }
