@@ -10,7 +10,17 @@ public class Door implements ID {
 	private boolean isOneWay;
 	private boolean isClosed;
 	private List<Room> rooms;
-	
+
+	public Room getTraversableRoom(Room currentRoom){
+		for (Room room : rooms){
+			if (room != currentRoom){
+				return room;
+			}
+		}
+
+		return null;
+	}
+
 	/**
 	 * Door konstruktora
 	 */
@@ -25,7 +35,7 @@ public class Door implements ID {
 		r2.addDoor(this);
 		System.out.println(id + " created");
 	}
-	
+
 	/**
 	 * getter
 	 * @return id
@@ -33,7 +43,7 @@ public class Door implements ID {
 	public String getId() {
 		return id;
 	}
-	
+
 	/**
 	 * getter
 	 * @return isOneWay
@@ -48,7 +58,7 @@ public class Door implements ID {
 			System.out.println(id + " is oneway");
 		}
 	}
-	
+
 	/**
 	 * getter
 	 * @return isClosed
@@ -56,7 +66,7 @@ public class Door implements ID {
 	public boolean getIsClosed() {
 		return isClosed;
 	}
-	
+
 	/**
 	 * setter
 	 * @param b boolean
@@ -67,7 +77,7 @@ public class Door implements ID {
 			System.out.println(id + " is closed");
 		}
 	}
-	
+
 	/**
 	 * getter
 	 * @return rooms
@@ -75,7 +85,7 @@ public class Door implements ID {
 	public List<Room> getRooms(){
 		return rooms;
 	}
-	
+
 	/**
 	 * Átrakja a karaktert a szoba párjába.
 	 * @param c Átlépni akaró karakter
@@ -94,7 +104,7 @@ public class Door implements ID {
 			result = rooms.get(0).characterEnters(c);
 			other = rooms.get(0);
 		}
-		
+
 		if(isClosed){
 			System.out.println(c.getId() + " failed to enter " + other.getId());
 			return;
@@ -104,8 +114,8 @@ public class Door implements ID {
 			System.out.println(c.getId() + " failed to enter " + other.getId());
 			return;
 		}
-		
-		
+
+
 		if(result) {
 			System.out.println(c.getId() + " entered " + other.getId());
 			r.removeCharacter(c);
@@ -116,7 +126,7 @@ public class Door implements ID {
 			System.out.println(c.getId() + " failed to enter " + other.getId());
 		}
 	}
-	
+
 	/**
 	 * Kicseréli a x-t a y-ra a nyilvántartásban.
 	 * @param x A szoba, amit leakarunk cserélni
@@ -132,7 +142,7 @@ public class Door implements ID {
 			}
 		}
 	}
-	
+
 	/**
 	 *  Beállítja hogy melyik két szoba között van.
 	 * @param existing Egyik szoba

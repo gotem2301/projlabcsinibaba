@@ -42,7 +42,7 @@ public class View extends JPanel implements MouseListener {
         renderer = (Graphics2D) g;
 
         try {
-            BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/RoomBackground.png"));
+            BufferedImage img = ImageIO.read(new File("proto/Images/RoomBackground.png"));
             renderer.drawImage(img, 0, 0, this);
         }
         catch (Exception e){
@@ -51,7 +51,7 @@ public class View extends JPanel implements MouseListener {
 
         if (isRoomSticky){
             try {
-                BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Sticky.png"));
+                BufferedImage img = ImageIO.read(new File("proto/Images/Sticky.png"));
                 renderer.drawImage(img, 473, 142, this);
             }
             catch (Exception e){
@@ -60,7 +60,7 @@ public class View extends JPanel implements MouseListener {
         }
         if (isRoomGassed){
             try {
-                BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Gassed.png"));
+                BufferedImage img = ImageIO.read(new File("proto/Images/Gassed.png"));
                 renderer.drawImage(img, 545, 142, this);
             }
             catch (Exception e){
@@ -94,7 +94,7 @@ public class View extends JPanel implements MouseListener {
 
     public void drawItemOptions(){
         try{
-            BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/InventoryItemOptions.png"));
+            BufferedImage img = ImageIO.read(new File("proto/Images/InventoryItemOptions.png"));
             renderer.drawImage(img, pickedItemFromInventory.getX0(), pickedItemFromInventory.getY1(), this);
         }
         catch (Exception e){
@@ -140,7 +140,7 @@ public class View extends JPanel implements MouseListener {
 
     public void drawInventory(){
         try {
-            BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/InventoryTitle.png"));
+            BufferedImage img = ImageIO.read(new File("proto/Images/InventoryTitle.png"));
             renderer.drawImage(img, 20, 20, this);
 
             int inventoryX = 20, inventoryY = 40;

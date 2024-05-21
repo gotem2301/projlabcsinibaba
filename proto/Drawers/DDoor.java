@@ -44,7 +44,7 @@ public class DDoor implements IDraw {
     @Override
     public void draw(Graphics2D renderer, int x, int y, ImageObserver imageObserver) {
         try {
-            BufferedImage img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Door.png"));
+            BufferedImage img = ImageIO.read(new File("proto/Images/Door.png"));
             renderer.drawImage(img, x, y, imageObserver);
 
             renderer.setColor(Color.WHITE);

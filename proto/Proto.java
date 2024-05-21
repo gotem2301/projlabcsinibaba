@@ -309,7 +309,7 @@ public class Proto {
         }
         boolean dazed;
         dazed = converter(args.get(1));
-        String id = "player";
+        String id = "s";
         id = id.concat(Integer.toString(nOfStudents++));
 
         Room r = findID(allRooms, args.get(2));

@@ -17,7 +17,7 @@ public class Window extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setContentPane(menu);
-        menu.startMenu();
+        menu.startMenu(this);
         setVisible(true);
     }
 

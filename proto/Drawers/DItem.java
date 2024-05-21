@@ -46,31 +46,31 @@ public class DItem implements IDraw {
 
             switch (Id.substring(0, 2)){
                 case "bl":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/BlankInventorySpace.png"));
+                    img = ImageIO.read(new File("proto/Images/BlankInventorySpace.png"));
                     break;
                 case "ai":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/AirFreshener.png"));
+                    img = ImageIO.read(new File("proto/Images/AirFreshener.png"));
                     break;
                 case "be":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Beer.png"));
+                    img = ImageIO.read(new File("proto/Images/Beer.png"));
                     break;
                 case "bo":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Book.png"));
+                    img = ImageIO.read(new File("proto/Images/Book.png"));
                     break;
                 case "ca":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Camembert.png"));
+                    img = ImageIO.read(new File("proto/Images/Camembert.png"));
                     break;
                 case "cl":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Cloth.png"));
+                    img = ImageIO.read(new File("proto/Images/Cloth.png"));
                     break;
                 case "ma":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Mask.png"));
+                    img = ImageIO.read(new File("proto/Images/Mask.png"));
                     break;
                 case "sl":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/SlidingRuler.png"));
+                    img = ImageIO.read(new File("proto/Images/SlidingRuler.png"));
                     break;
                 case "tr":
-                    img = ImageIO.read(new File("projlabcsinibaba/proto/Images/Transistor.png"));
+                    img = ImageIO.read(new File("proto/Images/Transistor.png"));
                     break;
                 default:
                     return;

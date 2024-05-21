@@ -43,16 +43,16 @@ public class DCharacter implements IDraw {
             String characterTitle = null;
             switch (Id.substring(0, 1)){
                 case "s":
-                    characterTitle = "Student" + Id.substring(1);
-                   img = ImageIO.read(new File("projlabcsinibaba/projlabcsinibaba/proto/Images/Student.png"));
+                    characterTitle = "PLayer" + Id.substring(1);
+                   img = ImageIO.read(new File("proto/Images/Student.png"));
                    break;
                 case "t":
                     characterTitle = "Teacher" + Id.substring(1);
-                    img = ImageIO.read(new File("projlabcsinibaba/projlabcsinibaba/proto/Images/Teacher.png"));
+                    img = ImageIO.read(new File("proto/Images/Teacher.png"));
                     break;
                 case "c":
                     characterTitle = "Cleaner" + Id.substring(1);
-                    img = ImageIO.read(new File("projlabcsinibaba/projlabcsinibaba/proto/Images/Cleaner.png"));
+                    img = ImageIO.read(new File("proto/Images/Cleaner.png"));
                     break;
                 default:
                     return;
