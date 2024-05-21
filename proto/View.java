@@ -116,7 +116,7 @@ public class View extends JPanel implements MouseListener {
     }
 
     public void drawDoors(){
-        int doorX = 405, doorY = 305;
+        int doorX = 335, doorY = 305;
 
         for (DDoor door : doors){
             door.draw(renderer, doorX, doorY, this);

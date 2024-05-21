@@ -70,7 +70,7 @@ public class Controller {
     }
 
     public void pickUpItem(DItem pickedUpItem){
-        if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5) {
+        if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5 && !currentPlayer.getDazed()) {
             if(pickedUpItem.getId().contains("sl")){
                 for(Item i: model.getAllItems()){
                     if(i.getId().equals(pickedUpItem.getId())){
