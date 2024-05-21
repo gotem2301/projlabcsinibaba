@@ -321,7 +321,7 @@ public class Room implements ID {
 			System.out.println(id + " and " + r.getId() + " failed to merge");
 			return;
 		}
-		
+
 		System.out.println(id + " and " + r.getId() + " merged into " + id);
 		if(maxCapacity < r.getMaxCapacity()) {
 			maxCapacity = r.getMaxCapacity();
@@ -338,11 +338,11 @@ public class Room implements ID {
 		if(magical || r.getMagical()) {
 			magical = true;
 		}
-		
+
 		if(sticky || r.getSticky()) {
 			sticky = r.sticky;
 		}
-		
+
 		//karakterek átpakolása
 		for(int i = 0; i < r.getCharacters().size(); i++) {
 			System.out.println(r.getCharacters().get(i).getId() + " entered " + id);
@@ -354,7 +354,7 @@ public class Room implements ID {
 			this.addCharacter(ch);
 			r.removeCharacter(ch);
 		}
-		
+
 		//tárgyak átpakolása
 		for(int i = 0; i < r.getItems().size(); i++) {
 			r.getItems().get(i).updateRoom(r);
@@ -365,22 +365,32 @@ public class Room implements ID {
 			this.addItem(it);
 			r.removeItem(it);
 		}
+		Door delete = null;
 		//azaz ajtó amely a this és r kötti össze törölni kell
 		for(int i = 0; i < doors.size(); i++) {
-			for(int j = 0; j <= r.getDoors().size(); j++) {
+			for(int j = 0; j < r.getDoors().size(); j++) {
 				if(doors.get(i).equals(r.getDoors().get(j))) {
-					r.removeDoor(doors.get(i));
-					this.removeDoor(doors.get(i));
+					delete = doors.get(i);
 				}
 			}
 		}
-		
-		
+		if(delete != null) {
+			r.removeDoor(delete);
+			this.removeDoor(delete);
+		}
+
+
 		List<Door> newDoors = r.getDoors();
 		for(int i = 0 ; i < r.getDoors().size(); i++) {
 			newDoors.get(i).replaceRoom(r, this);
 		}
+		List<Door> ajtok = new ArrayList<>();
 		for(Door door : newDoors){
+			ajtok.add(door);
+			//this.addDoor(door);
+			//r.removeDoor(door);
+		}
+		for(Door door: ajtok){
 			this.addDoor(door);
 			r.removeDoor(door);
 		}

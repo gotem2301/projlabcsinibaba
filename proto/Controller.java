@@ -141,8 +141,12 @@ public class Controller {
                 c.enterRoom(c.currentRoom.getDoors().get(r));
             }
             model.refreshStudents();
+            int f = rand.nextInt(123);
+            if(f % 7 == 0) mergeRooms();
+            if(f % 9 == 0) splitRoom();
             if(model.getStudents().isEmpty()){
                 view.gameOver(false);
+                return;
             }
         }
         else{
@@ -199,5 +203,22 @@ public class Controller {
         if (t1 != null && t2 != null){
             currentPlayer.connect(t1, t2);
         }
+    }
+
+    public void mergeRooms(){
+        int n = rand.nextInt(model.getAllDoors().size());
+        List<String> cmd = new ArrayList<>();
+        cmd.add("megre");
+        cmd.add(model.getAllDoors().get(n).getRooms().get(0).getId());
+        cmd.add(model.getAllDoors().get(n).getRooms().get(1).getId());
+        model.merge(cmd);
+    }
+
+    public void splitRoom(){
+        int n = rand.nextInt(model.getAllRooms().size());
+        List<String> cmd = new ArrayList<>();
+        cmd.add("split");
+        cmd.add(model.getAllRooms().get(n).getId());
+        model.split(cmd);
     }
 }
