@@ -16,15 +16,15 @@ public class Menu extends JPanel {
         setLayout(null);
         JButton newGameButton = new JButton("New Game");
         JButton loadGameButton = new JButton("Load Save");
-        newGameButton.setBounds(125,100, 250, 75);
+        newGameButton.setBounds(125,50, 250, 75);
         newGameButton.setFont(new Font("Serif", Font.PLAIN, 35));
-        loadGameButton.setBounds(415, 100, 250, 75);
+        loadGameButton.setBounds(415, 50, 250, 75);
         loadGameButton.setFont(new Font("Serif", Font.PLAIN, 35));
         add(newGameButton);
         add(loadGameButton);
         ImageIcon gifIcon = new ImageIcon("proto/Images/tenor.gif");
         JLabel gifLabel = new JLabel(gifIcon);
-        gifLabel.setBounds(200,175, 400, 300);
+        gifLabel.setBounds(200,125, 400, 400);
         add(gifLabel);
 
 
