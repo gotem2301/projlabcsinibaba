@@ -65,4 +65,13 @@ public class Teacher extends Character{
     public void teacherDuty() {
         currentRoom.dropThemOut();
     }
+
+    @Override
+    public void enterRoom(Door d){
+        if(!(this.clothed == 0)) {
+            System.out.println(this.getId() + " is clothed, cant move");
+        }
+        else d.changeRoom(this, currentRoom);
+    }
+
 }

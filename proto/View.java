@@ -166,7 +166,9 @@ public class View extends JPanel implements MouseListener {
     }
 
     public void addInventoryItem(DItem item){
-        inventory.add(item);
+        if(inventory.size() < 5){
+            inventory.add(item);
+        }
     }
 
     public void addDoor(DDoor door){

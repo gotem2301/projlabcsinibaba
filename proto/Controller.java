@@ -4,6 +4,10 @@ import proto.Drawers.DCharacter;
 import proto.Drawers.DDoor;
 import proto.Drawers.DItem;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Controller {
     private Student currentPlayer;
     private View view;
@@ -25,7 +29,7 @@ public class Controller {
 
     public void newGame(){
         model.newGame(3);
-        currentPlayer = (Student)model.getAllCharacters().get(0);
+        currentPlayer = model.getStudents().get(0);
     }
 
     public void dropItem(DItem droppedItem){
@@ -51,10 +55,10 @@ public class Controller {
     }
 
     public void pickUpItem(DItem pickedUpItem){
-        for (Item item : currentPlayer.currentRoom.getItems()){
+        /*for (Item item : currentPlayer.currentRoom.getItems()){
             if (pickedUpItem != null){
                 if (item.getId().equals(pickedUpItem.getId())){
-                    if (currentPlayer.getDazed()){
+                    if (!currentPlayer.getDazed() && !currentPlayer.currentRoom.getSticky() && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5){
                         currentPlayer.pickUpItem(item);
                         view.pickUpItem(item.getId());
                         view.repaint();
@@ -63,6 +67,15 @@ public class Controller {
                     return;
                 }
             }
+        }*/
+        if(pickedUpItem != null && Arrays.stream(currentPlayer.inventory).filter(e -> e != null).count() < 5) {
+            List<String> s = new ArrayList<>();
+            s.add("PickUp");
+            s.add(currentPlayer.getId());
+            s.add(pickedUpItem.getId());
+            model.pickUp(s);
+            view.pickUpItem(pickedUpItem.getId());
+            view.repaint();
         }
     }
 
@@ -95,15 +108,25 @@ public class Controller {
         view.repaint();
     }
 
-    public void switchPlayers(){
-        for (Character character : model.getAllCharacters()){
-            if (character.getId().substring(0, 1).equals("s")){
-                Student student = (Student) character;
+    /*
+    Először a tanulók kerülnek sorra, ha mindenki sorrakerült
+    minden tanár szobát vált (az első ajtón) és felvesz egy tárgyat
+    majd minden takatrító is (ugyanígy)
+     */
 
-                if (!student.getId().equals(currentPlayer.getId())){
-                    currentPlayer = student;
-                }
+    public void switchPlayers(){
+        int current = model.getStudents().indexOf(currentPlayer);
+        if(current == model.getStudents().size()-1) {
+            current = 0;
+            for (Teacher t: model.getTeachers()) {
+                t.enterRoom(t.currentRoom.getDoors().get(0));
+                if(!t.currentRoom.getItems().isEmpty()) t.pickUpItem(t.currentRoom.getItems().get(0));
+            }
+            for (Cleaner c: model.getCleaners()) {
+                c.enterRoom(c.currentRoom.getDoors().get(0));
             }
         }
+        else current++;
+        currentPlayer = model.getStudents().get(current);
     }
 }

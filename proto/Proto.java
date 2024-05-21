@@ -64,6 +64,34 @@ public class Proto {
     public void removeCharacter(Character c){
         allCharacters.remove(c);
     }
+
+    public List<Student> getStudents(){
+        List<Student> studentList = new ArrayList<>();
+        for(Character c : allCharacters){
+            if(c.getId().contains("s")){
+                studentList.add((Student) c);
+            }
+        }
+        return studentList;
+    }
+    public List<Teacher> getTeachers(){
+        List<Teacher> teacherList = new ArrayList<>();
+        for(Character c : allCharacters){
+            if(c.getId().contains("t")){
+                teacherList.add((Teacher) c);
+            }
+        }
+        return teacherList;
+    }
+    public List<Cleaner> getCleaners(){
+        List<Cleaner> cleanerList = new ArrayList<>();
+        for(Character c : allCharacters){
+            if(c.getId().contains("c")){
+                cleanerList.add((Cleaner) c);
+            }
+        }
+        return cleanerList;
+    }
     public List<Item> getAllItems(){
         return allItems;
     }
