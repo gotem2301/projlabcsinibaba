@@ -9,8 +9,9 @@ import java.io.File;
 public class Menu extends JPanel {
     private int playerNumber;
     private String filePath;
+    private JFrame frame;
 
-    public void startMenu() {
+    public void startMenu(JFrame frame) {
         playerNumber = 1;
         setLayout(null);
         JButton newGameButton = new JButton("New Game");
@@ -77,14 +78,29 @@ public class Menu extends JPanel {
 
                 playButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        //Controller.newGame(playerNumber);
+                        frame.dispose();
+                        JFrame jFrame = new JFrame("Játék");
+                        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        jFrame.setSize(new Dimension(800, 600));
+                        jFrame.setLocationRelativeTo(null);
+
+                        Controller controller = new Controller();
+                        View view = new View();
+
+                        jFrame.add(view);
+                        jFrame.setVisible(true);
+
+                        controller.setView(view);
+                        view.setController(controller);
+                        controller.newGame();
+                        controller.drawEverything();
                     }
                 });
 
                 backButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         removeAll();
-                        startMenu();
+                        startMenu(frame);
                         revalidate();
                         repaint();
                     }
@@ -155,7 +171,7 @@ public class Menu extends JPanel {
                 backButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         removeAll();
-                        startMenu();
+                        startMenu(frame);
                         revalidate();
                         repaint();
                     }
