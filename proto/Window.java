@@ -13,7 +13,7 @@ public class Window extends JFrame {
     public void gameWindow() {
         setTitle("Menü");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 800);
+        setSize(800, 500);
         setResizable(false);
         setLocationRelativeTo(null);
         setContentPane(menu);
@@ -29,20 +29,20 @@ public class Window extends JFrame {
         gameOverPanel.setLayout(null);
         if(b) {
             JLabel wonLabel = new JLabel("YOU WON!");
-            wonLabel.setBounds(0, 0, 1200, 800);
+            wonLabel.setBounds(0, 0, 800, 500);
             wonLabel.setForeground(Color.RED);
-            wonLabel.setFont(new Font("Serif", Font.PLAIN, 200));
+            wonLabel.setFont(new Font("Serif", Font.PLAIN, 125));
             wonLabel.setHorizontalAlignment(SwingConstants.CENTER);
             wonLabel.setVerticalAlignment(SwingConstants.CENTER);
             gameOverPanel.add(wonLabel);
         }
         else {
             JLabel lostLabel = new JLabel("YOU LOST!");
-            lostLabel.setBounds(0, 0, 1200, 800);
+            lostLabel.setBounds(0, 0, 800, 500);
             lostLabel.setForeground(Color.RED);
             lostLabel.setOpaque(true);
             lostLabel.setBackground(Color.BLACK);
-            lostLabel.setFont(new Font("Serif", Font.PLAIN, 200));
+            lostLabel.setFont(new Font("Serif", Font.PLAIN, 125));
             lostLabel.setHorizontalAlignment(SwingConstants.CENTER);
             lostLabel.setVerticalAlignment(SwingConstants.CENTER);
             gameOverPanel.add(lostLabel);

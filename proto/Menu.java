@@ -16,10 +16,10 @@ public class Menu extends JPanel {
         setLayout(null);
         JButton newGameButton = new JButton("New Game");
         JButton loadGameButton = new JButton("Load Save");
-        newGameButton.setBounds(150,100, 400, 100);
-        newGameButton.setFont(new Font("Serif", Font.PLAIN, 50));
-        loadGameButton.setBounds(650, 100, 400, 100);
-        loadGameButton.setFont(new Font("Serif", Font.PLAIN, 50));
+        newGameButton.setBounds(125,100, 250, 75);
+        newGameButton.setFont(new Font("Serif", Font.PLAIN, 35));
+        loadGameButton.setBounds(415, 100, 250, 75);
+        loadGameButton.setFont(new Font("Serif", Font.PLAIN, 35));
         add(newGameButton);
         add(loadGameButton);
 
@@ -35,27 +35,27 @@ public class Menu extends JPanel {
                 JButton backButton = new JButton("Vissza");
                 JTextField numberField = new JTextField(Integer.toString(playerNumber));
 
-                playerNumberLabel.setBounds(0, 0, 1200, 200);
-                playerNumberLabel.setFont(new Font("Serif", Font.PLAIN, 50));
+                playerNumberLabel.setBounds(0, 0, 800, 200);
+                playerNumberLabel.setFont(new Font("Serif", Font.PLAIN, 35));
                 playerNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 playerNumberLabel.setVerticalAlignment(SwingConstants.CENTER);
                 add(playerNumberLabel);
 
-                minusButton.setBounds(400,150, 100, 100);
-                minusButton.setFont(new Font("Serif", Font.PLAIN, 50));
-                plusButton.setBounds(700, 150, 100, 100);
-                plusButton.setFont(new Font("Serif", Font.PLAIN, 50));
-                playButton.setBounds(400, 400, 400, 100);
-                playButton.setFont(new Font("Serif", Font.PLAIN, 50));
-                backButton.setBounds(50, 675, 100, 50);
-                backButton.setFont(new Font("Serif", Font.PLAIN, 20));
+                minusButton.setBounds(265 ,150, 75, 75);
+                minusButton.setFont(new Font("Serif", Font.PLAIN, 35));
+                plusButton.setBounds(460, 150, 75, 75);
+                plusButton.setFont(new Font("Serif", Font.PLAIN, 35));
+                playButton.setBounds(300, 300, 200, 75);
+                playButton.setFont(new Font("Serif", Font.PLAIN, 35));
+                backButton.setBounds(50, 400, 75, 35);
+                backButton.setFont(new Font("Serif", Font.PLAIN, 15));
                 add(minusButton);
                 add(plusButton);
                 add(playButton);
                 add(backButton);
 
-                numberField.setBounds(525,150, 150, 100);
-                numberField.setFont(new Font("Serif", Font.PLAIN, 50));
+                numberField.setBounds(350, 150, 100, 75);
+                numberField.setFont(new Font("Serif", Font.PLAIN, 35));
                 numberField.setHorizontalAlignment(SwingConstants.CENTER);
                 numberField.setEditable(false);
                 add(numberField);
@@ -122,24 +122,24 @@ public class Menu extends JPanel {
                 JButton backButton = new JButton("Vissza");
                 JTextField fileField = new JTextField(filePath);
 
-                filePathLabel.setBounds(0, 0, 1200, 200);
-                filePathLabel.setFont(new Font("Serif", Font.PLAIN, 50));
+                filePathLabel.setBounds(0, 0, 800, 200);
+                filePathLabel.setFont(new Font("Serif", Font.PLAIN, 35));
                 filePathLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 filePathLabel.setVerticalAlignment(SwingConstants.CENTER);
                 add(filePathLabel);
 
-                searchButton.setBounds(850, 150, 250, 100);
-                searchButton.setFont(new Font("Serif", Font.PLAIN, 50));
-                playButton.setBounds(400, 400, 400, 100);
-                playButton.setFont(new Font("Serif", Font.PLAIN, 50));
-                backButton.setBounds(50, 675, 100, 50);
-                backButton.setFont(new Font("Serif", Font.PLAIN, 20));
+                searchButton.setBounds(550, 150, 175, 75);
+                searchButton.setFont(new Font("Serif", Font.PLAIN, 35));
+                playButton.setBounds(300, 300, 200, 75);
+                playButton.setFont(new Font("Serif", Font.PLAIN, 35));
+                backButton.setBounds(50, 400, 75, 35);
+                backButton.setFont(new Font("Serif", Font.PLAIN, 15));
                 add(searchButton);
                 add(playButton);
                 add(backButton);
 
-                fileField.setBounds(100,150, 725, 100);
-                fileField.setFont(new Font("Serif", Font.PLAIN, 50));
+                fileField.setBounds(75,150, 450, 75);
+                fileField.setFont(new Font("Serif", Font.PLAIN, 30));
                 fileField.setHorizontalAlignment(SwingConstants.CENTER);
                 fileField.setEditable(false);
                 add(fileField);
